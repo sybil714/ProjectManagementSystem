@@ -1,5 +1,5 @@
 module.exports = {
-    port: 6000,
+    port: 4000,
     session: {
         secret: 'ssit4',
         key: 'ssit4',
