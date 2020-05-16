@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Services</title>
+    <link rel="stylesheet" href="../public/stylesheets/PagesStyle.css">
+
+    <script>
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(inuptId,outputId){
+            var sel_val1=document.getElementById(inuptId).value;
+            if (sel_val1>4) {hidden(outputId);}
+            if (sel_val1<=4) {show(outputId);}
+        }
+        function starStr(result,save,lowResult){
+            var points=document.getElementsByName(result);
+            var value=0;
+            for(var i=0;i<points.length;i++){
+                if(points[i].checked==true){
+                    value=points[i].value;
+                    break;
+                }
+            }
+            document.getElementById(save).value=value;
+            eJect(save,lowResult);
+        }
+
+    </script>
+</head>
+<body>
+<header role="banner">
+    <div class="headcontainer">
+        <div class="page-title">
+            Client services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button ">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button"type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
+                <li class="list-group"><button class="functionBoard-Button current">Marking</button></li>
+            </u1>
+        </div>
+    </div>
+
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+
+            <div id="content" class="row">
+
+                <div class="col-md">
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Client feedback survey</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" id="fm1" >
+
+                                <section class="form-group">
+                                    <h3>1.Please mark the satisfaction of documentation/online help<span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result1" value="1">
+                                        2 <input type="radio"  name="result1" value="2">
+                                        3 <input type="radio"  name="result1" value="3">
+                                        4 <input type="radio"  name="result1" value="4">
+                                        5 <input type="radio"  name="result1" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('result1',this.id,'lowResult1')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult1" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+
+                                <section class="form-group">
+                                    <h3>2.Please mark the satisfaction of team performance (happiness with interactions)<span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result2" value="1">
+                                        2 <input type="radio"  name="result2" value="2">
+                                        3 <input type="radio"  name="result2" value="3">
+                                        4 <input type="radio"  name="result2" value="4">
+                                        5 <input type="radio"  name="result2" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('result2',this.id,'lowResult2')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult2" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+
+                                <section class="form-group">
+                                    <h3>3.Please mark the satisfaction of requirements capture (did the team capture the requirements)<span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result3" value="1">
+                                        2 <input type="radio"  name="result3" value="2">
+                                        3 <input type="radio"  name="result3" value="3">
+                                        4 <input type="radio"  name="result3" value="4">
+                                        5 <input type="radio"  name="result3" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans3" onclick="starStr('result3',this.id,'lowResult3')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult3" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+
+                                <section class="form-group">
+                                    <h3>4.Please mark the satisfaction of project delivered (did the team deliver what they promised)<span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result4" value="1">
+                                        2 <input type="radio"  name="result4" value="2">
+                                        3 <input type="radio"  name="result4" value="3">
+                                        4 <input type="radio"  name="result4" value="4">
+                                        5 <input type="radio"  name="result4" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans4" onclick="starStr('result4',this.id,'lowResult4')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult4" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+
+                                <section class="form-group" >
+                                    <h3>5.Comment:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+
+                                <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
+                            </form>
+
+                            <!-- div th:unless="${passwordManagementEnabled}">
+                                <br/>
+                                <span class="fa fa-question-circle"></span>
+                                <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
+                                <p/>
+                            </div --><script type="text/javascript">
+                            /*<![CDATA[*/
+                            var i = "One moment please..."
+                            /*]]>*/
+                            $(document).ready(function () {
+                                $("#fm1").submit(function () {
+                                    $(":submit").attr("disabled", true);
+                                    $(":submit").attr("value", i);
+                                    return true;
+                                });
+                            });
+                        </script>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </main>
+    </div>
+</form>
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+</body>
+</html>

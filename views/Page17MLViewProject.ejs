@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project management</title>
+    <link rel="stylesheet" href="CSS/PagesStyle.css">
+    <script language="javascript">
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(){
+            var sel_val1=$('dateSelect').value;
+            if (sel_val1=='') {hidden('a1');}
+            if (sel_val1!=0) {show('a1');}
+        }
+
+        function showRecordHistory() {
+            var oldRecord;
+        }
+        function startEdit(editableDiv){
+            document.getElementById(editableDiv).disabled = false;;
+        }
+        function stopEdit(editableDiv){
+            var element = document.getElementById(editableDiv);
+            element.disabled = true;
+        }
+        function editableTrue() {
+            startEdit('editableDiv');
+            startEdit('projectName');
+            document.getElementById('editableDiv').style.backgroundColor='white';
+            document.getElementById('projectName').style.backgroundColor='white';
+        }
+
+        function editableFalse() {
+            stopEdit('editableDiv');
+            stopEdit('projectName');
+            document.getElementById('editableDiv').style.backgroundColor='transparent';
+            document.getElementById('projectName').setAttribute('style','background-color: transparent!important;')
+        }
+
+        function Dtext()//输出数据
+        {
+            var data="Client|asdasdasdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssadads|2020|ML|ASDASDA|2020|Client|qweqeqeq|2020|ML|zxczxczxc|2020|";
+            var dataHtml = "";
+            var counter=0;
+            data=data.split("|");
+            counter=data.length-2;
+
+            var j=counter;
+
+            for(var i=counter/3;i>=0;i--){
+                dataHtml += "<p style=>" + data[counter-j]+":"+"<span style=\"float: right;\">"+data[counter-j+2]+"</span>" + "<br><textarea class=\"form-control required\" rows='5' cols='117' disabled = true style=\" margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;\">" + data[counter-j+1] + "</textarea>";
+                j=j-3;
+            }
+            document.getElementById("comment").innerHTML = dataHtml;
+        }
+
+    </script>
+
+</head>
+<body onload="Dtext()">
+<header role="banner">
+    <div class="headcontainer">
+
+        <div class="page-title">
+            Moudle leader services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button ">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
+            </u1>
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+                <div class="col-md"style="margin-bottom: 35px">
+                    <h2 class="projectScream title">Project management</h2>
+                    <div class="projectScream form" >
+                        <u1 class="projectScream item">
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">View the project :</h3>
+                            </li>
+                            <li class="list-group project">
+
+                                    <div >
+                                    <p> <h4>Project Name: <span id="getProjectName"></span></h4></p>
+                                    <p> <h4>Publisher: <span id="getProjectPublisher"></span></h4></p>
+                                    </div>
+                                <section class="form-group">
+                                    <h4>Description:</h4>
+                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent" disabled=true></textarea>
+                                </section>
+                                <div>
+                                    <input class="btn btn-block btn-submit button button--primary smaller" type="submit"  style="float: right" value="Accept" >
+                                    <input class="btn btn-block btn-submit button button--primary smaller" type="submit"  style="float: right "value="Reject">
+                                </div>
+
+                            </li>
+                        </u1>
+                    </div>
+                    <div class="projectScream form">
+                        <u1 class="projectScream item">
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">Message broad:</h3>
+                            </li>
+                            <li class="list-group project">
+                                <div id="comment"></div>
+                            </li>
+
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">Message:</h3>
+                            </li>
+                            <li class="list-group project">
+
+                                <div>
+                                    <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                </div>
+                                <br>
+                                <div> <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Send</button></div>
+                            </li>
+
+
+                        </u1>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+</form>
+
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+</body>
+</html>

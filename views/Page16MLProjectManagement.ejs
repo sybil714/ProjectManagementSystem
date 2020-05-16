@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="CSS/PagesStyle.css">
+    <script type="text/javascript">
+        function Dtext()//输出数据
+        {
+            var data="asdasdadasdasdasdada|Accepted|qweqweqeqweq|Rejected|dfgdgdfgdgdg|Undetermined|";
+            var dataHtml = "";
+            var counter=0;
+            data=data.split("|");
+            counter=data.length-2;
+
+
+            var j=counter;
+
+            for(var i=counter/2;i>=0;i--){
+                dataHtml += "<p style=\"border-bottom: solid 1px #dddddd;\"><a style=\'text-decoration: none;\ ' href=''>" + data[counter-j]+"</a>"+ "<span style=\" float: right;  margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;\">" + data[counter-j+1] + "</span></p>";
+                j=j-2;
+            }
+            document.getElementById("projectTitle").innerHTML = dataHtml;
+        }
+
+    </script>
+</head>
+<body onload="Dtext()">
+
+<header role="banner">
+    <div class="headcontainer">
+
+        <div class="page-title">
+            Module leader services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button ">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
+            </u1>
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+                <div class="col-md">
+                    <h2 class="projectScream title">Project management</h2>
+                    <div class="projectScream form">
+                        <u1 class="projectScream item">
+                            <li class="list-group project" id="isProjectName">
+                                Projects received from clients:
+                                <a id="projectName" href="Page4ProjectRelease.ejs"></a>
+                            </li>
+                            <li class="list-group project">
+                                <div id="projectTitle"></div>
+                            </li>
+                        </u1>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</form>
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+</body>
+</html>

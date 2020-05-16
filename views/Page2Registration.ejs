@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Registration</title>
+    <link rel="stylesheet" href="../public/stylesheets/PagesStyle.css">
+</head>
+<body>
+
+<header role="banner">
+    <div class="headcontainer">
+        <div class="page-title">
+            Online services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page1Login.html'">Login</button></li>
+                <li class="list-group"><button class="functionBoard-Button current">Register</button></li>
+
+            </u1>
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+
+
+                <div class="col-md">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Account Registration</h2>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" id="fm1" action="login">
+
+                                <section class="form-group">
+                                    <h3>Please enter your details:</h3>
+                                    <label for="username">User name:</label>
+                                    <div>
+                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="username" value=<%name%>>
+                                    </div>
+                                </section>
+
+                                <section class="form-group">
+                                    <label for="username">Email address:</label>
+                                    <div>
+                                        <input class="form-control required" id="emailAddress" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="emailAddress" value="">
+                                    </div>
+                                </section>
+
+                                <section class="form-group">
+                                    <label for="username">Confirm email address:</label>
+                                    <div>
+                                        <input class="form-control required" id="confirmEmil" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="confirmEmil" value="">
+                                    </div>
+                                </section>
+
+                                <section class="form-group">
+                                    <label for="username">Phone number:</label>
+                                    <div>
+                                        <input class="form-control required" id="phoneNum" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="phoneNum" value="">
+                                    </div>
+                                </section>
+
+                                <section class="form-group">
+                                    <label for="username">Password:</label>
+                                    <div>
+                                        <input class="form-control required" id="password" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="password" value="">
+                                    </div>
+                                </section>
+
+                                <section class="form-group">
+                                    <label for="username">Confirm password:</label>
+                                    <div>
+                                        <input class="form-control required" id="confirmPassword" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="confirmPassword" value="">
+                                    </div>
+                                </section>
+
+                                <input type="hidden" name="execution" value="8e534b2d-6afd-474a-af3b-db1652c4c476_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LndXTFk0K3ZrYi92R1ZlZFVJMVFwb25BbkQrL3hXRGZjZ2t2ZC96V2Z0NWhKK1FjNExKS2J1dy8vUlpKa3N3QU8zYVE1M1h2SFkxTVhFWE03bm82S21CYlFUUW5NWERRUWc1OU9LcFpJWG1ReEozclhlQVlaOStVTTRaQmZMaW9LS2xHWUp5bDI0bzVsdXdFdWx4Q0dBcHdvUE9sS3dpdnVZYmtwMyswN1RGbkprVFpEdis3dmY4Q1JnNndYaEpYSmVOWFFodE5qd2hFUk1HVUo1eFJKSmNUL1hqUjA4WlB3NUZxS2VlWndRY2lKUWxsU3FJN3JXMGlGMnVMNVI3dk9UMjhvZkNucVlGbERWL2RKdVdjVk5peWpXc29EaGxsYmpodTFWRzkvVzAyWXRuR1RMamQ5QWRKS3lKbDErYm1PQm83SHlkQ2lkMkZYZmZsL1hqRkUyOVhVUVJISE5sMnJSUlRGbC9ZRWNqY1RubW5oV3h4WnZuYXlGMHlDV0hYQU1ZNHFIZzFvckp6bkcrLzZ6dUxDN05oZ2hDengyU2ZQczM0eEh5K05iMWFBUEhzZXpGUmVDYzh0cmdDbEV3eGtXZ3FqMEZnUVdVN3h4T0Ywb2NLVG8vYm1Xdk10UXVNRWdQVllDa0FzUEF2RHZlU2xmOCtzaDAxbjNoNklFcE9PODJPb3pYM3BIYnlhT0czY0pWYXpuZ1plMStPWDNqdDNFdUVNWUh1Y0FUR3ZXUCs1QVM4QitsTGNHN2VZYWRVcllreDg0SGF5Q2JCU0V5N3BvTGtQRFhpb3Iwci9VVUQxalYwOEpHSWg2c0xLa3VOT3kyMjNmN2liWGFUYkJBcFFTTG03Snc0SmlQeGJlblQyVnF0VVpEU0c0TkVIcXE3M3JhYXc1R2ZxNXh0UFRDNkx3ZVVSNlVXbFFrMDVROU0rOGw0UnMwOUwyZEpWTVBCZytpZEkzS2FpWnlteWJ2VmY0NWl4UERaU0QyWm9hMU9ndjlhTlk4dFl2NlNWaEVrSnRuNUFSY3lyV2hhOFpvbWg2WmpmcHhoejMzTEJKR1NuY0hyY2llMEMza2NGdXF2Z3FIVlpzT1hjYWVZQWpJdjRnTzBXbmhYN0luT3ROOVNvR0Q2bncybkJvVTl0b05zemZvVkZteTcxdEtRWTFBVEVZTkJUc0xmTWVtamo2eHdpSFBQT3RIM1J0TWo5K3dqN0t3K0FvaFBIQmdJdVMyUjRHK2RLbnRxejNGRUtWZi91YjFYcTU2L3p0ZzI2RVRERlc4Tmd0ekE2NHJ2T0lNeHNTaGJOWXhJQVBMV01Tb3NGN2lLU3dLVTVJcWpnMkVxaFNQanpRNThGbTdzNVhwcjlPakhzU0ZzZkhnKzNoNElKRmpWd2xha085N0Z2K0xiSnU4TWptWlNCVjhYZFNlcmFpNXJpanMxanRCSVhoWHd2YUMxVlM2VVZTWUVsRWR6TGJUaWZCSGt5Q0svYWZhUnZmQk5UbWkvQnNHTmdLYlM0djJDbkNTUHYxYVlwaXVBdnpreFBDVGwyZldONE5paEVIZWoraERodHRROG9tdDUwRjd1ekd1M25zcTFVMjJ1UzY4UWg2UGxRMEFqemQwL3BWdjJUdWhYME5KY3B2NDhTY0g3SFp1SUJKQzZDbjhJMXR1eEJKRXZtM0xKSE1vWEZDUlR4dTVsZWtoSGdza3N1V1hyZTBpQkhvNG4xUy9uODB2TDI2Q3BjcDQ0MTFVOFY5NUk1UnlKKytWdkdqc0txeGlhLy9wU2N1Ni82M2ZYWDlFOGdWbWRFdDVHcGp5b0x1L0hsbXE0NVlZZFllMkYyS2VsRlY3a3ZjNDlkamRQMkR6YVZCbWtjNi9xU2dHbDF6QVlFMWxQc2ZCSSt0UlpCeVppalhpM2QyaExsM2F3NldkemNTZVo5dXVnc21FZDVnZWF1K3NrcE55U3hNNSsyckxHYkh5angvYkE2SWpONTRzc3I5UWZUZFdFQlJlaFpkbFIxWmQ1SlhJeXU4MGlzUFJyamluMHlmK09NN1MvSGdtcjZIeHgzVWYzYXpOMjd0b21VV0d4K0hFMmdrRDZKQlhZeWIrNGlia3FQTUgwU0Jua2RyQTlYdHVhdEU5RzlIdDJEZE1mWTZkeEx2cWwwd243YUtCWlRNcU1Ub1U1NzFaRDJ6Mk55VUt4bmRHV3lUekpEdkFhYXp2U1FRYjdXZ1p6dGFDSExRaEhpdERPcHBWYzZwelA0MmJWQjFVZEhjVWlSRHJubFhtcUJCTDVSaVdrTVVZL2J0TE9PMENaYWZJSEJOb0l5UStCWTlsRjVjYTZBWlJ1aTJUSzFxMnJZYVdKbnBGWUtpTHMxaGtQR2l4K3BJM0JtNGQySTBFNW1jUjlZcFFVcnZYTTA5ZUhTVUlkd3VZSWJwWjhlblNqa09iN3NNNnR3K280NW5DRWJ4bGVHMTIzOUo0c2twZHNoRksxUUQxcCtUcU9LQk5RSHhGMldTUS82N3dMUU5HaFpuTzhQeHdNbHpKcTlxbU1EMzdwem90TUtWK1YxNnR3ZjRxYUhWcWJCTW5TVDBYTHNpK0FFU0FCenhYUTRkTW0zMy8ycTczWmtYOTJLRUFXYzZpWGhqZnAwdGM2RWs4SUtWV1Q3a01CZ2I2U3VMMjl4U285RHQ5a0UvU3JuUEdaRC9UNHF5Q1FzVys1VUtMZzNYd3lQcXoraG9RcGM4YmJnNjFPYUVtZGtzbzJHMUhSRWJoSnl1bkZsWEVLNGpqVE1ZQmxFZ1JoSmNZSjRobEU2M2JvcTh6c3lGTHI3NSt1aTAxWmRsRDhLelEvNWRHNVhFQUEyVkdsSUlPUWUxZzd2d0dCVVh3WWRwaWo1OEtoME9rT01NVEJOZEhMVXhadlFKWXBYdkZyMVAwU2VUbTVDb1ZNa1UvSFNVVFZQcCtTOTdyc2ZKRzVjRUMzWExFTjErV1VnbWVQWkE1OXJCN0s3SlFMTXJMREJwM1pOMVUydHNSTVQ2TGlZbjd4clQ4cmVRYmtkOHBudUVTWjRCV0Fib0J2eXB6UXZsU3NnVGtVZE5nT2Z3KytXZktmM1ZESFAxdkpSeTBhSE16VGgwMWlHTVNIYUhTejY1OTVFMWpZNS9RMGt6WUdJUkdqZkpEY3k5dURTOFlrZEczbERyZ3NMaUU5cFlKOGVrTkw2d0NqcjlnNEQza2dBbEhiMVEzblM3ZWJrNmU2eEJGcHZTVjU0WnRVVXo4Ums0c2N5MEZTV1dnVDlHcHk5a2dFWDhPa3BxUWxIaVBneHhxY2YweCtOaVd5N2hZdEdoYkVheThYejUwdlBsOFVwZGtzWHFjYTExU09oemhQT1d3ZjVhYUhVTlBRSytJVUY5MXRuajZrKzJWYnkvR2pJN3F1VzhNZjdYOXVBdFRkeFdvSkpFWjR0aFIwOU1scHFZa1djQnMvN3NjZjlDRmphZUxjNHhtU1hSUVlNQ3lmaTlENUxjdDZ4dzBXRStZQ0xHUjl0Y05ReCtJS21zKzZaWkt5TUFyZjJ0NWxRcitFVVhmb0h2TjFlVUozU0JCSHpMSnpyK2JDVTF3all1OXJEWk1MUnc2VDNISnJXMjdUNGlYZm01L3hXWmtIUlQ0eGtmTzVENXBrODhNNWZ2cjU4VWRwSzIyQnd2akk4MERjbDcyTnFuMTlTN2lERkdsRHVtaFpsemJqTGxiR0lBOE9oeC91c1dZcmFPTDdLaFN5TkxxTkFaYU91YmZMU2ppS1RFMDdZVXJ2V2FtRUgvMW9DWnZqb0F1V1pQRzUzZXRlYlREWGsrbGN4ZEZkdXF6emlXM3hUT05wUzNwSlloUVFySHhSeFBUM2lET1FPMGVGcDhXWHBqU0o1bDRIbnZYdXlQVGJwWHZXRG42NzdlZ0M1RktTdlFtNXZ0bS91bUpTYmRJTUZDZ0c2WUxQa21NVVgyM2NicDc3RkxCM1ZjVjEyUXdiZEJ3NWFrcFFpYm5jMHZhNGtEQmZRR3ZkZ002dWs4M2lySnZtTEdxaXR2eG53VlFWQXdJVzZzeHRDUVNNMCs4Sm1PYmNJaTF1OUNTbHVkMU5DR29GVC5TSDEtV1NqMFNScjlDSFdxTFBOc1FOWUlNNzRZT3lPOTFoQ2RUWVRFdzVlSTktTnQ4anp0M09VdHZ6UkstZVlhaEdzcHdPbjNLQlk3WnNLbDZqY2tRUQ==">
+                                <input type="hidden" name="_eventId" value="submit">
+                                <input type="hidden" name="geolocation">
+                                <input class="btn btn-block btn-submit button button--primary" name="submit" accesskey="l" tabindex="6" type="submit" value="Register">
+                            </form>
+
+                            <!-- div th:unless="${passwordManagementEnabled}">
+                                <br/>
+                                <span class="fa fa-question-circle"></span>
+                                <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
+                                <p/>
+                            </div --><script type="text/javascript">
+                            /*<![CDATA[*/
+                            var i = "One moment please..."
+                            /*]]>*/
+                            $(document).ready(function () {
+                                $("#fm1").submit(function () {
+                                    $(":submit").attr("disabled", true);
+                                    $(":submit").attr("value", i);
+                                    return true;
+                                });
+                            });
+                        </script>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md mt-3 mt-md-0"> </div>
+                <div  class="col-md mt-3 mt-md-0"> </div>
+
+
+            </div>
+        </main>
+    </div>
+</form>
+
+
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

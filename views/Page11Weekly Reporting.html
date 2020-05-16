@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentWeeklyReporting </title>
+    <link rel="stylesheet" href="CSS/PagesStyle.css">
+      <script>
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(inuptId,outputId){
+            var sel_val1=document.getElementById(inuptId).value;
+            if (sel_val1>4) {hidden(outputId);}
+            if (sel_val1<=4) {show(outputId);}
+        }
+        function starStr(result,save,lowResult){
+            var points=document.getElementsByName(result);
+            var value=0;
+            for(var i=0;i<points.length;i++){
+                if(points[i].checked==true){
+                    value=points[i].value;
+                    break;
+                }
+            }
+            document.getElementById(save).value=value;
+            eJect(save,lowResult);
+        }
+
+    </script>
+</head>
+<body>
+
+<header role="banner">
+    <div class="headcontainer">
+
+        <div class="page-title">
+            Student services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+        <u1>
+           
+            <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page8StudentHomePage.html'">Home</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page9StudentSelectMember.html'">Select Group member</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page10StudentSelectProject.html'">Select Group project</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page11GroupMarking.html'">Group marking </button></li>
+            <li class="list-group"><button class="functionBoard-Button current"> Weekly Reporting </button></li>
+        </u1>
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+       
+      <main role="main" class="container mt-3 mb-3">
+
+            <div id="content" class="row">
+
+                <div class="col-md">
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                               
+                                 <h2> Weekly Reporting Record </h2>
+                         </div>
+
+                
+             <div class="card-body">
+                   
+                 
+
+            <section class="form-group">
+            
+
+            <h3>1.<a href="https://calendar.google.com/calendar/r">Check My Calendar</a></h3>
+            </section>
+            <section class="form-group">
+            <h3>2.<a href="https://calendar.google.com/calendar/r">Weekly Record</a></h3>                               
+
+    </div>
+
+
+        </div>
+        
+        <br>
+
+
+    </div>
+</div>
+</div>
+</main>
+</form>
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+</body>
+</html>
