@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Account Registration</title>
-    <link rel="stylesheet" href="../public/stylesheets/PagesStyle.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -38,13 +38,13 @@
                             <h2>Account Registration</h2>
                         </div>
                         <div class="card-body">
-                            <form method="post" id="fm1" action="login">
+                            <form action="/users/regist" method="post" id="fm1" >
 
                                 <section class="form-group">
                                     <h3>Please enter your details:</h3>
                                     <label for="username">User name:</label>
                                     <div>
-                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="username" value=<%name%>>
+                                        <input class="form-control required" id="userName" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="userName" value="">
                                     </div>
                                 </section>
 
@@ -118,7 +118,7 @@
             </div>
         </main>
     </div>
-</form>
+</section>
 
 
 

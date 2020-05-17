@@ -1,5 +1,5 @@
 const mongo = require('../lib/mongo');
-const user = mongo.users;
+const test = mongo.users;
 
 module.exports = {
 
@@ -7,6 +7,8 @@ module.exports = {
      * @return {Promise<Document[]>}
      */
     getAllUsers: function getAllUsers() {
-        return user.find().exec();
+        return test.find().exec();
     },
 }
+
+

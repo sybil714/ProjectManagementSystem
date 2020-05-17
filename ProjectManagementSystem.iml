@@ -12,6 +12,5 @@
     <orderEntry type="library" name="@types/mongodb" level="application" />
     <orderEntry type="library" name="@types/mongoose" level="application" />
     <orderEntry type="library" name="@types/node" level="application" />
-    <orderEntry type="library" name="@types/body-parser" level="application" />
   </component>
 </module>
