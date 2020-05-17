@@ -8,10 +8,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/regist',function (req,res) {
   res.render('Page2Registration',{})
-})
+});
 
 router.get('/login',function (req,res) {
   res.render('Page1Login',{})
-})
+});
 
 module.exports = router;

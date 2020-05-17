@@ -1,5 +1,5 @@
 const mongo = require('../lib/mongo');
-const test = mongo.users;
+const test = mongo.groups;
 
 module.exports = {
 
