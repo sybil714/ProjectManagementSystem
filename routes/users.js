@@ -16,26 +16,26 @@ router.post('/regist' , function(req, res,next) {
   var data= {
     userName : req.body.userName,
     emailAddress : req.body.emailAddress,
-    confirmEmil : req.body.confirmEmil,
+    confirmEmail : req.body.confirmEmail,
     phoneNum : req.body.phoneNum,
     password : req.body.password,
     confirmPassword : req.body.confirmPassword,
   }
 
 
-  if(data.emailAddress==data.confirmEmil){
+  if(data.emailAddress==data.confirmEmail){
     isEmailCorrect=true;
   }
   else{
-    alert("The E-mail address is not confirmed")
-   // res.render('Page1Login',{})
+    console.log("The E-mail address is not confirmed")
+    res.render('Page1Login',{})
   }
 
   if(data.password==data.confirmPassword){
     isPasswordCorrect=true
   }  else {
-    alert("The Password is not confirmed")
-   // res.render('Page1Login',{})
+    console.log("The Password is not confirmed")
+   res.render('Page1Login',{})
   }
   if(isPasswordCorrect&isEmailCorrect){
     var data2= {
@@ -44,17 +44,19 @@ router.post('/regist' , function(req, res,next) {
       phoneNumber : data.phoneNum,
       password : data.password,
     }
-  }
-   var user=new users(data2)
+    var user=new users(data2)
 
-  user.save(function (err,res) {
-    if(err){
-      console.log("Error:" + err);
-    }else
-    {
-      console.log("Res:" + res);
-    }
-  })
+    user.save(function (err,res) {
+      if(err){
+        console.log("Error:" + err);
+      }else
+      {
+        console.log("Res:" + res);
+      }
+      //res.render('Page1Login',{})
+    })
+  }
+
 
 });
 
