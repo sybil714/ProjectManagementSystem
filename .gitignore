@@ -1,0 +1,7 @@
+# Project exclude paths
+/node_modules/
+npm-debug.log
+node_modules
+coverage
+.vscode
+.idea
