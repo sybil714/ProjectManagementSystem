@@ -13,7 +13,7 @@ router.get('/test' , function(req, res,) {
         .then(function(result){
             let userList = [];
             userList = result[0];
-            //console.log(result);
+            //console.log(result[0]);
             res.render('test' , {
                 userList : userList,
             });

@@ -117,7 +117,11 @@
                                 <h3 style="margin-bottom: 20px;">Message broad:</h3>
                             </li>
                             <li class="list-group project">
-                                <div id="comment"></div>
+                                <%for(let i = 0; i < messageList.length ;i++) { %>
+                                    <%=messageList[i]%>
+                                    <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
+                                <br>
+                                <% } %>
                             </li>
 
                             <li class="list-group project">

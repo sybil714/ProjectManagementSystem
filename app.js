@@ -26,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/', require('./routes/test'));
+app.use('/', require('./routes/MLViewProject'));
 
 
 // catch 404 and forward to error handler

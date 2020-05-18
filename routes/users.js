@@ -44,6 +44,7 @@ router.post('/regist' , function(req, res,next) {
       phoneNumber : data.phoneNum,
       password : data.password,
     }
+
     var user=new users(data2)
 
     user.save(function (err,res) {
