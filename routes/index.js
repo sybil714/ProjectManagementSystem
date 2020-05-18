@@ -14,4 +14,5 @@ router.get('/login',function (req,res) {
   res.render('Page1Login',{})
 });
 
+
 module.exports = router;
