@@ -9,6 +9,6 @@ module.exports = {
     getAllUsers: function getAllUsers() {
         return test.find().exec();
     },
-}
+};
 
 

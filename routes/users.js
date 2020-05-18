@@ -28,7 +28,7 @@ router.post('/regist' , function(req, res,next) {
   }
   else{
     console.log("The E-mail address is not confirmed")
-    res.render('Page1Login',{})
+    res.render('/',{})
   }
 
   if(data.password==data.confirmPassword){
