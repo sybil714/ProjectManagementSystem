@@ -45,7 +45,7 @@ router.post('/regist' , function(req, res,next) {
       password : data.password,
     }
 
-    var user=new users(data2)
+    var user=new users(data2)``
 
     user.save(function (err,res) {
       if(err){

@@ -6,6 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+
+
 router.get('/regist',function (req,res) {
   res.render('Page2Registration',{})
 });

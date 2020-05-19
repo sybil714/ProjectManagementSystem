@@ -68,7 +68,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -86,12 +86,12 @@
                 <div id="content" class="row">
                     <div class="col-md"style="margin-bottom: 35px">
                         <h2 class="projectScream title">Project management</h2>
-                        <div class="projectScream form" >
+                          <div class="projectScream form" >
                             <u1 class="projectScream item">
                                 <li class="list-group project">
                                     <h3 style="margin-bottom: 20px;">Project Release:</h3>
                                 </li>
-                                <li class="list-group project">
+                                <form class="list-group project" action="CProjectRelease" method="post">
                                     <section class="form-group">
                                         <h4>Project Name:</h4>
                                         <div>
@@ -107,7 +107,7 @@
                                     <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableFalse()" style="float: left">Confirm</button>
                                     <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Release</button>
                                     </div>
-                                </li>
+                                </form>
                             </u1>
                         </div>
                         <div class="projectScream form">
@@ -116,7 +116,7 @@
                                     <h3 style="margin-bottom: 20px;">Message broad:</h3>
                                 </li>
                                 <li class="list-group project">
-                                    <div id="comment"></div>
+
                                 </li>
 
                                 <li class="list-group project">
@@ -138,7 +138,7 @@
             </main>
         </div>
     </div>
-</form>
+</section>
 
 
 

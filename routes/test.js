@@ -10,6 +10,7 @@ router.get('/test' , function(req, res,) {
             userModel.getAllUsers(),
         ]
     )
+
         .then(function(result){
             let userList = [];
             userList = result[0];
