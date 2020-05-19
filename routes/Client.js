@@ -36,11 +36,11 @@ router.get('/CFeedback',function (req,res) {
         var data2 = {
             mark1: req.body.mark1,
             ReasonQ1: req.body.ReasonQ1,
-            mark2: req.body.mark1,
+            mark2: req.body.mark2,
             ReasonQ2: req.body.ReasonQ2,
-            mark3: req.body.mark1,
+            mark3: req.body.mark3,
             ReasonQ3: req.body.ReasonQ3,
-            mark4: req.body.mark1,
+            mark4: req.body.mark4,
             ReasonQ4: req.body.ReasonQ4,
             Comments: req.body.Comments,
         }
@@ -51,7 +51,6 @@ router.get('/CFeedback',function (req,res) {
             console.log(data2)
         })
     });
-
 });
 
 module.exports = router;
