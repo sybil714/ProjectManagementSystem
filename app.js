@@ -42,7 +42,7 @@ app.use('/users', usersRouter);
 
 app.use('/', require('./routes/test'));
 app.use('/', require('./routes/MLViewProject'));
-app.use('/', require('./routes/CProjectRelease'));
+app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Student'));
 app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Facilitator'));
