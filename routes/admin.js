@@ -5,11 +5,11 @@ const userModel = require('../models/user');
 /* GET home page. */
 
 router.get('/Login',function (req,res) {
-    res.render('Login',{tips: 'Please enter your registered email address:'})
+    res.render('Login',{tips: ''})
 });
 
 router.get('/Registration',function (req,res) {
-
+    res.render('Registration',{ })
 });
 
 
@@ -23,13 +23,8 @@ router.post('/Login',function (req,res) {
     var passwordInputed=data.password;
         userModel.getUsersByEmail(emailAddress)
         .then(function (result) {
-
-
-            console.log(result.role)
-
-
             if(!result){
-                return res.render('Login',{tips: 'This email is not found,try again:'})
+                return res.render('Login',{tips: 'This email is not found,try again!'})
             }
             else if(passwordInputed===result.password){
                 if(result.role==="Student"){
@@ -45,10 +40,14 @@ router.post('/Login',function (req,res) {
                     return res.redirect('/CHomePage')
                 }
             }
+            else{
+                return res.render('Login',{tips: 'User name and password do not match,try again!'})
+            }
         })
 
 
 });
+
 
 
 module.exports = router;

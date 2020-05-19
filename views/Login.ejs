@@ -39,7 +39,9 @@
                             <form method="post" id="fm1" >
 
                                 <section class="form-group">
-                                    <label for="username"><%= tips%></label>
+                                    <div style="color: red;"><%= tips%></div>
+                                    <br>
+                                    <label for="username">User name:</label>
                                     <div>
                                         <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="emailAddress" value="">
                                     </div>
@@ -87,7 +89,7 @@
             location.href = '/Login';
         });
         $("#buttonRegist").click(function(){
-            location.href = '/Regist';
+            location.href = '/Registration';
         });
     });
 </script>
