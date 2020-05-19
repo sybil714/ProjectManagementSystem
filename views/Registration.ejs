@@ -41,8 +41,19 @@
                             <form action="/users/regist" method="post" id="fm1" >
 
                                 <section class="form-group">
+                                    <div>
+                                        <select  id="sid" οnchange="selectcity()">
+                                            <option>---please choose your identity---</option>
+                                            <option>student</option>
+                                            <option>facilitator</option>
+                                            <option>module leader</option>
+                                            <option>client</option>
+                                        </select>
+
+                                    </div>
                                     <h3>Please enter your details:</h3>
                                     <label for="username">User name:</label>
+
                                     <div>
                                         <input class="form-control required" id="userName" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="userName" value="">
                                     </div>
