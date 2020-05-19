@@ -15,7 +15,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -36,12 +36,12 @@
                             <h2>Login</h2>
                         </div>
                         <div class="card-body">
-                            <form method="post" id="fm1" action="login">
+                            <form method="post" id="fm1" >
 
                                 <section class="form-group">
-                                    <label for="username">User name:</label>
+                                    <label for="username"><%= tips%></label>
                                     <div>
-                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="userName" value="">
+                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="emailAddress" value="">
                                     </div>
                                 </section>
 
@@ -69,7 +69,6 @@
 
                 </div>
 
-                <div id="notices" class="col-md mt-3 mt-md-0"></div>
 
                 <div id="providers" class="col-md mt-3 mt-md-0"> </div>
 
@@ -78,7 +77,7 @@
             </div>
         </main>
     </div>
-</form>
+</section>
 
 <script type="text/javascript" src="javascripts/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>

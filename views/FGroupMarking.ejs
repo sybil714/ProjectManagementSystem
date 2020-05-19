@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>StudentGroup marking </title>
+    <title>FacilitatorGroupMarking</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
-
-    <script>
-        function intMaxMin() {
-            var inputV=document.getElementById(id).value;
-
-            if(inputV>100){
-                document.getElementById(id).value=100;
-            }
-            if(inputV<0){
-                document.getElementById(id).value=0;
-            }
-
+     <script>
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(inuptId,outputId){
+            var sel_val1=document.getElementById(inuptId).value;
+            if (sel_val1>3) {hidden(outputId);}
+            if (sel_val1<=3) {show(outputId);}
         }
-    </script>
+        function starStr(result,save,lowResult){
+            var points=document.getElementsByName(result);
+            var value=0;
+            for(var i=0;i<points.length;i++){
+                if(points[i].checked==true){
+                    value=points[i].value;
+                    break;
+                }
+            }
+            document.getElementById(save).value=value;
+            eJect(save,lowResult);
+        }
 
+    </script>
 </head>
 <body>
 
@@ -26,7 +34,7 @@
     <div class="headcontainer">
 
         <div class="page-title">
-            Student services
+            Facilitator services
         </div>
     </div>
 </header>
@@ -34,184 +42,119 @@
 <form class="functionBoard">
     <div class="functionBoard left">
         <div>
-            <u1>
-
+        <u1>
             <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page8StudentHomePage.html'">Home</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page9StudentSelectMember.html'">Member manmgement</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page10StudentSelectProject.html'">Project management</button></li>
-            <li class="list-group"><button class="functionBoard-Button current" >Group marking</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
+            <li class="list-group"><button class="functionBoard-Button"type="button" onclick="location.href='Page12FacilitatorHome.html'">Home</button></li>
+            <li class="list-group"><button class="functionBoard-Button current">Group marking</button></li>
+             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
 
-            </u1>
         </div>
     </div>
-    
+    </div>
     <div class="functionBoard right">
-
+     
         <main role="main" class="container mt-3 mb-3">
-
-            <div id="content" class="row">
+        
+   
+        <div id="content" class="row">
 
                 <div class="col-md">
 
                     <div class="card">
+
                         <div class="card-header text-center">
+                               
+                                 <h2> Group marking </h2>
+                         </div>
+                       
+                    <div class="card-body">
+    
+                     
+                      <section class="form-group">
+                                    <h3>1.Select a group:
+           
+                            <select>
+                    
+                             <option value="Facilitator1">group1</option>
+                             <option value="Facilitator2">group2</option>
+                             <option value="Facilitator3">group3</option>
+                             <option value="Facilitator4">group4</option>
+                             <option value="Facilitator5">group5</option>
+                             <option value="Facilitator6">group6</option>
 
-                            <h2> Group marking </h2>
-                        </div>
+                             </select>
+                </h3>
+                </section>
+               
+                
+                <section class="form-group">
+                                    <h3>2.Select a meeting:
+                        <select>
+                    
+                             <option value="meeting1">meeting1</option>
+                             <option value="meeting2">meeting2</option>
+                             <option value="meeting3">meeting3</option>
+                             <option value="meeting4">meeting4</option>
+                             <option value="meeting5">meeting5</option>
+                             <option value="meeting6">meeting6</option>
 
+                        </select>
+                </h3>  
+                </section>
+               <section class="form-group">
+                                    <h3>3.Please mark the satisfaction of the group ’s task completion this week:<span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result1" value="1">
+                                        2 <input type="radio"  name="result1" value="2">
+                                        3 <input type="radio"  name="result1" value="3">
+                                        4 <input type="radio"  name="result1" value="4">
+                                        5 <input type="radio"  name="result1" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('result1',this.id,'lowResult1')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult1" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
+                                <section class="form-group">
+                                    <h3>4.Please mark the satisfaction of team meeting performance: <span style="color:red;">*</span>：</h3>
+                                    <div>
+                                        &ensp; Dissatisfied &ensp;
+                                        1 <input type="radio"  name="result2" value="1">
+                                        2 <input type="radio"  name="result2" value="2">
+                                        3 <input type="radio"  name="result2" value="3">
+                                        4 <input type="radio"  name="result2" value="4">
+                                        5 <input type="radio"  name="result2" value="5">
+                                        &ensp; Satisfied
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('result2',this.id,'lowResult2')" >save</button>
+                                    </div>
+                                </section>
+                                <section class="form-group" id="lowResult2" style="display: none">
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
 
-                        <div class="card-body">
+                                <section class="form-group" >
+                                    <h3>5.Comment:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                </section>
 
-                            <section class="form-group">
-                                <h3>1.Select the first member:
-
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
-
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
-
-
-                            <section class="form-group"v>
-                                <h3>2.Select the second member:
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
-
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onchange="intMaxMin(this.id)" > %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking2" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
-
-
-
-                            <section class="form-group">
-                                <h3>3.Select the third member:
-
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
-
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking3" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
-
-
-                            <section class="form-group">
-                                <h3>4.Select forth member:
-
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
-
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking4" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
+                                <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
 
 
-                            <section class="form-group">
-                                <h3>5.Select the fifth member:
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
 
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking5" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
-
-
-                            <section class="form-group">
-                                <h3>6.Select the sixth member:
-
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
-                                </h3>
-                            </section>
-
-                            <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
-
-                                <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
-                            </section>
-
-
-                            <section class="form-group" >
-                                <h3>7.Comment:</h3>
-                                <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
-                            </section>
-
-                        </div>
-                        <div align="center"> <input class="btn btn-block btn-submit button button--primary smaller" style="margin-right: 30px;" name="submit" accesskey="l" tabindex="9" type="submit" value="submit"></div>
-
-                        <br>
-                    </div>
-
-                </div>
             </div>
-        </main>
     </div>
+
+</div>
+</div>
+</main>
+</div>
 </form>
+
 
 
 
