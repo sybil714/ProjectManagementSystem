@@ -20,8 +20,8 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button current">Login</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" >Register</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" id="buttonLogin">Login</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonRegist">Register</button></li>
 
             </u1>
         </div>
@@ -80,7 +80,18 @@
     </div>
 </form>
 
-
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#buttonLogin").click(function(){
+            location.href = '/Login';
+        });
+        $("#buttonRegist").click(function(){
+            location.href = '/Regist';
+        });
+    });
+</script>
 
 
 

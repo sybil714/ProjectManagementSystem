@@ -20,8 +20,8 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page1Login.html'">Login</button></li>
-                <li class="list-group"><button class="functionBoard-Button current">Register</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonLogin">Login</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" id="buttonRegist">Register</button></li>
 
             </u1>
         </div>
@@ -94,43 +94,56 @@
                                 <span class="fa fa-question-circle"></span>
                                 <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
                                 <p/>
-                            </div --><script type="text/javascript">
-                            /*<![CDATA[*/
-                            var i = "One moment please..."
-                            /*]]>*/
-                            $(document).ready(function () {
-                                $("#fm1").submit(function () {
-                                    $(":submit").attr("disabled", true);
-                                    $(":submit").attr("value", i);
-                                    return true;
+                            </div -->
+                               <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+                                <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+                                <script type="text/javascript">
+                                    $(function(){
+                                        $("#buttonLogin").click(function(){
+                                            location.href = '/Login';
+                                        });
+                                        $("#buttonRegist").click(function(){
+                                            location.href = '/Regist';
+                                        });
+                                    });
+                                </script>
+                                <script type="text/javascript">
+                                /*<![CDATA[*/
+                                var i = "One moment please..."
+                                /*]]>*/
+                                $(document).ready(function () {
+                                    $("#fm1").submit(function () {
+                                        $(":submit").attr("disabled", true);
+                                        $(":submit").attr("value", i);
+                                        return true;
+                                    });
                                 });
-                            });
-                        </script>
+                            </script>
 
+                            </div>
                         </div>
+
                     </div>
+                    <div class="col-md mt-3 mt-md-0"> </div>
+                    <div  class="col-md mt-3 mt-md-0"> </div>
+
 
                 </div>
-                <div class="col-md mt-3 mt-md-0"> </div>
-                <div  class="col-md mt-3 mt-md-0"> </div>
-
-
-            </div>
-        </main>
-    </div>
-</section>
+            </main>
+        </div>
+    </section>
 
 
 
 
 
-<footer class="footer" role="contentinfo">
-    <div class="container">
-        <span id="copyright">Copyright © SSITteam4</span>
-    </div>
-</footer>
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <span id="copyright">Copyright © SSITteam4</span>
+        </div>
+    </footer>
 
 
 
-</body>
-</html>
+    </body>
+    </html>
