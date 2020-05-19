@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
 
 
 
+router.get('/Registration',function (req,res) {
+  res.render('Registration',{})
+});
 
 
 

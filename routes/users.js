@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/regist' , function(req, res,next) {
+router.post('/Registration' , function(req, res,next) {
   var data= {
     userName : req.body.userName,
     emailAddress : req.body.emailAddress,
@@ -21,6 +21,7 @@ router.post('/regist' , function(req, res,next) {
     password : req.body.password,
     confirmPassword : req.body.confirmPassword,
   }
+  console.log(data)
 
 
   if(data.emailAddress==data.confirmEmail){

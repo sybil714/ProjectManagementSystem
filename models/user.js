@@ -11,8 +11,8 @@ module.exports = {
 
     getUsersByEmail:function getUsersByEmail(email) {
         return user
-            .find({email:email})
-
+            .findOne({email:email})
+            .exec()
     },
 
 
