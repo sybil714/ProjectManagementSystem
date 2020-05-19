@@ -4,13 +4,20 @@ const messages = mongo.messages;
 module.exports = {
 
 
-    getAll: function getAllmessages() {
+    getAllMessages: function getAllMessages() {
         return messages
             .find()
-            .populate("senderID")
-            .populate("receiverID")
+
             .exec()
     },
+
+    getMessageByProjectID:function getMessageByProjectID(id) {
+        return messages
+            .find({projectID:id})
+            .populate("projectID")
+            .populate("senderID")
+            .populate("receiverID")
+    }
 
 
 }

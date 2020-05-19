@@ -14,7 +14,7 @@ router.get('/test' , function(req, res,) {
         .then(function(result){
             let userList = [];
             userList = result[0];
-            //console.log(result[0]);
+            console.log(userList);
             res.render('test' , {
                 userList : userList,
             });

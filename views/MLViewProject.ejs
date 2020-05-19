@@ -118,7 +118,7 @@
                             </li>
                             <li class="list-group project">
                                 <%for(let i = 0; i < messageList.length ;i++) { %>
-                                    <%=messageList[i]%>
+                                    <%=messageList[i].senderID.userName%>
                                     <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
                                 <br>
                                 <% } %>
