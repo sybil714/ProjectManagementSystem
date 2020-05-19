@@ -39,7 +39,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
         <u1>
@@ -68,7 +68,7 @@
                                  <h2> Group marking </h2>
                          </div>
                        
-                    <div class="card-body">
+                    <form class="card-body" action="FGroupMarking" method="post">
     
                      
                       <section class="form-group">
@@ -76,12 +76,12 @@
            
                             <select>
                     
-                             <option value="Facilitator1">group1</option>
-                             <option value="Facilitator2">group2</option>
-                             <option value="Facilitator3">group3</option>
-                             <option value="Facilitator4">group4</option>
-                             <option value="Facilitator5">group5</option>
-                             <option value="Facilitator6">group6</option>
+                             <option value="group1">group1</option>
+                             <option value="group2">group2</option>
+                             <option value="group3">group3</option>
+                             <option value="group4">group4</option>
+                             <option value="group5">group5</option>
+                             <option value="group6">group6</option>
 
                              </select>
                 </h3>
@@ -89,71 +89,61 @@
                
                 
                 <section class="form-group">
-                                    <h3>2.Select a meeting:
-                        <select>
-                    
-                             <option value="meeting1">meeting1</option>
-                             <option value="meeting2">meeting2</option>
-                             <option value="meeting3">meeting3</option>
-                             <option value="meeting4">meeting4</option>
-                             <option value="meeting5">meeting5</option>
-                             <option value="meeting6">meeting6</option>
+                <h3>2. Meeting Date: <input style="border: solid 1px #404143;width: 150px; background-color: white!important;" type="text" name="meeting"  value="">
 
-                        </select>
                 </h3>  
                 </section>
                <section class="form-group">
                                     <h3>3.Please mark the satisfaction of the group ’s task completion this week:<span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="result1" value="1">
-                                        2 <input type="radio"  name="result1" value="2">
-                                        3 <input type="radio"  name="result1" value="3">
-                                        4 <input type="radio"  name="result1" value="4">
-                                        5 <input type="radio"  name="result1" value="5">
+                                        1 <input type="radio"  name="mark1" value="1">
+                                        2 <input type="radio"  name="mark1" value="2">
+                                        3 <input type="radio"  name="mark1" value="3">
+                                        4 <input type="radio"  name="mark1" value="4">
+                                        5 <input type="radio"  name="mark1" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('result1',this.id,'lowResult1')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult1" style="display: none">
                                     <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                    <textarea  class="form-control required" name="reason1" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
                                 <section class="form-group">
                                     <h3>4.Please mark the satisfaction of team meeting performance: <span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="result2" value="1">
-                                        2 <input type="radio"  name="result2" value="2">
-                                        3 <input type="radio"  name="result2" value="3">
-                                        4 <input type="radio"  name="result2" value="4">
-                                        5 <input type="radio"  name="result2" value="5">
+                                        1 <input type="radio"  name="mark2" value="1">
+                                        2 <input type="radio"  name="mark2" value="2">
+                                        3 <input type="radio"  name="mark2" value="3">
+                                        4 <input type="radio"  name="mark2" value="4">
+                                        5 <input type="radio"  name="mark2" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('result2',this.id,'lowResult2')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult2" style="display: none">
                                     <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                    <textarea  class="form-control required" name="reason2" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <section class="form-group" >
                                     <h3>5.Comment:</h3>
-                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                    <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
 
-
+                     </form>
 
             </div>
-    </div>
 
 </div>
 </div>
 </main>
 </div>
-</form>
+</section>
 
 
 

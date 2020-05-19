@@ -49,8 +49,11 @@ router.get('/CFeedback',function (req,res) {
         feedback.save(function (err,res) {
             //res.send(JSON.stringify(data))
             console.log(data2)
+
         })
+        res.redirect('/CHomePage')
     });
+
 });
 
 module.exports = router;
