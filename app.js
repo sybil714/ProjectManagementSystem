@@ -28,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/', require('./routes/test'));
 app.use('/', require('./routes/MLViewProject'));
 app.use('/', require('./routes/CProjectRelease'));
+app.use('/', require('./routes/admin'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

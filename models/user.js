@@ -9,7 +9,15 @@ module.exports = {
             .exec();
     },
 
-};
+    getUsersByEmail:function getUsersByEmail(email) {
+        return user
+            .find({email:email})
+
+    },
+
+
+
+}
 
 
 

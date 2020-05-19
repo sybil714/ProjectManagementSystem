@@ -41,7 +41,7 @@
                                 <section class="form-group">
                                     <label for="username">User name:</label>
                                     <div>
-                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="username" value="">
+                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="userName" value="">
                                     </div>
                                 </section>
 
@@ -64,50 +64,12 @@
                                 <input class="btn btn-block btn-submit button button--primary" name="submit" accesskey="l" tabindex="6" type="submit" value="Login">
                             </form>
 
-                            <!-- div th:unless="${passwordManagementEnabled}">
-                                <br/>
-                                <span class="fa fa-question-circle"></span>
-                                <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
-                                <p/>
-                            </div --><script type="text/javascript">
-                            /*<![CDATA[*/
-                            var i = "One moment please..."
-                            /*]]>*/
-                            $(document).ready(function () {
-                                $("#fm1").submit(function () {
-                                    $(":submit").attr("disabled", true);
-                                    $(":submit").attr("value", i);
-                                    return true;
-                                });
-                            });
-                        </script>
-
                         </div>
                     </div>
 
                 </div>
 
-                <div id="notices" class="col-md mt-3 mt-md-0">
-                    <div id="cas-resource-list" class="card d-sm-none d-md-block">
-                        <div class="card-body">
-                            <h3 class="card-title">Problems logging in?</h3>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="http//...">Client</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="http//...">Facilitator</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="http//...">Student</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="http//...">Module leader</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div id="notices" class="col-md mt-3 mt-md-0"></div>
 
                 <div id="providers" class="col-md mt-3 mt-md-0"> </div>
 
