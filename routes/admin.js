@@ -9,7 +9,7 @@ router.get('/Login',function (req,res) {
 });
 
 router.get('/Registration',function (req,res) {
-
+    res.render('Registration',{ })
 });
 
 
@@ -47,6 +47,7 @@ router.post('/Login',function (req,res) {
 
 
 });
+
 
 
 module.exports = router;

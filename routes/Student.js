@@ -5,5 +5,4 @@ router.get('/SHomePage', function(req, res) {
     res.render('SHomePage',{ } );
 });
 
-
 module.exports = router;
