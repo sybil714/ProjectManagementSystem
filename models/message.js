@@ -7,7 +7,6 @@ module.exports = {
     getAllMessages: function getAllMessages() {
         return messages
             .find()
-
             .exec()
     },
 

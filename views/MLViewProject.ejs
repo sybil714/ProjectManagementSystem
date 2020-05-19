@@ -96,12 +96,12 @@
                             <li class="list-group project">
 
                                     <div >
-                                    <p> <h4>Project Name: <span id="getProjectName"></span></h4></p>
-                                    <p> <h4>Publisher: <span id="getProjectPublisher"></span></h4></p>
+                                    <p> <h4>Project Name: <%=project.projectName%><span id="getProjectName"></span></h4></p>
+                                    <p> <h4>Publisher: <%=project.publisherID.userName%> <span id="getProjectPublisher"></span></h4></p>
                                     </div>
                                 <section class="form-group">
                                     <h4>Description:</h4>
-                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent" disabled=true></textarea>
+                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; border: 0px!important; " disabled=true; ><%=project.projectContent%></textarea>
                                 </section>
                                 <div>
                                     <input class="btn btn-block btn-submit button button--primary smaller" type="submit"  style="float: right" value="Accept" >

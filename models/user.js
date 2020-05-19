@@ -9,12 +9,6 @@ module.exports = {
             .exec();
     },
 
-
-    getUserByID: function getNameByID(id) {
-        return user
-            .find(id)
-            .populate("userName")
-    }
 };
 
 
