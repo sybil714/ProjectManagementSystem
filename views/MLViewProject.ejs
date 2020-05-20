@@ -68,7 +68,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -104,8 +104,8 @@
                                     <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; border: 0px!important; " disabled=true; ><%=project.projectContent%></textarea>
                                 </section>
                                 <div>
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type="submit"  style="float: right" value="Accept" >
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type="submit"  style="float: right "value="Reject">
+                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Accept" >
+                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right "value="Reject">
                                 </div>
 
                             </li>
@@ -129,11 +129,11 @@
                             </li>
                             <li class="list-group project">
 
-                                <div>
-                                    <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
-                                </div>
-                                <br>
-                                <div> <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Send</button></div>
+                                <form action="/MLViewProject" method="post">
+                                        <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                    <br>
+                                <div> <button class="btn btn-block btn-submit button button--primary smaller" name="comment" type="submit" value="true" >Send</button></div>
+                                </form>
                             </li>
 
 
@@ -144,7 +144,7 @@
         </main>
     </div>
     </div>
-</form>
+</section>
 
 
 

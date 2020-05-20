@@ -55,7 +55,6 @@ app.get('*',function (req,res,next) {
 */
 
 app.use('/', require('./routes/test'));
-app.use('/', require('./routes/MLViewProject'));
 app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Student'));
 app.use('/', require('./routes/Client'));
