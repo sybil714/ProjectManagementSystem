@@ -44,20 +44,19 @@
         <div>
         <u1>
             <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-            <li class="list-group"><button class="functionBoard-Button"type="button" id="buttonFHome">Home</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonFMark">Group marking</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
+            <li class="list-group"><button class="functionBoard-Button"type="button" onclick="location.href='Page12FacilitatorHome.html'">Home</button></li>
+            <li class="list-group"><button class="functionBoard-Button current">Group marking</button></li>
+             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
 
-        </u1>
         </div>
     </div>
     </div>
     <div class="functionBoard right">
-     
+
         <main role="main" class="container mt-3 mb-3">
-        
-   
+
+
         <div id="content" class="row">
 
                 <div class="col-md">
@@ -65,18 +64,18 @@
                     <div class="card">
 
                         <div class="card-header text-center">
-                               
+
                                  <h2> Group marking </h2>
                          </div>
-                       
+
                     <form class="card-body" action="FGroupMarking" method="post">
-    
-                     
+
+
                       <section class="form-group">
                                     <h3>1.Select a group:
-           
+
                             <select>
-                    
+
                              <option value="group1">group1</option>
                              <option value="group2">group2</option>
                              <option value="group3">group3</option>
@@ -87,12 +86,12 @@
                              </select>
                 </h3>
                 </section>
-               
-                
+
+
                 <section class="form-group">
                 <h3>2. Meeting Date: <input style="border: solid 1px #404143;width: 150px; background-color: white!important;" type="text" name="meeting"  value="">
 
-                </h3>  
+                </h3>
                 </section>
                <section class="form-group">
                                     <h3>3.Please mark the satisfaction of the group ’s task completion this week:<span style="color:red;">*</span>：</h3>
@@ -146,18 +145,6 @@
 </div>
 </section>
 
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        $("#buttonFHome").click(function() {
-            location.href = '/FHomePage';
-        })
-            $("#buttonFMark").click(function(){
-                location.href = '/FGroupMarking';
-            });
-        });
-</script>
 
 
 

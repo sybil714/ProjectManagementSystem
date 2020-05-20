@@ -8,11 +8,6 @@ router.get('/FHomePage', function(req, res) {
     res.render('FHomePage',{ } );
 });
 
-router.get('/FGroupMarking',function (req,res) {
-    res.render('FGroupMarking',{ } )
-});
-
-
 
 /* GET feedback . */
 router.get('/FGroupMarking',function (req,res) {
