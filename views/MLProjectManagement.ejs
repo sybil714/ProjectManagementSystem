@@ -45,8 +45,9 @@
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLProject" onclick="location.href='/MLProject'">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroup'">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLProject" onclick="location.href='/MLProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroupManagement'">Group management</button></li>
+
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
                 <li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
                 <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
@@ -66,8 +67,14 @@
                                 <a id="projectName" href="CProjectRelease.ejs"></a>
                             </li>
                             <li class="list-group project">
-                                <div id="projectTitle"></div>
-                            </li>
+                                <% for(var i=0;i<projectList.length;i++){    %>
+                              <p style="border-bottom: solid 1px #dddddd;">
+                                  <a name="link" role="button" style='text-decoration: none; ' href='/MLViewProject?projectID=<%= projectList[i]._id%>' value=<%= projectList[i]._id%>> <%=projectList[i].projectName%> <span style=" float: right;  margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;"></span>
+                                  </a>
+                              </p>
+                               <% }%>
+
+                                </li>
                         </u1>
                     </div>
                 </div>

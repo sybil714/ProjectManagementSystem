@@ -40,6 +40,11 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
+/*******This is a login blocking function.
+ * If the user does not log in,
+ * the user is only allowed to access the login or registration page
+ * *********/
 /*
 app.get('*',function (req,res,next) {
   var user = req.session.user;

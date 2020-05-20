@@ -38,27 +38,10 @@
             document.getElementById('projectName').setAttribute('style','background-color: transparent!important;')
         }
 
-        function Dtext()//输出数据
-        {
-            var data="Client|asdasdasdssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssadads|2020|ML|ASDASDA|2020|Client|qweqeqeq|2020|ML|zxczxczxc|2020|";
-            var dataHtml = "";
-            var counter=0;
-            data=data.split("|");
-            counter=data.length-2;
-
-            var j=counter;
-
-            for(var i=counter/3;i>=0;i--){
-                dataHtml += "<p style=>" + data[counter-j]+":"+"<span style=\"float: right;\">"+data[counter-j+2]+"</span>" + "<br><textarea class=\"form-control required\" rows='5' cols='117' disabled = true style=\" margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;\">" + data[counter-j+1] + "</textarea>";
-                j=j-3;
-            }
-            document.getElementById("comment").innerHTML = dataHtml;
-        }
-
     </script>
 
 </head>
-<body onload="Dtext()">
+<body >
 <header role="banner">
     <div class="headcontainer">
 
