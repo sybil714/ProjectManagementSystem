@@ -25,8 +25,8 @@
         <div>
         <u1>
             <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-            <li class="list-group"><button class="functionBoard-Button"type="button" id="buttonFHome">Home</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonFMark">Group marking</button></li>
+            <li class="list-group"><button class="functionBoard-Button current"type="button" id="buttonFHome" onclick="location.href='/FHomePage'">Home</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonFMark" onclick="location.href='/FGroupMarking'">Group marking</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
 
@@ -47,19 +47,6 @@
 
     </div>
 </section>
-
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        $("#buttonFHome").click(function() {
-            location.href = '/FHomePage';
-        })
-        $("#buttonFMark").click(function(){
-            location.href = '/FGroupMarking';
-        });
-    });
-</script>
 
 
 

@@ -15,6 +15,10 @@ router.get('/MLHomePage', function(req, res) {
     res.render('MLHomePage',{ } );
 });
 
+router.get('/MLProject', function(req, res) {
+    res.render('MLProjectManagement',{ } );
+});
+
 
 router.get('/MLViewProject' , function(req, res,) {
 
