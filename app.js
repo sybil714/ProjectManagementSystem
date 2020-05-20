@@ -40,6 +40,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+/*
 app.get('*',function (req,res,next) {
   var user = req.session.user;
   var path=req.path
@@ -51,6 +52,7 @@ app.get('*',function (req,res,next) {
   }
   next()
 })
+*/
 
 app.use('/', require('./routes/test'));
 app.use('/', require('./routes/MLViewProject'));
