@@ -16,6 +16,7 @@ router.get('/FGroupMarking',function (req,res) {
     router.post('/FGroupMarking' , function(req, res,next) {
 
         var data2 = {
+
             meeting:req.body.meeting,
             mark1: req.body.mark1,
             reason1: req.body.reason1,
