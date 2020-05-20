@@ -26,6 +26,7 @@
             document.getElementById(save).value=value;
             eJect(save,lowResult);
         }
+
     </script>
 </head>
 <body>
@@ -37,15 +38,15 @@
     </div>
 </header>
 
-<section class="functionBoard">
+<form class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button ">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button"type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
-                <li class="list-group"><button class="functionBoard-Button current">Marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCHome">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCProject">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCMark">Marking</button></li>
             </u1>
         </div>
     </div>
@@ -63,84 +64,86 @@
                             <h2>Client feedback survey</h2>
                         </div>
                         <div class="card-body">
-                            <form  method="post" id="fm1" >
+                            <form method="post" id="fm1" >
+
                                 <section class="form-group">
                                     <h3>1.Please mark the satisfaction of documentation/online help<span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="mark1" value="1">
-                                        2 <input type="radio"  name="mark1" value="2">
-                                        3 <input type="radio"  name="mark1" value="3">
-                                        4 <input type="radio"  name="mark1" value="4">
-                                        5 <input type="radio"  name="mark1" value="5">
+                                        1 <input type="radio"  name="result1" value="1">
+                                        2 <input type="radio"  name="result1" value="2">
+                                        3 <input type="radio"  name="result1" value="3">
+                                        4 <input type="radio"  name="result1" value="4">
+                                        5 <input type="radio"  name="result1" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('result1',this.id,'lowResult1')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult1" style="display: none">
-                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required" name="ReasonQ1"  rows="13" cols="100" style="resize:none"></textarea>
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <section class="form-group">
                                     <h3>2.Please mark the satisfaction of team performance (happiness with interactions)<span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="mark2" value="1">
-                                        2 <input type="radio"  name="mark2" value="2">
-                                        3 <input type="radio"  name="mark2" value="3">
-                                        4 <input type="radio"  name="mark2" value="4">
-                                        5 <input type="radio"  name="mark2" value="5">
+                                        1 <input type="radio"  name="result2" value="1">
+                                        2 <input type="radio"  name="result2" value="2">
+                                        3 <input type="radio"  name="result2" value="3">
+                                        4 <input type="radio"  name="result2" value="4">
+                                        5 <input type="radio"  name="result2" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('result2',this.id,'lowResult2')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult2" style="display: none">
-                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required" name="ReasonQ2"  rows="13" cols="100" style="resize:none"></textarea>
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <section class="form-group">
                                     <h3>3.Please mark the satisfaction of requirements capture (did the team capture the requirements)<span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="mark3"  value="1">
-                                        2 <input type="radio"  name="mark3"  value="2">
-                                        3 <input type="radio"  name="mark3"  value="3">
-                                        4 <input type="radio"  name="mark3"  value="4">
-                                        5 <input type="radio"  name="mark3"  value="5">
+                                        1 <input type="radio"  name="result3" value="1">
+                                        2 <input type="radio"  name="result3" value="2">
+                                        3 <input type="radio"  name="result3" value="3">
+                                        4 <input type="radio"  name="result3" value="4">
+                                        5 <input type="radio"  name="result3" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans3" onclick="starStr('result3',this.id,'lowResult3')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult3" style="display: none">
-                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required" name="ReasonQ3" rows="13" cols="100" style="resize:none"></textarea>
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <section class="form-group">
                                     <h3>4.Please mark the satisfaction of project delivered (did the team deliver what they promised)<span style="color:red;">*</span>：</h3>
                                     <div>
                                         &ensp; Dissatisfied &ensp;
-                                        1 <input type="radio"  name="mark4" value="1">
-                                        2 <input type="radio"  name="mark4" value="2">
-                                        3 <input type="radio"  name="mark4" value="3">
-                                        4 <input type="radio"  name="mark4" value="4">
-                                        5 <input type="radio"  name="mark4" value="5">
+                                        1 <input type="radio"  name="result4" value="1">
+                                        2 <input type="radio"  name="result4" value="2">
+                                        3 <input type="radio"  name="result4" value="3">
+                                        4 <input type="radio"  name="result4" value="4">
+                                        5 <input type="radio"  name="result4" value="5">
                                         &ensp; Satisfied
                                         <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans4" onclick="starStr('result4',this.id,'lowResult4')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult4" style="display: none">
-                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
-                                    <textarea  class="form-control required" name="ReasonQ4" rows="13" cols="100" style="resize:none"></textarea>
+                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
                                 <section class="form-group" >
                                     <h3>5.Comment:</h3>
-                                    <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
+                                    <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
-                                <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >submit</button>
+
+                                <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
                             </form>
 
                             <!-- div th:unless="${passwordManagementEnabled}">
@@ -171,7 +174,25 @@
             </div>
         </main>
     </div>
-</section>
+</form>
+
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#buttonCHome").click(function(){
+            location.href = '/CHomePage';
+        });
+        $("#buttonCMark").click(function(){
+            location.href = '/CFeedback';
+        });
+        $("#buttonCProject").click(function(){
+            location.href = '/CProjectRelease';
+        });
+
+    });
+</script>
+
 
 
 <footer class="footer" role="contentinfo">
