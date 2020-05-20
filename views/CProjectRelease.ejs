@@ -20,10 +20,7 @@
         function startEdit(editableDiv){
             document.getElementById(editableDiv).disabled = false;;
         }
-        function stopEdit(editableDiv){
-            var element = document.getElementById(editableDiv);
-            element.disabled = true;
-        }
+
         function editableTrue() {
             startEdit('editableDiv');
             startEdit('projectName');
@@ -31,34 +28,11 @@
             document.getElementById('projectName').style.backgroundColor='white';
         }
 
-        function editableFalse() {
-            stopEdit('editableDiv');
-            stopEdit('projectName');
-            document.getElementById('editableDiv').style.backgroundColor='transparent';
-            document.getElementById('projectName').setAttribute('style','background-color: transparent!important;')
-        }
-
-        function Dtext()//输出数据
-        {
-            var data="Client|assssssssadads|2020|ML|ASDASDA|2020|Client|qweqeqeq|2020|ML|zxczxczxc|2020|";
-            var dataHtml = "";
-            var counter=0;
-            data=data.split("|");
-            counter=data.length-2;
-
-            var j=counter;
-
-            for(var i=counter/3;i>=0;i--){
-                dataHtml += "<p style=>" + data[counter-j]+":"+"<span style=\"float: right;\">"+data[counter-j+2]+"</span>" + "<br><textarea class=\"form-control required\" rows='5' cols='117' disabled = true style=\" margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;\">" + data[counter-j+1] + "</textarea>";
-                j=j-3;
-            }
-            document.getElementById("comment").innerHTML = dataHtml;
-        }
 
     </script>
 
 </head>
-<body onload="Dtext()">
+<body>
 <header role="banner">
     <div class="headcontainer">
 
@@ -73,7 +47,7 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button" type="button">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page3HomePage.html'">Home</button></li>
                 <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
                 <li class="list-group"><button class="functionBoard-Button">Schedule</button></li>
                 <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
@@ -82,80 +56,62 @@
     </div>
     </div>
     <div class="functionBoard right">
-            <main role="main" class="container mt-3 mb-3">
-                <div id="content" class="row">
-                    <div class="col-md"style="margin-bottom: 35px">
-                        <h2 class="projectScream title">Project management</h2>
-                          <div class="projectScream form" >
-                            <u1 class="projectScream item">
-                                <li class="list-group project">
-                                    <h3 style="margin-bottom: 20px;">Project Release:</h3>
-                                </li>
-                                <form class="list-group project" action="CProjectRelease" method="post">
-                                    <section class="form-group">
-                                        <h4>Project Name:</h4>
-                                        <div>
-                                            <input class="form-control required" id="projectName" style="background-color: transparent!important;" type="text"  name="projectName" value="" disabled = true>
-                                        </div>
-                                    </section>
-                                    <section class="form-group">
-                                        <h4>Project Description:</h4>
-                                        <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent"  name="projectContent"  disabled=true></textarea>
-                                    </section>
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+                <div class="col-md"style="margin-bottom: 35px">
+                    <h2 class="projectScream title">Project management</h2>
+                    <form method="post" class="projectScream form" >
+                        <u1 class="projectScream item">
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">Project Release:</h3>
+                            </li>
+                            <li class="list-group project">
+                                <section class="form-group">
+                                    <h4>Project Name:</h4>
                                     <div>
-                                    <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
-                                    <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableFalse()" style="float: left">Confirm</button>
-                                    <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Release</button>
+                                        <input class="form-control required" id="projectName" style="background-color: transparent!important;" type="text"  name="projectName" value="" disabled = true>
                                     </div>
-                                </form>
-                            </u1>
-                        </div>
-                        <div class="projectScream form">
-                            <u1 class="projectScream item">
-                                <li class="list-group project">
-                                    <h3 style="margin-bottom: 20px;">Message broad:</h3>
-                                </li>
-                                <li class="list-group project">
+                                </section>
+                                <section class="form-group">
+                                    <h4>Project Description:</h4>
+                                        <textarea  class="form-control required" id="editableDiv" name="projectContent" rows="13" cols="100" style="resize:none; background-color: transparent" disabled=true></textarea>
+                                </section>
+                                <div>
+                                    <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
+                                    <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Release</button>
+                                </div>
+                            </li>
+                        </u1>
+                    </form>
+                    <div class="projectScream form">
+                        <u1 class="projectScream item">
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">Message broad:</h3>
+                            </li>
+                            <li class="list-group project">
+                                <div id="comment"></div>
+                            </li>
 
-                                </li>
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;">Message:</h3>
+                            </li>
+                            <li class="list-group project">
 
-                                <li class="list-group project">
-                                    <h3 style="margin-bottom: 20px;">Message:</h3>
-                                </li>
-                                <li class="list-group project">
+                                <div>
+                                    <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                </div>
+                                <br>
+                                <div> <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Send</button></div>
+                            </li>
 
-                                        <div>
-                                            <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
-                                        </div>
-                                    <br>
-                                    <div> <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Send</button></div>
-                                </li>
-
-                            </u1>
-                        </div>
+                        </u1>
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
+    </div>
     </div>
 </section>
-
-<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        $("#buttonCHome").click(function(){
-            location.href = '/CHomePage';
-        });
-        $("#buttonCMark").click(function(){
-            location.href = '/CFeedback';
-        });
-        $("#buttonCProject").click(function(){
-            location.href = '/CProjectRelease';
-        });
-
-    });
-</script>
 
 
 

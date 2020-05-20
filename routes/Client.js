@@ -30,6 +30,8 @@ router.post('/CProjectRelease' , function(req, res,next) {
         //res.send(JSON.stringify(data))
         console.log(data)
     })
+
+   res.redirect('/CProjectRelease')
 });
 
 /* GET feedback . */
