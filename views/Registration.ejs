@@ -42,7 +42,19 @@
 
                                 <section class="form-group">
                                     <h3>Please enter your details:</h3>
+                                    <div>
+                                        <select  class="form-control required" style="background-color: #ced4da" id="sid" onchange="selectcity()">
+                                            <option>---please choose your identity---</option>
+                                            <option>student</option>
+                                            <option>facilitator</option>
+                                            <option>module leader</option>
+                                            <option>client</option>
+                                        </select>
+
+                                    </div>
+
                                     <label for="username">User name:</label>
+
                                     <div>
                                         <input class="form-control required" id="userName" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="userName" value="">
                                     </div>
@@ -59,13 +71,6 @@
                                     <label for="username">Confirm email address:</label>
                                     <div>
                                         <input class="form-control required" id="confirmEmil" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="confirmEmail" value="">
-                                    </div>
-                                </section>
-
-                                <section class="form-group">
-                                    <label for="username">Phone number:</label>
-                                    <div>
-                                        <input class="form-control required" id="phoneNum" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="phoneNum" value="">
                                     </div>
                                 </section>
 
