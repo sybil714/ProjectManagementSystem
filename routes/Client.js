@@ -10,6 +10,10 @@ router.get('/CHomePage',function (req,res) {
     res.render('CHomePage',{})
 });
 
+router.get('/CFeedback',function (req,res) {
+    res.render('CFeedback',{})
+});
+
 /* GET project . */
 router.get('/CProjectRelease',function (req,res) {
     res.render('CProjectRelease',{})
