@@ -6,6 +6,14 @@ const messageModel = require('../models/message');
 const projectModel=require('../models/project');
 const config = require('config-lite')(__dirname);
 
+router.get('/MLGroup', function(req, res) {
+    res.render('MLGroupManagement',{ } );
+});
+
+
+router.get('/MLHomePage', function(req, res) {
+    res.render('MLHomePage',{ } );
+});
 
 
 router.get('/MLViewProject' , function(req, res,) {
@@ -26,21 +34,27 @@ router.get('/MLViewProject' , function(req, res,) {
 });
 
 router.post('/MLViewProject', function(req, res,){
-    var data = req.body.comment
+    var data = {
+
+    }
     console.log(data)
+
 
 })
 
-router.get('/MLGroup', function(req, res) {
-    res.render('MLGroupManagement',{ } );
-});
 
 router.get('/MLProject', function(req, res) {
-    res.render('MLManagement',{ } );
+    Promise.all([
+        projectModel.getAllProject()
+    ])
+        .then( function (result) {
+            console.log(result)
+            res.render('MLProject' , {
+                projectList : result,
+            });
+        })
 });
-router.get('/MLHomePage', function(req, res) {
-    res.render('MLHomePage',{ } );
-});
+
 
 
 

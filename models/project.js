@@ -4,7 +4,7 @@ const project = mongo.projects;
 
 module.exports = {
 
-    getAllUsers: function getAllUsers() {
+    getAllProject: function getAllProject() {
         return project
             .find()
             .exec();
