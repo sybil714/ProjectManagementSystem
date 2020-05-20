@@ -88,9 +88,9 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button ">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button current">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLProject">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup">Group management</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
                 <li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
                 <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
@@ -154,6 +154,22 @@
         </main>
     </div>
 </form>
+
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#buttonMLHome").click(function(){
+            location.href = '/MLHomePage';
+        });
+        $("#buttonMLGroup").click(function(){
+            location.href = '/MLGroup';
+        });
+        $("#buttonMLProject").click(function(){
+            location.href = '/MLProject';
+        });
+    });
+</script>
 
 
 

@@ -5,5 +5,9 @@ router.get('/CHomePage', function(req, res) {
     res.render('CHomePage',{ } );
 });
 
+router.get('/CFeedback', function(req, res) {
+    res.render('Cfeedback',{ } );
+});
+
 
 module.exports = router;

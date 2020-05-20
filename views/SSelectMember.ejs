@@ -22,13 +22,12 @@
         <u1>
 
             <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page8StudentHomePage.html'">Home</button></li>
-            <li class="list-group"><button class="functionBoard-Button current">Member manmgement</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page10StudentSelectProject.html'">Project management</button></li>
-            <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page11GroupMarking.html'">Group marking</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonHome">Home</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMember">Member manmgement</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonProject">Project management</button></li>
+            <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking">Group marking</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
             <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
-            
         </u1>
         </div>
     </div>
@@ -95,6 +94,25 @@
 
 
 </form>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#buttonHome").click(function(){
+            location.href = '/SHomePage';
+        });
+        $("#buttonMember").click(function(){
+            location.href = '/SGroupMarking';
+        });
+        $("#buttonProject").click(function(){
+            location.href = '/SSelectProject';
+        });
+        $("#buttonMarking").click(function(){
+            location.href = '/SGroupMarking';
+        });
+    });
+</script>
+
 
 
 
