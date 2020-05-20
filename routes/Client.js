@@ -9,5 +9,10 @@ router.get('/CFeedback', function(req, res) {
     res.render('Cfeedback',{ } );
 });
 
+router.get('/CProjectRelease', function(req, res) {
+    res.render('CProjectRelease',{ } );
+});
+
+
 
 module.exports = router;
