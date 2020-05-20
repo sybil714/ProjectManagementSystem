@@ -3,7 +3,6 @@ const messages = mongo.messages;
 
 module.exports = {
 
-
     getAllMessages: function getAllMessages() {
         return messages
             .find()
