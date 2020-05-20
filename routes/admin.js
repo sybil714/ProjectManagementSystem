@@ -9,7 +9,7 @@ router.get('/Login',function (req,res) {
 });
 
 router.get('/Registration',function (req,res) {
-
+    res.render('Registration',{ })
 });
 
 
@@ -17,7 +17,7 @@ router.post('/Login',function (req,res) {
     var data= {
         emailAddress : req.body.emailAddress,
         password : req.body.password,
-    }
+    };
 
     var emailAddress=data.emailAddress;
     var passwordInputed=data.password;
@@ -28,15 +28,20 @@ router.post('/Login',function (req,res) {
             }
             else if(passwordInputed===result.password){
                 if(result.role==="Student"){
+                    req.session.user=result;
+                  //  console.log(req.session.user)
                     return res.redirect('/SHomePage')
                 }
                 else if(result.role==="Facilitator"){
+                    req.session.user=result;
                     return res.redirect('/FHomePage')
                 }
                 else if(result.role==="Module Leader"){
+                    req.session.user=result;
                     return res.redirect('/MLHomePage')
                 }
                 else if(result.role==="Client"){
+                    req.session.user=result;
                     return res.redirect('/CHomePage')
                 }
             }
@@ -47,6 +52,7 @@ router.post('/Login',function (req,res) {
 
 
 });
+
 
 
 module.exports = router;

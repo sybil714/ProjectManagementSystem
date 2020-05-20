@@ -40,9 +40,23 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+/*
+app.get('*',function (req,res,next) {
+  var user = req.session.user;
+  var path=req.path
+  console.log(user)
+  if(path !='/Login'&& path !='/Registration'){
+    if(!user){
+    res.redirect('/Login')
+    }
+  }
+  next()
+})
+*/
+
 app.use('/', require('./routes/test'));
 app.use('/', require('./routes/MLViewProject'));
-app.use('/', require('./routes/CProjectRelease'));
+app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Student'));
 app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Facilitator'));
