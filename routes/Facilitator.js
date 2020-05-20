@@ -11,7 +11,7 @@ router.get('/FHomePage', function(req, res) {
 
 /* GET feedback . */
 router.get('/FGroupMarking',function (req,res) {
-    res.render('FGroupMarking',{})
+    res.render('FGroupMarking',{ })
 
     router.post('/FGroupMarking' , function(req, res,next) {
 
