@@ -5,7 +5,7 @@ const projects = mongo.projects;
 const feedbacks = mongo.feedbacks;
 
 /* GET homepage . */
-//
+
 router.get('/CHomePage',function (req,res) {
     res.render('CHomePage',{})
 });
@@ -21,9 +21,9 @@ router.get('/CProjectRelease',function (req,res) {
 
 router.post('/CProjectRelease' , function(req, res,next) {
     var data = {
+        publisherID:req.session.user._id,
         projectName: req.body.projectName,
         projectContent: req.body.projectContent,
-
     }
 
     var project = new projects(data)
@@ -38,13 +38,12 @@ router.post('/CProjectRelease' , function(req, res,next) {
 /* GET feedback . */
 router.get('/CFeedback',function (req,res) {
     res.render('CFeedback',{})
-
 });
 
 router.post('/CFeedback' , function(req, res,next) {
 
     var data2 = {
-
+        clientID:req.session.user._id,
         mark1: req.body.mark1,
         ReasonQ1: req.body.ReasonQ1,
         mark2: req.body.mark2,

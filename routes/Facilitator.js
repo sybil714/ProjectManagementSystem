@@ -12,11 +12,12 @@ router.get('/FHomePage', function(req, res) {
 /* GET feedback . */
 router.get('/FGroupMarking',function (req,res) {
     res.render('FGroupMarking',{ })
+});
 
-    router.post('/FGroupMarking' , function(req, res,next) {
+router.post('/FGroupMarking' , function(req, res,next) {
 
         var data2 = {
-
+            facilitatorID:req.session.user._id,
             meeting:req.body.meeting,
             mark1: req.body.mark1,
             reason1: req.body.reason1,
@@ -31,10 +32,11 @@ router.get('/FGroupMarking',function (req,res) {
             console.log(data2)
 
         })
+
         res.redirect('/FHomePage')
     });
 
-});
+
 
 module.exports = router;
 

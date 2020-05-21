@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module Leader Services</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <script>
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(inuptId,outputId){
+            var sel_val1=document.getElementById(inuptId).value;
+            if (sel_val1>4) {hidden(outputId);}
+            if (sel_val1<=4) {show(outputId);}
+        }
+        function starStr(result,save,lowResult){
+            var points=document.getElementsByName(result);
+            var value=0;
+            for(var i=0;i<points.length;i++){
+                if(points[i].checked==true){
+                    value=points[i].value;
+                    break;
+                }
+            }
+            document.getElementById(save).value=value;
+            eJect(save,lowResult);
+        }
+    </script>
+</head>
+<body>
+<header role="banner">
+    <div class="headcontainer">
+        <div class="page-title">
+            Module Leader services
+        </div>
+        <div class="page-title">
+            Account
+            <br>show email</br>
+        </div>
+    </div>
+</header>
+
+<section class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+<h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
+<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLProject" onclick="location.href='/MLProject'">Project management</button></li>
+<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroup'">Group management</button></li>
+<li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLMarking" onclick="location.href='/MLGroupMarking'">Marking</button></li>
+<li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+<li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
+<li class="list-group"><button class="functionBoard-Button">Marking</button></li>
+   </u1>
+        </div>
+    </div>
+
+    </div>
+    <div class="functionBoard right">
+       <main role="main" class="container mt-3 mb-3">
+
+               <div id="content" class="row">
+
+                       <div class="col-md">
+
+                           <div class="card">
+
+                               <div class="card-header text-center">
+
+                                        <h2> Group marking </h2>
+                                </div>
+
+                           <form class="card-body" action="MLGroupMarking" method="post">
+
+
+                            <section class="form-group">
+                              <h3>1.Select a group:
+                                   <select>
+                                    <option value="group1">group1</option>
+                                    <option value="group2">group2</option>
+                                    <option value="group3">group3</option>
+                                    <option value="group4">group4</option>
+                                    <option value="group5">group5</option>
+                                    <option value="group6">group6</option>
+                                    </select>
+                              </h3>
+                           </section>
+
+                           <section class="form-group">
+                             <h3>2.Please mark the satisfaction of the group’s team organisation:<span style="color:red;">*</span>：</h3>
+                             <div>
+                               &ensp; Dissatisfied &ensp;
+                                               1 <input type="radio"  name="mark1" value="1">
+                                               2 <input type="radio"  name="mark1" value="2">
+                                               3 <input type="radio"  name="mark1" value="3">
+                                               4 <input type="radio"  name="mark1" value="4">
+                                               5 <input type="radio"  name="mark1" value="5">
+                                               &ensp; Satisfied
+                                               <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('mark1',this.id,'lowResult1')" >save</button>
+                                           </div>
+                              </section>
+
+                             <section class="form-group" id="lowResult1" style="display: none">
+                                           <h3>Give the reason for less than 4 points<span style="color:red;">*</span>:</h3>
+                                           <textarea  class="form-control required" name="reason1" rows="13" cols="100" style="resize:none"></textarea>
+                             </section>
+
+                                <section class="form-group">
+                                           <h3>3.Please mark the satisfaction of the group’s testing performance:<span style="color:red;">*</span>：</h3>
+                                           <div>
+                                               &ensp; Dissatisfied &ensp;
+                                               1 <input type="radio"  name="mark2" value="1">
+                                               2 <input type="radio"  name="mark2" value="2">
+                                               3 <input type="radio"  name="mark2" value="3">
+                                               4 <input type="radio"  name="mark2" value="4">
+                                               5 <input type="radio"  name="mark2" value="5">
+                                               &ensp; Satisfied
+                                               <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('mark2',this.id,'lowResult2')" >save</button>
+                                           </div>
+                                       </section>
+
+                                       <section class="form-group" id="lowResult2" style="display: none">
+                                           <h3>Give the reason for less than 4 points<span style="color:red;">*</span>:</h3>
+                                           <textarea  class="form-control required" name="reason2" rows="13" cols="100" style="resize:none"></textarea>
+                                       </section>
+
+                                       <section class="form-group">
+                                           <h3>4.Please mark the satisfaction of how the team solve problems: <span style="color:red;">*</span>：</h3>
+                                           <div>
+                                               &ensp; Dissatisfied &ensp;
+                                               1 <input type="radio"  name="mark3" value="1">
+                                               2 <input type="radio"  name="mark3" value="2">
+                                               3 <input type="radio"  name="mark3" value="3">
+                                               4 <input type="radio"  name="mark3" value="4">
+                                               5 <input type="radio"  name="mark3" value="5">
+                                               &ensp; Satisfied
+                                               <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans3" onclick="starStr('mark3',this.id,'lowResult3')" >save</button>
+                                           </div>
+                                       </section>
+                                       <section class="form-group" id="lowResult3" style="display: none">
+                                           <h3>Give the reason for less than 4 points<span style="color:red;">*</span>:</h3>
+                                           <textarea  class="form-control required" name="reason3" rows="13" cols="100" style="resize:none"></textarea>
+                                       </section>
+
+                                        <section class="form-group">
+                                            <h3>5.Please mark the satisfaction of team's final presentation: <span style="color:red;">*</span>：</h3>
+                                            <div>
+                                                &ensp; Dissatisfied &ensp;
+                                                1 <input type="radio"  name="mark4" value="1">
+                                                2 <input type="radio"  name="mark4" value="2">
+                                                3 <input type="radio"  name="mark4" value="3">
+                                                4 <input type="radio"  name="mark4" value="4">
+                                                5 <input type="radio"  name="mark4" value="5">
+                                                &ensp; Satisfied
+                                                <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans4" onclick="starStr('mark4',this.id,'lowResult4')" >save</button>
+                                            </div>
+                                        </section>
+                                        <section class="form-group" id="lowResult4" style="display: none">
+                                            <h3>Give the reason for less than 4 points<span style="color:red;">*</span>:</h3>
+                                            <textarea  class="form-control required" name="reason4" rows="13" cols="100" style="resize:none"></textarea>
+                                        </section>
+
+
+                                       <section class="form-group" >
+                                           <h3>6.Comment:</h3>
+                                           <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
+                                       </section>
+
+                                       <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
+                            </form>
+                   </div>
+       </div>
+       </div>
+       </main>
+       </div>
+       </section>
+
+       <footer class="footer" role="contentinfo">
+           <div class="container">
+               <span id="copyright">Copyright © SSITteam4</span>
+           </div>
+       </footer>
+       </body>
+       </html>

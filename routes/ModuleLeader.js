@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const mongo = require('../lib/mongo');
 const userModel = require('../models/user');
 const messageModel = require('../models/message');
 const projectModel=require('../models/project');
 const config = require('config-lite')(__dirname);
 const URL=require('url');
+const markings = mongo.markings;
 
 router.get('/MLGroupManagement', function(req, res) {
     res.render('MLGroupManagement',{ } );
@@ -78,8 +80,42 @@ router.post('/MLViewProject', function(req, res,){
     }
     console.log(data)
 
-
 })
+
+/**
+ * The page of MLGroupMarking is written for module leader to mark student groups,
+ * if the mark is below 4, it will record the reason
+ */
+
+router.get('/MLGroupMarking', function(req, res) {
+    res.render('MLGroupMarking',{ } );
+});
+
+router.post('/MLGroupMarking' , function(req, res,next) {
+
+    var data3 = {
+        moduleLeaderID:req.session.user._id,
+        mark1: req.body.mark1,
+        reason1: req.body.reason1,
+        mark2: req.body.mark2,
+        reason2: req.body.reason2,
+        mark3: req.body.mark3,
+        reason3: req.body.reason3,
+        mark4: req.body.mark4,
+        reason4: req.body.reason4,
+        Comments: req.body.Comments,
+    }
+
+    var marking = new markings(data3)
+    marking.save(function (err,res) {
+        //res.send(JSON.stringify(data))
+        console.log(data3)
+    })
+
+
+    res.redirect('/MLHomePage')
+});
+
 
 
 module.exports = router;
