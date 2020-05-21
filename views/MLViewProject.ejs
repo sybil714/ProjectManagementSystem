@@ -59,12 +59,13 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button ">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button ">Group management</button></li>
-                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://accounts.google.com/ServiceLogin/signinchooser?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin'">Schedule</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLProject" onclick="location.href='/MLProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroupManagement'">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLMarking" onclick="location.href='/MLGroupMarking'">Marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
                 <li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
             </u1>
         </div>
     </div>
@@ -104,8 +105,8 @@
                             </li>
                             <li class="list-group project">
                                 <%for(let i = 0; i < messageList.length ;i++) { %>
-                                    <%=messageList[i].senderID.userName%>
-                                    <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
+                                <a> <%=messageList[i].senderID.userName%><span style="float: right"> <%=messageList[i].date%></span> </a>
+                                <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
                                 <br>
                                 <% } %>
                             </li>
@@ -115,10 +116,10 @@
                             </li>
                             <li class="list-group project">
 
-                                <form action="/MLViewProject" method="post">
-                                        <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                <form  method="post">
+                                        <textarea name="comment" class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
                                     <br>
-                                <div> <button class="btn btn-block btn-submit button button--primary smaller" name="comment" type="submit" value="true" >Send</button></div>
+                                <div> <button class="btn btn-block btn-submit button button--primary smaller" name="commentSubmit" type="submit" value="true" >Send</button></div>
                                 </form>
                             </li>
 
