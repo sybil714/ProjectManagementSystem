@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var router = express.Router();
 const userModel = require('../models/user');
@@ -100,16 +102,22 @@ router.post('/Registration',function (req,res) {
             email: emailAddress,
             role: role,
         };
-    /*userModel.getUsersByEmail(emailAddress)
+
+    userModel.getUsersByEmail(emailAddress)
         .then(function (result) {
-            if(result){
+            console.log(result.email === newUser2.email)
+            if(result.email === newUser2.email){
                 return res.render('Registration',{tips: 'This email address has been registered!'})
-            }*/
-        var user = new users(newUser2)
-        user.save(function (err, res) {
-            console.log(newUser2);
-        })
-    return res.render('Login',{tips: 'Successfully registered!'})
+            }else{
+                var user = new users(newUser2)
+                user.save(function (err, res) {
+                    console.log(newUser2);
+                })
+                return res.render('Login',{tips: 'Successfully registered!'})
+            }
+            });
+
+
 });
 
 //
