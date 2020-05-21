@@ -108,15 +108,14 @@
                             <li class="list-group project">
                                 <h3 style="margin-bottom: 20px;">Message:</h3>
                             </li>
-                            <li class="list-group project">
+                            <form method="post" class="list-group project">
 
                                 <div>
-                                    <textarea class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                    <textarea name="comment"  class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
                                 </div>
                                 <br>
-                                <div> <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Send</button></div>
-                            </li>
-
+                                <div> <button name="commentSubmit" class="btn btn-block btn-submit button button--primary smaller" value="true" type="submit"  >Send</button></div>
+                            </form>
                         </u1>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ const feedbacks = mongo.feedbacks;
 const messageModel = require('../models/message');
 const projectModel=require('../models/project');
 const URL=require('url');
+const messages=mongo.messages;
 
 /* GET homepage . */
 
@@ -39,7 +40,7 @@ router.get('/CProjectRelease',function (req,res) {
 
             let messageList=[];
             messageList=result[0];
-            console.log(result[1])
+           // console.log(result[1])
             res.render('CProjectRelease' , {
                 messageList : messageList,
                 project:result[1],
@@ -65,44 +66,66 @@ router.post('/CProjectRelease' , function(req, res,next) {
             //res.send(JSON.stringify(data))
             //console.log(data)
         })
+
+
     } else{
 
-       projectModel.getProjectByProjectID(getProjectID)
-           .then(function (result) {
-               //console.log(result.projectName)
-               var originalData = {
-                   projectName:result.projectName,
-                   projectContent:result.projectContent,
-               }
-               console.log(originalData);
-               var newData={
-                   projectName: req.body.projectName,
-                   projectContent: req.body.projectContent,
-               }
+        console.log(req.body.commentSubmit)
+        if(req.body.commentSubmit) {
+            console.log(getProjectID);
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            var date = day + '/' + month + '/ ' + year + '  ' + hour + ':' + minute + ':' + second;
+            //console.log(date)
+            var commentData = {
+                projectID: getProjectID,
+                senderID: req.session.user._id,
+                content: req.body.comment,
+                date: date,
+            };
+            console.log(commentData)
+            var message = new messages(commentData)
+            message.save(function (err, res) {
+            })
 
-               projects.updateOne(originalData,newData,function (err,res) {
-                   if(err){
-                       console.log(err);
-                       return;
-                   }
-                   console.log('Update success!');
-               })
+            var returnURL = '/CProjectRelease?' + URL.parse(req.url).query;
+            res.redirect(returnURL)
+        }
 
-           })
+        projectModel.getProjectByProjectID(getProjectID)
+            .then(function (result) {
+                //console.log(result.projectName)
+                var originalData = {
+                    projectName:result.projectName,
+                    projectContent:result.projectContent,
+                };
+                //console.log(originalData);
+                var newData={
+                    projectName: req.body.projectName,
+                    projectContent: req.body.projectContent,
+                };
+
+                projects.updateOne(originalData,newData,function (err,res) {
+                    if(err){
+                        //console.log(err);
+                        return;
+                    }
+                    console.log('Update success!');
+                });
+                var returnURL='/CProjectManagement?'+URL.parse(req.url).query;
+                res.redirect(returnURL)
+            })
+
 
     }
 
 
-    var commentData = {
-        projectID: getProjectID,
-        senderID: req.session.user._id,
-        content:req.body.comment,
-        //date:date,
-    };
-
-    res.redirect('/CProjectManagement')
-
-});
+    });
 
 
 
@@ -134,12 +157,6 @@ router.get('/CProjectManagement' , function(req, res,) {
 
     req.query.projectID;
 });
-
-
-
-
-
-
 
 
 
