@@ -39,19 +39,17 @@
         </div>
     </div>
 </header>
-
-<section class="functionBoard">
+<section  class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
-<h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
-<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLProject" onclick="location.href='/MLProject'">Project management</button></li>
-<li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroup'">Group management</button></li>
-<li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLMarking" onclick="location.href='/MLGroupMarking'">Marking</button></li>
-<li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
-<li class="list-group"><button class="functionBoard-Button">Announcements</button></li>
-
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLProject" onclick="location.href='/MLProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroupManagement" onclick="location.href='/MLGroupManagement'">Group management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLAnnouncement" onclick="location.href='/MLAnnouncement'">Announcements</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLMarking" onclick="location.href='/MLGroupMarking'">Marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
    </u1>
             <button class="functionBoard-Button" style="float:left;margin-top: 200%" type="button"  onclick="location.href='/logout'">Logout</button>
 
@@ -59,25 +57,18 @@
     </div>
 
     </div>
+
     <div class="functionBoard right">
        <main role="main" class="container mt-3 mb-3">
-
                <div id="content" class="row">
-
                        <div class="col-md">
-
                            <div class="card">
-
                                <div class="card-header text-center">
-
                                         <h2> Group marking </h2>
                                 </div>
-
                            <form class="card-body" action="MLGroupMarking" method="post">
-
-
                             <section class="form-group">
-                              <h3>1.Select a group:
+                              <h3>Select a group:
                                    <select>
                                     <option value="group1">group1</option>
                                     <option value="group2">group2</option>
@@ -88,9 +79,9 @@
                                     </select>
                               </h3>
                            </section>
-
+                             <h3 color="black"><a href=''>View client's feedback</a></h3>
                            <section class="form-group">
-                             <h3>2.Please mark the satisfaction of the group’s team organisation:<span style="color:red;">*</span>：</h3>
+                             <h3>1.Please mark the satisfaction of the group’s team organisation:<span style="color:red;">*</span>：</h3>
                              <div>
                                &ensp; Dissatisfied &ensp;
                                                1 <input type="radio"  name="mark1" value="1">
@@ -109,7 +100,7 @@
                              </section>
 
                                 <section class="form-group">
-                                           <h3>3.Please mark the satisfaction of the group’s testing performance:<span style="color:red;">*</span>：</h3>
+                                           <h3>2.Please mark the satisfaction of the group’s testing performance:<span style="color:red;">*</span>：</h3>
                                            <div>
                                                &ensp; Dissatisfied &ensp;
                                                1 <input type="radio"  name="mark2" value="1">
@@ -128,7 +119,7 @@
                                        </section>
 
                                        <section class="form-group">
-                                           <h3>4.Please mark the satisfaction of how the team solve problems: <span style="color:red;">*</span>：</h3>
+                                           <h3>3.Please mark the satisfaction of how the team solve problems: <span style="color:red;">*</span>：</h3>
                                            <div>
                                                &ensp; Dissatisfied &ensp;
                                                1 <input type="radio"  name="mark3" value="1">
@@ -146,7 +137,7 @@
                                        </section>
 
                                         <section class="form-group">
-                                            <h3>5.Please mark the satisfaction of team's final presentation: <span style="color:red;">*</span>：</h3>
+                                            <h3>4.Please mark the satisfaction of team's final presentation: <span style="color:red;">*</span>：</h3>
                                             <div>
                                                 &ensp; Dissatisfied &ensp;
                                                 1 <input type="radio"  name="mark4" value="1">
@@ -165,18 +156,18 @@
 
 
                                        <section class="form-group" >
-                                           <h3>6.Comment:</h3>
+                                           <h3>5.Comment:</h3>
                                            <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
                                        </section>
 
                                        <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
                             </form>
                    </div>
-       </div>
-       </div>
+         </div>
+        </div>
        </main>
-       </div>
-       </section>
+    </div>
+</section >
 
        <footer class="footer" role="contentinfo">
            <div class="container">

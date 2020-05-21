@@ -39,7 +39,6 @@
         }
 
     </script>
-
 </head>
 <body >
 <header role="banner">
@@ -54,15 +53,15 @@
     </div>
 </header>
 
-<section class="functionBoard">
+<form  class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLHome" onclick="location.href='/MLHomePage'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLProject" onclick="location.href='/MLProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLProject" onclick="location.href='/MLProjectManagement'">Project management</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLGroup" onclick="location.href='/MLGroupManagement'">Group management</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLAnnouncement" onclick="location.href='/MLAnnouncement'">Announcements</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMLAnnouncement" onclick="location.href='/MLAnnouncement'">Announcements</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMLMarking" onclick="location.href='/MLGroupMarking'">Marking</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
 
@@ -70,46 +69,25 @@
             <button class="functionBoard-Button" style="float:left;margin-top: 200%" type="button"  onclick="location.href='/logout'">Logout</button>
         </div>
     </div>
+
     </div>
     <div class="functionBoard right">
         <main role="main" class="container mt-3 mb-3">
             <div id="content" class="row">
                 <div class="col-md"style="margin-bottom: 35px">
                     <h2 class="projectScream title">Project management</h2>
-                    <div class="projectScream form" >
-                        <u1 class="projectScream item">
-                            <li class="list-group project">
-                                <h3 style="margin-bottom: 20px;">View the project :</h3>
-                            </li>
-                            <li class="list-group project">
 
-                                    <div >
-                                    <p> <h4>Project Name: <%=project.projectName%><span id="getProjectName"></span></h4></p>
-                                    <p> <h4>Publisher: <%=project.publisherID.userName%> <span id="getProjectPublisher"></span></h4></p>
-                                    </div>
-                                <section class="form-group">
-                                    <h4>Description:</h4>
-                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; border: 0px!important; " disabled=true; ><%=project.projectContent%></textarea>
-                                </section>
-                                <div>
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Save" >
-                                </div>
-                                <div style="margin-top: 10px">
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Pending" >
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Accept" >
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right "value="Reject">
-                                </div>
-                            </li>
-                        </u1>
-                    </div>
+
                     <div class="projectScream form">
                         <u1 class="projectScream item">
                             <li class="list-group project">
                                 <h3 style="margin-bottom: 20px;">Message broad:</h3>
                             </li>
+
+
                             <li class="list-group project">
                                 <%for(let i = 0; i < messageList.length ;i++) { %>
-                                <a> <%=messageList[i].senderID.userName%><span style="float: right"> <%=messageList[i].date%></span> </a>
+                                <a> <%=messageList[i].senderID.userName%><span style="float: right">aaaaa <%=messageList[i].date%></span> </a>
                                 <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
                                 <br>
                                 <% } %>
@@ -118,12 +96,25 @@
                             <li class="list-group project">
                                 <h3 style="margin-bottom: 20px;">Message:</h3>
                             </li>
+
+                            <li class="list-group project">
+                                <h3 style="margin-bottom: 20px;"> Select all:
+                                    <select>
+
+                                        <option value="Facilitator">Facilitators</option>
+                                        <option value="Client">Clients</option>
+                                        <option value="Student">Students</option>
+
+                                    </select>
+                                </h3>
+                            </li>
+
                             <li class="list-group project">
 
                                 <form  method="post">
-                                        <textarea name="comment" class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
+                                    <textarea name="comment" class="form-control required" rows="13" cols="100" style="resize:none; background-color: white"></textarea>
                                     <br>
-                                <div> <button class="btn btn-block btn-submit button button--primary smaller" name="commentSubmit" type="submit" value="true" >Send</button></div>
+                                    <div> <button class="btn btn-block btn-submit button button--primary smaller" name="commentSubmit" type="submit" value="true" >Send</button></div>
                                 </form>
                             </li>
 
@@ -135,7 +126,7 @@
         </main>
     </div>
     </div>
-</section>
+</form >
 
 
 

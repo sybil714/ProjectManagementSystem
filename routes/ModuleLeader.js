@@ -160,6 +160,9 @@ router.post('/MLGroupMarking' , function(req, res,next) {
     }
 });
 
+router.get('/MLAnnouncement', function(req, res) {
+    res.render('MLAnnouncement',{messageList:'' } );
+});
 
 
 module.exports = router;
