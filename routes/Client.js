@@ -3,6 +3,9 @@ const router = express.Router();
 const mongo = require('../lib/mongo');
 const projects = mongo.projects;
 const feedbacks = mongo.feedbacks;
+const messageModel = require('../models/message');
+const projectModel=require('../models/project');
+const URL=require('url');
 
 /* GET homepage . */
 
@@ -10,39 +13,137 @@ router.get('/CHomePage',function (req,res) {
     res.render('CHomePage',{})
 });
 
-router.get('/CFeedback',function (req,res) {
-    res.render('CFeedback',{})
-});
-
 /* GET project . */
 router.get('/CProjectRelease',function (req,res) {
-    res.render('CProjectRelease',{})
+    var url=URL.parse(req.url,true).query;
+    var getProjectID=url.projectID;
+     //console.log(getProjectID)
+    if(!getProjectID){
+        var projectList={
+
+        }
+        var messageList={
+
+        }
+
+        res.render('CProjectRelease' , {
+            messageList : projectList,
+            project:messageList,
+        });
+    }else{
+        Promise.all([
+        messageModel.getMessageByProjectID(getProjectID),
+        projectModel.getProjectByProjectID(getProjectID)
+    ])
+        .then( function (result) {
+
+            let messageList=[];
+            messageList=result[0];
+            console.log(result[1])
+            res.render('CProjectRelease' , {
+                messageList : messageList,
+                project:result[1],
+            });
+
+        })}
+
 });
 
-router.post('/CProjectRelease' , function(req, res,next) {
-    var data = {
-        publisherID:req.session.user._id,
-        projectName: req.body.projectName,
-        projectContent: req.body.projectContent,
-    }
 
-    var project = new projects(data)
-    project.save(function (err,res) {
-        //res.send(JSON.stringify(data))
-        console.log(data)
-    })
+router.post('/CProjectRelease' , function(req, res,next) {
+    var url=URL.parse(req.url,true).query;
+    var getProjectID=url.projectID;
+    if(!getProjectID){
+        var data = {
+            publisherID:req.session.user._id,
+            projectName: req.body.projectName,
+            projectContent: req.body.projectContent,
+        }
+
+        var project = new projects(data)
+        project.save(function (err,res) {
+            //res.send(JSON.stringify(data))
+            //console.log(data)
+        })
+    } else{
+
+       projectModel.getProjectByProjectID(getProjectID)
+           .then(function (result) {
+               //console.log(result.projectName)
+               var originalData = {
+                   projectName:result.projectName,
+                   projectContent:result.projectContent,
+               }
+               console.log(originalData);
+               var newData={
+                   projectName: req.body.projectName,
+                   projectContent: req.body.projectContent,
+               }
+
+               projects.updateOne(originalData,newData,function (err,res) {
+                   if(err){
+                       console.log(err);
+                       return;
+                   }
+                   console.log('Update success!');
+               })
+
+           })
+
+    }
 
 
     var commentData = {
         projectID: getProjectID,
         senderID: req.session.user._id,
         content:req.body.comment,
-        date:date,
-    }
+        //date:date,
+    };
 
-   res.redirect('/CProjectRelease')
+    res.redirect('/CProjectManagement')
 
 });
+
+
+
+
+
+router.get('/CProjectManagement' , function(req, res,) {
+
+    Promise.all([
+        projectModel.getProjectByPublishID(req.session.user._id)
+    ])
+        .then(function (result) {
+            if (!result[0][0]) {
+                var projectList=[{
+                    _id:null,
+                    projectName: null,
+                    projectContent:'',
+                }]
+               // console.log(projectList)
+                res.render('CProjectManagement', {
+                    projectList: projectList,
+                });
+            } else {
+            //console.log(result)
+            res.render('CProjectManagement', {
+                projectList: result[0],
+            });
+            }
+        })
+
+    req.query.projectID;
+});
+
+
+
+
+
+
+
+
+
+
 
 /* GET feedback . */
 router.get('/CFeedback',function (req,res) {

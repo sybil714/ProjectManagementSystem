@@ -15,5 +15,12 @@ module.exports = {
             .findById(id)
             .populate("publisherID")
             .exec();
+    },
+
+    getProjectByPublishID: function (id) {
+        return project
+            .find({publisherID: id})
+            .populate("publisherID")
+            .exec();
     }
 };

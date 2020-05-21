@@ -18,7 +18,9 @@
             var oldRecord;
         }
         function startEdit(editableDiv){
-            document.getElementById(editableDiv).disabled = false;;
+            document.getElementById(editableDiv).disabled = false;
+            document.getElementById('submit').style.display="inline";
+
         }
 
         function editableTrue() {
@@ -52,7 +54,7 @@
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCHome" onclick="location.href='/CHomePage'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonCProject" onclick="location.href='/CProjectRelease'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonCProject" onclick="location.href='/CProjectManagement'">Project management</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCMark" onclick="location.href='/CFeedback'">Marking</button></li>
             </u1>
@@ -75,27 +77,32 @@
                                 <section class="form-group">
                                     <h4>Project Name:</h4>
                                     <div>
-                                        <input class="form-control required" id="projectName" style="background-color: transparent!important;" type="text"  name="projectName" value="" disabled = true>
+                                        <input class="form-control required" id="projectName" style="background-color: transparent!important;" type="text"  name="projectName" value="<%=project.projectName%>" disabled = true>
                                     </div>
                                 </section>
                                 <section class="form-group">
                                     <h4>Project Description:</h4>
-                                        <textarea  class="form-control required" id="editableDiv" name="projectContent" rows="13" cols="100" style="resize:none; background-color: transparent" disabled=true></textarea>
+                                        <textarea  class="form-control required" id="editableDiv" name="projectContent" rows="13" cols="100" style="resize:none; background-color: transparent" disabled=true><%=project.projectContent%></textarea>
                                 </section>
+
                                 <div>
                                     <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
-                                    <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Release</button>
+                                    <button id="submit" class="btn btn-block btn-submit button button--primary smaller" style="display: none" type="submit"  >Release</button>
                                 </div>
                             </li>
                         </u1>
                     </form>
-                    <form class="projectScream form">
+                    <div class="projectScream form">
                         <u1 class="projectScream item">
                             <li class="list-group project">
                                 <h3 style="margin-bottom: 20px;">Message broad:</h3>
                             </li>
                             <li class="list-group project">
-                                <div id="comment"></div>
+                                <%for(let i = 0; i < messageList.length ;i++) { %>
+                                <a> <%=messageList[i].senderID.userName%><span style="float: right"> <%=messageList[i].date%></span> </a>
+                                <textarea class="form-control required" style="color: black!important; background-color: transparent!important;" disabled = true rows='3' cols='117'><%=messageList[i].content%></textarea>
+                                <br>
+                                <% } %>
                             </li>
 
                             <li class="list-group project">
@@ -111,7 +118,7 @@
                             </li>
 
                         </u1>
-                    </form>
+                    </div>
                 </div>
             </div>
         </main>

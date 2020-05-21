@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Project management</title>
-    <link rel="stylesheet" href="CSS/PagesStyle.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script language="javascript">
         function projectNameDisplay() {
             var projectName=document.getElementById('projectName');
-            if(projectName.innerHTML.length==0){
+            //alert(projectName.innerText)
+            if(!projectName.innerText){
                 document.getElementById('isProjectName').innerHTML="You have not release any project! You can press the button below to release your project.";
                 document.getElementById("releaseProject").style.display='inline';
             }
@@ -30,10 +31,10 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page3HomePage.html'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button">Schedule</button></li>
-                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonCHome" onclick="location.href='/CHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button " type="button" id="buttonCProject" onclick="location.href='/CProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+                <li class="list-group"><button class="functionBoard-Button " type="button" id="buttonCMark" onclick="location.href='/CFeedback'">Marking</button></li>
             </u1>
             <button class="functionBoard-Button" style="float:left;margin-top: 200%" type="button"  onclick="location.href='/logout'">Logout</button>
 
@@ -48,11 +49,12 @@
                     <div class="projectScream form">
                         <u1 class="projectScream item">
                             <li class="list-group project" id="isProjectName">
-                                Your project is following below:
-                                <a id="projectName" href="Page4ProjectRelease.html"></a>
+                                Your released project is following below:
+                                <a id="projectName" name="link" role="button" style='text-decoration: none; ' href='/CProjectRelease?projectID=<%= projectList[0]._id%>'> <%=projectList[0].projectName%> <span style=" float: right;  margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;"></span>
+                                </a>
                             </li>
                             <li class="list-group project">
-                                <button class="btn btn-block btn-submit button button--primary " id="releaseProject" type="button" onclick="location.href='Page4ProjectRelease.html'" style="display: none; margin-top: 20px" >Release a project</button>
+                                <button class="btn btn-block btn-submit button button--primary " id="releaseProject" type="button" onclick="location.href='/CProjectRelease'" style="display: none; margin-top: 20px" >Release a project</button>
                             </li>
                         </u1>
                     </div>
