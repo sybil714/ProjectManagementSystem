@@ -20,8 +20,8 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonLogin">Login</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" id="buttonRegist">Register</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonLogin" onclick="location.href='/Login'">Login</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonRegist" onclick="location.href='/Registration'">Register</button></li>
 
             </u1>
         </div>
@@ -41,14 +41,15 @@
                             <form action="/Registration" method="post" id="fm1" >
 
                                 <section class="form-group">
+                                    <div style="color: red;"><%= tips%></div>
                                     <h3>Please enter your details:</h3>
                                     <div>
-                                        <select  class="form-control required" style="background-color: rgb(232, 240, 254) !important;" id="sid" onchange="selectcity()">
+                                        <select  class="form-control required" style="background-color: rgb(232, 240, 254) !important;" id="sid" name="role"  onchange="selectcity()">
                                             <option>---please choose your identity---</option>
-                                            <option>student</option>
-                                            <option>facilitator</option>
-                                            <option>module leader</option>
-                                            <option>client</option>
+                                            <option>Student</option>
+                                            <option>Facilitator</option>
+                                            <option>Module Leader</option>
+                                            <option>Client</option>
                                         </select>
 
                                     </div>
@@ -100,18 +101,10 @@
                                 <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
                                 <p/>
                             </div -->
-                               <script type="text/javascript" src="javascripts/jquery.min.js"></script>
-                                <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-                                <script type="text/javascript">
-                                    $(function(){
-                                        $("#buttonLogin").click(function(){
-                                            location.href = '/Login';
-                                        });
-                                        $("#buttonRegist").click(function(){
-                                            location.href = '/Regist';
-                                        });
-                                    });
-                                </script>
+
+                            <!--
+
+
                                 <script type="text/javascript">
                                 /*<![CDATA[*/
                                 var i = "One moment please..."
@@ -124,7 +117,7 @@
                                     });
                                 });
                             </script>
-
+  -->
                             </div>
                         </div>
 

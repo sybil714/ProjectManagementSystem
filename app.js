@@ -39,6 +39,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/logout",indexRouter );
 
 
 /*******This is a login blocking function.
