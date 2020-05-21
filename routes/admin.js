@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const userModel = require('../models/user');
+const mongo = require('../lib/mongo');
+const users = mongo.users;
 
 /* GET home page. */
 
@@ -9,7 +11,7 @@ router.get('/Login',function (req,res) {
 });
 
 router.get('/Registration',function (req,res) {
-    res.render('Registration',{ })
+    res.render('Registration',{tips: ''})
 });
 
 
@@ -54,7 +56,61 @@ router.post('/Login',function (req,res) {
 });
 
 
+router.post('/Registration',function (req,res) {
+    var newUser= {
+        userName: req.body.userName,
+        password : req.body.password,
+        emailAddress : req.body.emailAddress,
+        confirmEmail: req.body.confirmEmail,
+        confirmPassword: req.body.confirmPassword,
+        role: req.body.role,
+    };
+    var emailAddress1=newUser.emailAddress;
+    var emailAddress2=newUser.confirmEmail;
+    var password1=newUser.password;
+    var password2=newUser.confirmPassword;
+    var role=newUser.role;
+    var userName=newUser.userName;
 
+    if(role !== 'Student' && role !== 'Facilitator' && role !== 'Client' && role !== 'Module Leader'){
+        return res.render('Registration', {tips: 'Please choose your identity!'})
+    }
+    if(!userName){
+        return res.render('Registration', {tips: 'Username can not be blank!'})
+    }
+    if(!emailAddress1){
+        return res.render('Registration', {tips: 'Email address can not be blank!'})
+    }
+    if(!password1){
+        return res.render('Registration', {tips: 'Password can not be blank!'})
+    }
+    if(password1 === password2 ){
+        var password = password1;
+    }else{
+        return res.render('Registration', {tips: 'Different passwords input!'})
+    }
+    if(emailAddress1 === emailAddress2){
+        var emailAddress = emailAddress1;
+    }else{
+        return res.render('Registration', {tips: 'Different email adress input!'})
+    }
+        var newUser2= {
+            userName: userName,
+            password: password,
+            email: emailAddress,
+            role: role,
+        };
+    /*userModel.getUsersByEmail(emailAddress)
+        .then(function (result) {
+            if(result){
+                return res.render('Registration',{tips: 'This email address has been registered!'})
+            }*/
+        var user = new users(newUser2)
+        user.save(function (err, res) {
+            console.log(newUser2);
+        })
+    return res.render('Login',{tips: 'Successfully registered!'})
+});
 
 
 module.exports = router;
