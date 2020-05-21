@@ -32,7 +32,16 @@ router.post('/CProjectRelease' , function(req, res,next) {
         console.log(data)
     })
 
+
+    var commentData = {
+        projectID: getProjectID,
+        senderID: req.session.user._id,
+        content:req.body.comment,
+        date:date,
+    }
+
    res.redirect('/CProjectRelease')
+
 });
 
 /* GET feedback . */

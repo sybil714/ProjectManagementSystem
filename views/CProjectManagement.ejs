@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project management</title>
+    <link rel="stylesheet" href="CSS/PagesStyle.css">
+    <script language="javascript">
+        function projectNameDisplay() {
+            var projectName=document.getElementById('projectName');
+            if(projectName.innerHTML.length==0){
+                document.getElementById('isProjectName').innerHTML="You have not release any project! You can press the button below to release your project.";
+                document.getElementById("releaseProject").style.display='inline';
+            }
+        }
+    </script>
+
+</head>
+<body onload="projectNameDisplay()">
+<header role="banner">
+    <div class="headcontainer">
+
+        <div class="page-title">
+            Client services
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='Page3HomePage.html'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button current">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Schedule</button></li>
+                <li class="list-group"><button class="functionBoard-Button">Marking</button></li>
+            </u1>
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+                <div class="col-md">
+                    <h2 class="projectScream title">Project management</h2>
+                    <div class="projectScream form">
+                        <u1 class="projectScream item">
+                            <li class="list-group project" id="isProjectName">
+                                Your project is following below:
+                                <a id="projectName" href="Page4ProjectRelease.html"></a>
+                            </li>
+                            <li class="list-group project">
+                                <button class="btn btn-block btn-submit button button--primary " id="releaseProject" type="button" onclick="location.href='Page4ProjectRelease.html'" style="display: none; margin-top: 20px" >Release a project</button>
+                            </li>
+                        </u1>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</form>
+
+</body>
+</html>

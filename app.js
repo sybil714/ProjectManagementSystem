@@ -45,11 +45,11 @@ app.use('/users', usersRouter);
  * If the user does not log in,
  * the user is only allowed to access the login or registration page
  * *********/
-
+/*
 app.get('*',function (req,res,next) {
   var user = req.session.user;
   var path=req.path
-  console.log(user)
+  //console.log(user)
   if(path !='/Login'&& path !='/Registration'){
     if(!user){
     res.redirect('/Login')
@@ -57,7 +57,7 @@ app.get('*',function (req,res,next) {
   }
   next()
 })
-
+*/
 
 
 app.use('/', require('./routes/test'));

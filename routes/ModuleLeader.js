@@ -8,6 +8,7 @@ const projectModel=require('../models/project');
 const config = require('config-lite')(__dirname);
 const URL=require('url');
 const markings = mongo.markings;
+const messages=mongo.messages;
 
 router.get('/MLGroupManagement', function(req, res) {
     res.render('MLGroupManagement',{ } );
@@ -43,7 +44,7 @@ router.get('/MLViewProject' , function(req, res,) {
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
 
-    console.log(getProjectID)
+   // console.log(getProjectID)
     Promise.all([
         messageModel.getMessageByProjectID(getProjectID),
         projectModel.getProjectByProjectID(getProjectID)
@@ -51,7 +52,7 @@ router.get('/MLViewProject' , function(req, res,) {
         .then( function (result) {
             let messageList=[];
             messageList=result[0];
-            console.log(result[1])
+           // console.log(result[1])
             res.render('MLViewProject' , {
                 messageList : messageList,
                 project:result[1],
@@ -60,7 +61,10 @@ router.get('/MLViewProject' , function(req, res,) {
 });
 
 
-
+/**
+ *This is the message function in the MLViewProject page.
+ * The data is finally sent to the database by JSON format.
+ */
 router.post('/MLViewProject', function(req, res,){
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
@@ -72,15 +76,23 @@ router.post('/MLViewProject', function(req, res,){
     var hour = date.getHours();
     var minute = date.getMinutes();
     var second = date.getSeconds();
-    console.log(year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second);
+    var date=day+'/'+month+'/ '+year+'  '+hour+':'+minute+':'+second;
+    //console.log(date)
     var data = {
         projectID: getProjectID,
         senderID: req.session.user._id,
         content:req.body.comment,
-    }
-    console.log(data)
+        date:date,
+    };
 
-})
+    console.log(data)
+    var message = new messages(data)
+    message.save(function (err,res) {
+    })
+    var returnURL='/MLViewProject?'+URL.parse(req.url).query;
+    res.redirect(returnURL)
+});
+
 
 /**
  * The page of MLGroupMarking is written for module leader to mark student groups,
@@ -111,8 +123,6 @@ router.post('/MLGroupMarking' , function(req, res,next) {
         //res.send(JSON.stringify(data))
         console.log(data3)
     })
-
-
     res.redirect('/MLHomePage')
 });
 
