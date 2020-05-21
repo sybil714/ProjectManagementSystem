@@ -86,9 +86,10 @@ router.post('/MLViewProject', function(req, res,){
     };
 
     console.log(data)
+    if(data.content!==''){
     var message = new messages(data)
     message.save(function (err,res) {
-    })
+    })}
     var returnURL='/MLViewProject?'+URL.parse(req.url).query;
     res.redirect(returnURL)
 });

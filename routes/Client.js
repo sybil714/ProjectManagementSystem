@@ -20,7 +20,7 @@ This page is for client to publish the project
 router.get('/CProjectRelease',function (req,res) {
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
-     //console.log(getProjectID)
+     console.log(getProjectID)
     if(!getProjectID){
         var projectList={
 
@@ -42,7 +42,7 @@ router.get('/CProjectRelease',function (req,res) {
 
             let messageList=[];
             messageList=result[0];
-           // console.log(result[1])
+           console.log(result[1])
             res.render('CProjectRelease' , {
                 messageList : messageList,
                 project:result[1],
@@ -68,6 +68,8 @@ router.post('/CProjectRelease' , function(req, res,next) {
             //res.send(JSON.stringify(data))
             //console.log(data)
         })
+        res.redirect('/CProjectManagement');
+
     } else{
 
         console.log(req.body.commentSubmit)
@@ -89,37 +91,41 @@ router.post('/CProjectRelease' , function(req, res,next) {
                 date: date,
             };
             console.log(commentData)
+            if(commentData.content!==''){
             var message = new messages(commentData)
             message.save(function (err, res) {
             })
-
+            }
             var returnURL = '/CProjectRelease?' + URL.parse(req.url).query;
             res.redirect(returnURL)
+
         }
 
+    if(!req.body.commentSubmit) {
         projectModel.getProjectByProjectID(getProjectID)
             .then(function (result) {
                 //console.log(result.projectName)
                 var originalData = {
-                    projectName:result.projectName,
-                    projectContent:result.projectContent,
+                    projectName: result.projectName,
+                    projectContent: result.projectContent,
                 };
                 //console.log(originalData);
-                var newData={
+                var newData = {
                     projectName: req.body.projectName,
                     projectContent: req.body.projectContent,
                 };
 
-                projects.updateOne(originalData,newData,function (err,res) {
-                    if(err){
+                projects.updateOne(originalData, newData, function (err, res) {
+                    if (err) {
                         //console.log(err);
                         return;
                     }
                     console.log('Update success!');
                 });
-                var returnURL='/CProjectManagement?'+URL.parse(req.url).query;
+                var returnURL = '/CProjectRelease?' + URL.parse(req.url).query;
                 res.redirect(returnURL)
             })
+    }
 
 
     }
@@ -138,13 +144,14 @@ router.get('/CProjectManagement' , function(req, res,) {
         projectModel.getProjectByPublishID(req.session.user._id)
     ])
         .then(function (result) {
+            console.log(result)
             if (!result[0][0]) {
                 var projectList=[{
                     _id:null,
                     projectName: null,
                     projectContent:'',
                 }]
-               // console.log(projectList)
+
                 res.render('CProjectManagement', {
                     projectList: projectList,
                 });
@@ -154,7 +161,7 @@ router.get('/CProjectManagement' , function(req, res,) {
                 projectList: result[0],
             });
             }
-        })
+        });
 
     req.query.projectID;
 });
