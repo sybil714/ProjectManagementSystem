@@ -94,11 +94,10 @@ router.post('/MLViewProject', function(req, res,){
 });
 
 
-/**
+/*
  * The page of MLGroupMarking is written for module leader to mark student groups,
- * if the mark is below 4, it will record the reason
+ * if the mark is below 5, it will record the reason
  */
-
 router.get('/MLGroupMarking', function(req, res) {
     res.render('MLGroupMarking',{ } );
 });
@@ -118,12 +117,47 @@ router.post('/MLGroupMarking' , function(req, res,next) {
         Comments: req.body.Comments,
     }
 
-    var marking = new markings(data3)
-    marking.save(function (err,res) {
-        //res.send(JSON.stringify(data))
-        console.log(data3)
-    })
-    res.redirect('/MLHomePage')
+    /*
+       To see What exactly is the input of moudel leader
+     */
+    var mark1in=data3.mark1;
+    var mark2in=data3.mark2;
+    var mark3in=data3.mark3;
+    var mark4in=data3.mark4;
+    var reason1in=data3.reason1;
+    var reason2in=data3.reason2;
+    var reason3in=data3.reason3;
+    var reason4in=data3.reason4;
+    console.log(!mark1in)
+    console.log(mark1in)
+    console.log(mark1in>3)
+
+    /*
+      If the moudel leader misses a marking, the submission will be unsuccessful and a prompt will pop up
+     */
+    if(!mark1in||!mark2in||!mark3in||!mark4in) {
+        console.log('* Your form has not been completed, please submit it after completion!')
+        return res.render('CFeedback', {tips: '* Your form has not been completed, please submit it after completion!'})
+    }
+
+
+    /*
+     else if the mark is below 5，module leader must give some comments，then the submission will be successful
+     */
+    if(mark1in<5&&!reason1in||mark2in<5&&!reason2in||mark3in<5&&!reason3in||mark4in<5&&!reason4in){
+        console.log('* Please give some comments if the mark is below 5!')
+        return res.render('CFeedback', {tips: '* Please give some comments if the mark is below 5!'})
+    }
+
+    else
+    {
+        var marking = new markings(data3)
+        marking.save(function (err, res) {
+            //res.send(JSON.stringify(data))
+            console.log(data3)
+        })
+        res.redirect('/MLHomePage')
+    }
 });
 
 

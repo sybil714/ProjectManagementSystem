@@ -8,10 +8,11 @@ router.get('/FHomePage', function(req, res) {
     res.render('FHomePage',{ } );
 });
 
-
-/* GET feedback . */
+/*
+ Get the feedback form facilitator
+ */
 router.get('/FGroupMarking',function (req,res) {
-    res.render('FGroupMarking',{ })
+    res.render('FGroupMarking',{tips:'' })
 });
 
 router.post('/FGroupMarking' , function(req, res,next) {
@@ -26,15 +27,39 @@ router.post('/FGroupMarking' , function(req, res,next) {
             Comments: req.body.Comments,
         }
 
-        var assessment = new assessments(data2)
-        assessment.save(function (err,res) {
-            //res.send(JSON.stringify(data))
-            console.log(data2)
+    var mark1in=data2.mark1;
+    var mark2in=data2.mark2;
+    var reason1in=data2.reason1;
+    var reason2in=data2.reason2;
+    var Commentsin=data2.Comments;
+    //console.log(!mark1in)
+    //console.log(mark1in)
+    //console.log(mark1in>3)
 
+    /*
+      If the facilitator misses a marking, the submission will be unsuccessful and a prompt will pop up
+     */
+    if(!mark1in||!mark2in) {
+        console.log('Your form has not been completed, please submit it after completion!')
+        return res.render('FGroupMarking', {tips: '* Your form has not been completed, please submit it after completion!'})
+    }
+
+    /*
+     else if the mark is below 5，facilitator should give some comments，then the submission will be successful
+     */
+    if(!reason1in||!reason2in||!Commentsin){
+        console.log('* Please give some comments')
+        return res.render('FGroupMarking', {tips: '* Please give some comments'})
+    }
+    else {
+        var assessment = new assessments(data2)
+        assessment.save(function (err, res) {
+            console.log(data2)
         })
 
         res.redirect('/FHomePage')
-    });
+    }
+});
 
 
 

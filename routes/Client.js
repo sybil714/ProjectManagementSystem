@@ -13,7 +13,9 @@ router.get('/CHomePage',function (req,res) {
     res.render('CHomePage',{})
 });
 
-/* GET project . */
+/*
+This page is for client to publish the project
+ GET project . */
 router.get('/CProjectRelease',function (req,res) {
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
@@ -48,7 +50,6 @@ router.get('/CProjectRelease',function (req,res) {
         })}
 
 });
-
 
 router.post('/CProjectRelease' , function(req, res,next) {
     var url=URL.parse(req.url,true).query;
@@ -135,19 +136,11 @@ router.get('/CProjectManagement' , function(req, res,) {
     req.query.projectID;
 });
 
-
-
-
-
-
-
-
-
-
-
 /* GET feedback . */
+/*This Page is for client to mark the team's performance
+ */
 router.get('/CFeedback',function (req,res) {
-    res.render('CFeedback',{})
+    res.render('CFeedback',{tips: ' '})
 });
 
 router.post('/CFeedback' , function(req, res,next) {
@@ -164,14 +157,49 @@ router.post('/CFeedback' , function(req, res,next) {
         ReasonQ4: req.body.ReasonQ4,
         Comments: req.body.Comments,
     }
+/*
+   To see What exactly is the input of client
+ */
+    var mark1in=data2.mark1;
+    var mark2in=data2.mark2;
+    var mark3in=data2.mark3;
+    var mark4in=data2.mark4;
+    var ReasonQ1in=data2.ReasonQ1;
+    var ReasonQ2in=data2.ReasonQ2;
+    var ReasonQ3in=data2.ReasonQ3;
+    var ReasonQ4in=data2.ReasonQ4;
+    console.log(!mark1in)
+    console.log(mark1in)
+    console.log(mark1in>3)
+/*
+  If the client misses a marking, the submission will be unsuccessful and a prompt will pop up
+ */
+    if(!mark1in||!mark2in||!mark3in||!mark4in) {
+        console.log('* Your form has not been completed, please submit it after completion!')
+       return res.render('CFeedback', {tips: '* Your form has not been completed, please submit it after completion!'})
+    }
 
-    var feedback = new feedbacks(data2)
-    feedback.save(function (err, res) {
-        //res.send(JSON.stringify(data))
-        console.log(data2)
 
-    })
-    res.redirect('/CHomePage')
+/*
+ else if the mark is below 5，client must give some comments，then the submission will be successful
+ */
+    if(mark1in<5&&!ReasonQ1in||mark2in<5&&!ReasonQ2in||mark3in<5&&!ReasonQ3in||mark4in<5&&!ReasonQ4in){
+        console.log('* Please give some comments if the mark is below 5!')
+        return res.render('CFeedback', {tips: '* Please give some comments if the mark is below 5!'})
+    }
 
-})
-    module.exports = router;
+     else{
+         var feedback = new feedbacks(data2)
+
+        feedback.save(function (err, res) {
+
+            console.log(data2)
+
+        })
+        res.redirect('/CHomePage')
+     }
+
+});
+
+
+module.exports = router;
