@@ -10,8 +10,8 @@
         function hidden(objid) {$(objid).style.display='none';}
         function eJect(inuptId,outputId){
             var sel_val1=document.getElementById(inuptId).value;
-            if (sel_val1>3) {hidden(outputId);}
-            if (sel_val1<=3) {show(outputId);}
+            if (sel_val1>4) {hidden(outputId);}
+            if (sel_val1<=4) {show(outputId);}
         }
         function starStr(result,save,lowResult){
             var points=document.getElementsByName(result);
@@ -75,8 +75,7 @@
                          </div>
 
                     <form class="card-body" action="FGroupMarking" method="post">
-
-
+                        <div style="color: red;"><%= tips%></div>
                       <section class="form-group">
                                     <h3>1.Select a group:
 
@@ -109,11 +108,11 @@
                                         4 <input type="radio"  name="mark1" value="4">
                                         5 <input type="radio"  name="mark1" value="5">
                                         &ensp; Satisfied
-                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('result1',this.id,'lowResult1')" >save</button>
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans1" onclick="starStr('mark1',this.id,'lowResult1')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult1" style="display: none">
-                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
                                     <textarea  class="form-control required" name="reason1" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
                                 <section class="form-group">
@@ -126,11 +125,11 @@
                                         4 <input type="radio"  name="mark2" value="4">
                                         5 <input type="radio"  name="mark2" value="5">
                                         &ensp; Satisfied
-                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('result2',this.id,'lowResult2')" >save</button>
+                                        <button class="btn btn-block btn-submit button button--primary smaller" type="button" id="ans2" onclick="starStr('mark2',this.id,'lowResult2')" >save</button>
                                     </div>
                                 </section>
                                 <section class="form-group" id="lowResult2" style="display: none">
-                                    <h3>Give the reason for less than 3 points<span style="color:red;">*</span>:</h3>
+                                    <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
                                     <textarea  class="form-control required" name="reason2" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
 
@@ -138,7 +137,6 @@
                                     <h3>5.Comment:</h3>
                                     <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
-
                                 <input class="btn btn-block btn-submit button button--primary smaller" name="submit" accesskey="l" tabindex="6" type="submit" value="submit">
 
                      </form>

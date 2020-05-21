@@ -11,8 +11,8 @@
         function hidden(objid) {$(objid).style.display='none';}
         function eJect(inuptId,outputId){
             var sel_val1=document.getElementById(inuptId).value;
-            if (sel_val1>4) {hidden(outputId);}
-            if (sel_val1<=4) {show(outputId);}
+            if (sel_val1>5) {hidden(outputId);}
+            if (sel_val1<=5) {show(outputId);}
         }
         function starStr(result,save,lowResult){
             var points=document.getElementsByName(result);
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    </div>
+
     <div class="functionBoard right">
         <main role="main" class="container mt-3 mb-3">
 
@@ -63,14 +63,21 @@
 
                 <div class="col-md">
 
+
                     <div class="card">
                         <div class="card-header text-center">
                             <h2>Client feedback survey</h2>
                         </div>
+
+                        <div style="color: red;"><%= tips%></div>
+
+
+
                         <div class="card-body">
                             <form  method="post" id="fm1" >
 
                             <section class="form-group">
+
                                 <h1>1.Select a group:
                                 <select>
                                 <option value="group1">group1</option>
@@ -159,9 +166,10 @@
                                     <h3>6.Comment:</h3>
                                     <textarea  class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
                                 </section>
+
                                 <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >submit</button>
                             </form>
-
+                        </div>
                             <!-- div th:unless="${passwordManagementEnabled}">
                                 <br/>
                                 <span class="fa fa-question-circle"></span>
@@ -178,8 +186,6 @@
                                     return true;
                                 });
                             });
-                           </script>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -188,12 +194,11 @@
 </section>
 
 
-
-
-<footer class="footer" role="contentinfo">
-    <div class="container">
-        <span id="copyright">Copyright © SSITteam4</span>
-    </div>
-</footer>
-</body>
-</html>
+                            <footer class="footer" role="contentinfo">
+                                <div class="container">
+                                <span id="copyright">Copyright © SSITteam4</span>
+                            </div>
+                            </footer>
+                            </body>
+                            </html>
+                            </html>
