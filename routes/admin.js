@@ -55,7 +55,7 @@ router.post('/Login',function (req,res) {
 
 });
 
-
+// Registration
 router.post('/Registration',function (req,res) {
     var newUser= {
         userName: req.body.userName,
@@ -111,6 +111,8 @@ router.post('/Registration',function (req,res) {
         })
     return res.render('Login',{tips: 'Successfully registered!'})
 });
+
+//
 
 
 module.exports = router;
