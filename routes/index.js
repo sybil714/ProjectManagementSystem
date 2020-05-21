@@ -6,9 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+//logout
 router.get("/logout",function(req,res){
-  req.session.userName = null;
+  var user = req.session.user;
+  console.log(user);
+  user = req.session.user = null;
+  console.log(user);
   res.redirect("/Login");
+
 });
 
 

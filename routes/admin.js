@@ -115,8 +115,7 @@ router.post('/Registration',function (req,res) {
                 })
                 return res.render('Login',{tips: 'Successfully registered!'})
             }
-            });
-
+    });
 
 });
 
