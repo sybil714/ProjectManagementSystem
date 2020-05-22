@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Services</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <script>
+        function $(obj){return document.getElementById(obj);}
+        function show(objid) {$(objid).style.display='inline';}
+        function hidden(objid) {$(objid).style.display='none';}
+        function eJect(inuptId,outputId){
+            var sel_val1=document.getElementById(inuptId).value;
+            if (sel_val1>5) {hidden(outputId);}
+            if (sel_val1<=5) {show(outputId);}
+        }
+        function starStr(result,save,lowResult){
+            var points=document.getElementsByName(result);
+            var value=0;
+            for(var i=0;i<points.length;i++){
+                if(points[i].checked==true){
+                    value=points[i].value;
+                    break;
+                }
+            }
+            document.getElementById(save).value=value;
+            eJect(save,lowResult);
+        }
+    </script>
+</head>
+<body>
+<header role="banner">
+    <div class="headcontainer">
+        <div class="page-title">
+            Client services
+        </div>
+        <div  style=" font-size:25px">
+            welcome email
+        </div>
+    </div>
+</header>
+
+<section class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCHome" onclick="location.href='/CHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonCProject" onclick="location.href='/CProjectManagement'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonCMark" onclick="location.href='/CFeedback'">Marking</button></li>
+            </u1>
+            <button class="functionBoard-Button" style="float:left;margin-top: 200%" type="button"  onclick="location.href='/logout'">Logout</button>
+
+        </div>
+    </div>
+
+
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+
+            <div id="content" class="row">
+
+                <div class="col-md">
+
+
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2>Client feedback survey</h2>
+                        </div>
+
+                        <div style="color: red;"></div>
+
+
+
+                        <div class="card-body">
+                            <form  method="post" id="fm1" >
+
+                                <section class="form-group">
+
+                                    <h3>1.Select a group:
+                                        <input disabled="true" type="text" id="mark1" name="group" value=" " style="width: 10%;margin-left: 10px;border: 0px;background-color: white!important; border-bottom:1px solid black ">
+
+                                        <!--                                        <select>-->
+<!--                                            <option value="group1">group1</option>-->
+<!--                                            <option value="group2">group2</option>-->
+<!--                                            <option value="group3">group3</option>-->
+<!--                                            <option value="group4">group4</option>-->
+<!--                                            <option value="group5">group5</option>-->
+<!--                                            <option value="group6">group6</option>-->
+<!--                                        </select>-->
+                                    </h3>
+                                    <section class="form-group">
+
+                                        <h3>2.Please mark the satisfaction of documentation/online help<span style="color:red;">*</span>：
+
+                                            <input disabled="true" type="text" id="mark1" name="mark1" value=" " style="width: 10%;margin-left: 10px;border: 0px;background-color: white!important; border-bottom:1px solid black ">
+<!--                                            &ensp; Dissatisfied &ensp;-->
+<!--                                            1 <input type="radio"  name="mark1" value="1">-->
+<!--                                            2 <input type="radio"  name="mark1" value="2">-->
+<!--                                            3 <input type="radio"  name="mark1" value="3">-->
+<!--                                            4 <input type="radio"  name="mark1" value="4">-->
+<!--                                            5 <input type="radio"  name="mark1" value="5">-->
+<!--                                            &ensp; Satisfied-->
+<!--                                            <button class="btn btn-block btn-submit button button&#45;&#45;primary smaller" type="button" id="ans1" onclick="starStr('mark1',this.id,'lowResult1')" >save</button>-->
+                                        </h3>
+                                    </section>
+                                    <section class="form-group" id="lowResult1" style="display: none">
+                                        <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
+                                        <textarea  class="form-control required" name="ReasonQ1"  rows="13" cols="100" style="resize:none"></textarea>
+                                    </section>
+
+                                    <section class="form-group">
+                                        <h3>3.Please mark the satisfaction of team performance (happiness with interactions)<span style="color:red;">*</span>：
+                                            <input disabled="true" type="text" id="mark2" name="mark2" value=" " style="width: 10%;margin-left: 10px;border: 0px;background-color: white!important; border-bottom:1px solid black ">
+<!--                                            &ensp; Dissatisfied &ensp;-->
+<!--                                            1 <input type="radio"  name="mark2" value="1">-->
+<!--                                            2 <input type="radio"  name="mark2" value="2">-->
+<!--                                            3 <input type="radio"  name="mark2" value="3">-->
+<!--                                            4 <input type="radio"  name="mark2" value="4">-->
+<!--                                            5 <input type="radio"  name="mark2" value="5">-->
+<!--                                            &ensp; Satisfied-->
+<!--                                            <button class="btn btn-block btn-submit button button&#45;&#45;primary smaller" type="button" id="ans2" onclick="starStr('mark2',this.id,'lowResult2')" >save</button>-->
+                                        </h3>
+                                    </section>
+                                    <section class="form-group" id="lowResult2" style="display: none">
+                                        <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
+                                        <textarea  class="form-control required" name="ReasonQ2"  rows="13" cols="100" style="resize:none"></textarea>
+                                    </section>
+
+                                    <section class="form-group">
+                                        <h3>4.Please mark the satisfaction of requirements capture (did the team capture the requirements)<span style="color:red;">*</span>：
+
+                                    <input disabled="true" type="text" id="mark1" name="mark3" value=" " style="width: 10%;margin-left: 10px;border: 0px;background-color: white!important; border-bottom:1px solid black ">
+                                            <!--                                            &ensp; Dissatisfied &ensp;-->
+<!--                                            1 <input type="radio"  name="mark3"  value="1">-->
+<!--                                            2 <input type="radio"  name="mark3"  value="2">-->
+<!--                                            3 <input type="radio"  name="mark3"  value="3">-->
+<!--                                            4 <input type="radio"  name="mark3"  value="4">-->
+<!--                                            5 <input type="radio"  name="mark3"  value="5">-->
+<!--                                            &ensp; Satisfied-->
+<!--                                            <button class="btn btn-block btn-submit button button&#45;&#45;primary smaller" type="button" id="ans3" onclick="starStr('mark3',this.id,'lowResult3')" >save</button>-->
+                                        </h3>
+                                    </section>
+                                    <section class="form-group" id="lowResult3" style="display: none">
+                                        <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
+                                        <textarea  class="form-control required" name="ReasonQ3" rows="13" cols="100" style="resize:none"></textarea>
+                                    </section>
+
+                                    <section class="form-group">
+                                        <h3>5.Please mark the satisfaction of project delivered (did the team deliver what they promised)<span style="color:red;">*</span>：
+
+                                            <input disabled="true" type="text" id="mark1" name="mark4" value=" " style="width: 10%;margin-left: 10px;border: 0px;background-color: white!important; border-bottom:1px solid black "">
+
+                                            <!--                                            &ensp; Dissatisfied &ensp;-->
+<!--                                            1 <input type="radio"  name="mark4" value="1">-->
+<!--                                            2 <input type="radio"  name="mark4" value="2">-->
+<!--                                            3 <input type="radio"  name="mark4" value="3">-->
+<!--                                            4 <input type="radio"  name="mark4" value="4">-->
+<!--                                            5 <input type="radio"  name="mark4" value="5">-->
+<!--                                            &ensp; Satisfied-->
+<!--                                            <button class="btn btn-block btn-submit button button&#45;&#45;primary smaller" type="button" id="ans4" onclick="starStr('mark4',this.id,'lowResult4')" >save</button>-->
+                                        </h3>
+                                    </section>
+                                    <section class="form-group" id="lowResult4" style="display: none">
+                                        <h3>Give the reason for less than 5 points<span style="color:red;">*</span>:</h3>
+                                        <textarea  class="form-control required" name="ReasonQ4" rows="13" cols="100" style="resize:none"></textarea>
+                                    </section>
+
+                                    <section class="form-group" >
+                                        <h3>6.Comment:</h3>
+                                        <textarea  disabled="true" class="form-control required" name="Comments" rows="13" cols="100" style="resize:none"></textarea>
+                                    </section>
+                                    <button class="btn btn-block btn-submit button button--primary smaller" type="submit"  >Back</button>
+
+                            </form>
+                        </div>
+                        <!-- div th:unless="${passwordManagementEnabled}">
+                            <br/>
+                            <span class="fa fa-question-circle"></span>
+                            <span th:utext="#{screen.pm.button.forgotpwd}">Forgot your password?</span>
+                            <p/>
+                        </div --><script type="text/javascript">
+                            /*<![CDATA[*/
+                            var i = "One moment please..."
+                            /*]]>*/
+                            $(document).ready(function () {
+                                $("#fm1").submit(function () {
+                                    $(":submit").attr("disabled", true);
+                                    $(":submit").attr("value", i);
+                                    return true;
+                                });
+                            });
+                            </div>
+                            </div>
+                            </div>
+                            </main>
+                            </div>
+                            </section>
+
+
+                            <footer class="footer" role="contentinfo">
+                                <div class="container">
+                                <span id="copyright">Copyright © SSITteam4</span>
+                            </div>
+                            </footer>
+                            </body>
+                            </html>
+                            </html>

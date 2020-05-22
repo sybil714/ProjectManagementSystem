@@ -170,6 +170,10 @@ router.post('/MLGroupMarking' , function(req, res,next) {
     }
 });
 
+router.get('/MLViewCFeedback', function(req, res) {
+    res.render('MLViewCFeedback',{messageList:'' } );
+});
+
 router.get('/MLAnnouncement', function(req, res) {
     var username=req.session.user.userName;
     res.render('MLAnnouncement',{

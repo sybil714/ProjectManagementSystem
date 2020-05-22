@@ -46,18 +46,18 @@ app.use("/logout",indexRouter );
  * If the user does not log in,
  * the user is only allowed to access the login or registration page
  * *********/
-
-app.get('*',function (req,res,next) {
-  var user = req.session.user;
-  var path=req.path
-  //console.log(user)
-  if(path !='/Login'&& path !='/Registration'){
-    if(!user){
-    res.redirect('/Login')
-    }
-  }
-  next()
-})
+//
+// app.get('*',function (req,res,next) {
+//   var user = req.session.user;
+//   var path=req.path
+//   //console.log(user)
+//   if(path !='/Login'&& path !='/Registration'){
+//     if(!user){
+//     res.redirect('/Login')
+//     }
+//   }
+//   next()
+// })
 
 
 
