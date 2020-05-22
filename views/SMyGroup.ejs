@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My group</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+
+<header role="banner">
+    <div class="headcontainer">
+        <div  class=" page-title" >
+            Welcome, <%= currentUserName%>
+        </div>
+        <div class="page-title" style="color:#0166b3 ">
+            Student service
+        </div>
+    </div>
+</header>
+
+<form class="functionBoard">
+    <div class="functionBoard left">
+        <div>
+            <u1>
+                <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonHome" onclick="location.href='/SHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMember" onclick="location.href='/SSelectMember'">Member manmgement</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonProject" onclick="location.href='/SSelectProject'">Project management</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMarking" onclick="location.href='/SMyGroup'">My group</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking" onclick="location.href='/SGroupMarking'">Group marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+            </u1>
+            <button class="functionBoard-Button" style="float:left;margin-top: 180%" type="button"  onclick="location.href='/logout'">Logout</button>
+
+        </div>
+    </div>
+    </div>
+    <div class="functionBoard right">
+        <main role="main" class="container mt-3 mb-3">
+            <div id="content" class="row">
+                <div class="col-md">
+                    <h2 class="projectScream title">Group management</h2>
+                    <div class="projectScream form">
+                        <h3 style="margin: 20px;">Group formation:</h3>
+
+                        <u1 id="group"  class="projectScream item">
+
+                            <li id="team"  class="list-group project">
+                                <div style="margin: 0px;">
+                                    <div style="border: 1px solid rgb(51, 51, 51); margin: 10px;">
+                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
+                                            Group Name
+                                        </h4>
+                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
+                                            Facilitator
+                                        </h4>
+                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
+                                            Project
+                                        </h4>
+                                        <div style="margin: 10px 10px 65px !important;">
+                                            <table border="1" id="qwe" style="width: 100%;">
+                                                <tbody><tr><td>Name</td><td>E-mail</td></tr>
+                                                </tbody>
+                                                <tr><td><input disabled="true" id="input1" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input2" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr><td><input disabled="true" id="input3" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input4" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr><td><input disabled="true" id="input5" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input6" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr><td><input disabled="true" id="input7" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input8" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr><td><input disabled="true" id="input9" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input10" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr><td><input disabled="true" id="input11" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                    <td><input disabled="true" id="input12" type="text" name="input1" style=" width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </u1>
+
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</form>
+
+
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <span id="copyright">Copyright © SSITteam4</span>
+    </div>
+</footer>
+</body>
+</html>

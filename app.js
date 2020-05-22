@@ -68,6 +68,7 @@ app.use('/', require('./routes/Client'));
 app.use('/', require('./routes/Facilitator'));
 app.use('/', require('./routes/ModuleLeader'));
 app.use('/', require('./routes/admin'));
+app.use('/', require('./routes/Student2'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
