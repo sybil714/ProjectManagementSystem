@@ -3,6 +3,18 @@ const group = mongo.groups;
 
 module.exports = {
 
+    getAllGroups: function getAllGroups() {
+        return group
+            .find()
+            .exec();
+    },
+
+    getgroupsByGroupID: function getgroupsByGroupID(id) {
+        return group
+            .findById(id)
+            .exec();
+    },
+
     getGroupsByObjectId1:function getGroupsByObjectId(ObjectId) {
         return group
             .findOne({member1ID:ObjectId})
@@ -33,7 +45,6 @@ module.exports = {
             .findOne({member6ID:ObjectId})
             .exec()
     },
-
 
 
 }

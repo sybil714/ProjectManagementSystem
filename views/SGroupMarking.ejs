@@ -50,7 +50,7 @@
 
         </div>
     </div>
-    
+
     <div class="functionBoard right">
 
         <main role="main" class="container mt-3 mb-3">
@@ -67,141 +67,98 @@
 
 
                         <div class="card-body">
-
                             <section class="form-group">
-                                <h3>1.Select the first member:
+                                <h3>1.the first member: <%=names[0]%>
 
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark1" name="mark1" > %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content1" value=""></textarea>
                             </section>
 
 
                             <section class="form-group"v>
-                                <h3>2.Select the second member:
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+                                <h3>2.the second member: <%=names[1]%>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onchange="intMaxMin(this.id)" > %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark2" name="mark2" > %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking2" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking2" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content2" value=""></textarea>
                             </section>
 
 
 
                             <section class="form-group">
-                                <h3>3.Select the third member:
+                                <h3>3.the third member: <%=names[2]%>
 
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark3" name="mark3"> %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking3" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking3" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content3" value=""></textarea>
                             </section>
 
 
                             <section class="form-group">
-                                <h3>4.Select forth member:
+                                <h3>4.forth member: <%=names[3]%>
 
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark4" name="mark4"> %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking4" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking4" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content4" value=""></textarea>
                             </section>
 
 
                             <section class="form-group">
-                                <h3>5.Select the fifth member:
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+                                <h3>5.the fifth member: <%=names[4]%>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark5" name="mark5"> %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking5" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking5" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content5" value=""></textarea>
                             </section>
 
 
                             <section class="form-group">
-                                <h3>6.Select the sixth member:
+                                <h3>6.the sixth member: <%=names[5]%>
 
-                                    <select>
-                                        <option value="member1">member1</option>
-                                        <option value="member2">member2</option>
-                                        <option value="member3">member3</option>
-                                        <option value="member4">member4</option>
-                                        <option value="member5">member5</option>
-                                        <option value="member6">member6</option>
-                                    </select>
+
                                 </h3>
                             </section>
 
                             <section class="form-group">
-                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')"> %</h4>
+                                <h4> &nbsp;  Please rate his contribution to the group in percentage:  <input style="border: solid 1px #404143;width: 50px; background-color: white!important;" type="text" id="mark6" name="mark6"> %</h4>
 
                                 <h4> &nbsp; Please briefly describe his contribution to the group： </h4>
-                                <textarea class="form-control required" id="group marking" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value=""></textarea>
+                                <textarea class="form-control required" id="group marking" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="content6" value=""></textarea>
                             </section>
 
 
                             <section class="form-group" >
                                 <h3>7.Comment:</h3>
-                                <textarea  class="form-control required"  rows="13" cols="100" style="resize:none"></textarea>
+                                <textarea  class="form-control required"  rows="13" cols="100" style="resize:none" name="comment"></textarea>
                             </section>
 
                         </div>

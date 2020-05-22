@@ -15,6 +15,14 @@ module.exports = {
             .exec()
     },
 
+    getUserbyID:function getUserbyID(id) {
+        return user
+            .findById(id)
+            .exec();
+    },
+
+
+
     getUserNameById:function getUserNameById(ObjectId) {
         return user.Username
             .findOne({ObjectId:ObjectId})

@@ -99,10 +99,7 @@ router.post('/MLViewProject', function(req, res,){
     var message = new messages(data)
     message.save(function (err,res) {
     })
-
     }
-
-
 
     if(req.body.statusConfirm){
 
@@ -204,6 +201,19 @@ router.get('/MLAnnouncement', function(req, res) {
         messageList:''
     } );
 });
+
+router.get('/MLGroupManagement', function(req, res) {
+
+
+
+
+
+
+
+    res.render('MLGroupManagement',{currentUserName:req.session.user.userName } );
+
+});
+
 
 
 module.exports = router;

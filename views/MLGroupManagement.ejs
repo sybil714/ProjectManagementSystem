@@ -6,69 +6,31 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script type="text/javascript">
 
-        function startEdit(editableDiv){
-            document.getElementById(editableDiv).disabled = false;
+        function startEdit(id){
+            document.getElementById(id).disabled = false;
         }
-        function stopEdit(editableDiv){
-            var element = document.getElementById(editableDiv);
-            element.disabled = true;
-        }
+
         function editableTrue() {
             document.getElementById('submit').style.display="inline"
-            startEdit('input1');
-            startEdit('input2');
-            startEdit('input3');
-            startEdit('input4');
-            startEdit('input5');
-            startEdit('input6');
-            startEdit('input7');
-            startEdit('input8');
-            startEdit('input9');
-            startEdit('input10');
-            startEdit('input11');
-            startEdit('input12');
-            document.getElementById('input2').style.backgroundColor='white';
-            document.getElementById('input4').style.backgroundColor='white';
-            document.getElementById('input6').style.backgroundColor='white';
-            document.getElementById('input8').style.backgroundColor='white';
-            document.getElementById('input10').style.backgroundColor='white';
-            document.getElementById('input12').style.backgroundColor='white';
-            document.getElementById('input1').style.backgroundColor='white';
-            document.getElementById('input3').style.backgroundColor='white';
-            document.getElementById('input5').style.backgroundColor='white';
-            document.getElementById('input7').style.backgroundColor='white';
-            document.getElementById('input9').style.backgroundColor='white';
-            document.getElementById('input11').style.backgroundColor='white';
-            //
-        }
-
-        function editableFalse() {
-            stopEdit('input1');
-            stopEdit('input2');
-            stopEdit('input3');
-            stopEdit('input4');
-            stopEdit('input5');
-            stopEdit('input6');
-            stopEdit('input7');
-            stopEdit('input8');
-            stopEdit('input9');
-            stopEdit('input10');
-            stopEdit('input11');
-            stopEdit('input12');
-            document.getElementById('input2').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input4').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input6').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input8').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input10').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input12').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input1').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input3').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input5').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input7').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input9').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
-            document.getElementById('input11').setAttribute('style','width: 100%; border: 0px; background-color: transparent !important;')
+            startEdit('member1');
+            startEdit('member2');
+            startEdit('member3');
+            startEdit('member4');
+            startEdit('member5');
+            startEdit('member6');
+            startEdit('selectProject');
+            startEdit('selectFacilitator');
+            document.getElementById('member1').style.backgroundColor='white';
+            document.getElementById('member2').style.backgroundColor='white';
+            document.getElementById('member3').style.backgroundColor='white';
+            document.getElementById('member4').style.backgroundColor='white';
+            document.getElementById('member5').style.backgroundColor='white';
+            document.getElementById('member6').style.backgroundColor='white';
+            document.getElementById('selectProject').style.backgroundColor='white';
+            document.getElementById('selectFacilitator').style.backgroundColor='white';
 
         }
+
 
 
     </script>
@@ -112,49 +74,115 @@
                 <div class="col-md">
                     <h2 class="projectScream title">Group management</h2>
                     <div class="projectScream form">
-                        <h3 style="margin: 20px;">Group formation:</h3>
-
+                        <h2 style="margin: 10px;">Group formation:<span style="margin-left: 20px;">
+                        <select style="background-color: white;font-size: 25px;margin-top: 5px" id="selectGroup">
+                            <option value=" ">---select a group---</option>
+                            <option>project1</option>
+                            <option>project1</option>
+                            <option>project1</option>
+                            <option>project1</option>
+                        </select>
+                                <button class="btn btn-block btn-submit button button--primary smaller" type="submit" style="margin-right: 48%;" value="true">Search</button>
+                            </span>
+                        </h2>
                         <u1 id="group"  class="projectScream item">
 
                             <li id="team"  class="list-group project">
                                 <div style="margin: 0px;">
                                     <div style="border: 1px solid rgb(51, 51, 51); margin: 10px;">
-                                    <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
+
+                                    <h2 style="padding: 5px; margin: 2px;margin-left: 8px;">
                                         Group Name
-                                    </h4>
-                                        <div style="margin-left: 10px;">
-                                            <select style="background-color: #EEF0F0" id="selectProject">
-                                                <option>---please choose the project---</option>
+                                    </h2>
+                                        <h2 style="padding: 5px; margin: 10px;margin-left: 8px;">
+                                            Facilitator: <span>
+                                                <select disabled="true" style="font-size: 23px;background-color: transparent;" id="selectFacilitator">
+                                                <option value=" ">---please select a facilitator---</option>
                                                 <option>project1</option>
-                                                <option>project1</option>
-                                                <option>project1</option>
-                                                <option>project1</option>
-
-
                                             </select>
-                                        </div>
+                                            </span>
+                                        </h2>
+                                        <h2 style="margin-left: 10px;">
+                                            Project:<span>
+                                            <select disabled="true" style="font-size: 23px;background-color: transparent;width: 91%" id="selectProject">
+                                                <option value=" ">---please select a project---</option>
+                                                <option>project1</option>
+                                            </select>
+                                            </span>
+                                        </h2>
                                         <div style="margin: 10px 10px 65px !important;">
+                                            <h2>
+                                                Members:
+                                            </h2>
                                             <table border="1" id="qwe" style="width: 100%;">
-                                                <tbody><tr><td>Name</td><td>E-mail</td></tr>
+                                                <tbody>
+                                                <tr><td disabled="true">Name</td ><td disabled="true">E-mail</td></tr>
                                                 </tbody>
-                                                <tr><td><input disabled="true" id="input1" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input2" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                <tr><td><input disabled="true" id="input3" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input4" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                <tr><td><input disabled="true" id="input5" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input6" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                <tr><td><input disabled="true" id="input7" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input8" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                <tr><td><input disabled="true" id="input9" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input10" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                <tr><td><input disabled="true" id="input11" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"></td>
-                                                    <td><input disabled="true" id="input12" type="text" name="input1" style=" width: 100%; border: 0px; background-color: transparent !important;"></td>
+                                                <tr>
+
+
+                                                    <td>
+                                                        <select disabled="true" id="member1" type="text" name="member1"  style=" font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member2" type="text" name="member2"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member3" type="text" name="member3"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member4" type="text" name="member4"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member5" type="text" name="member5"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value=" ">---please select a member---</option>
+                                                            <option>project1</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width: 50%"></td>
+                                                </tr>
+
+
+
+                                                </tr>
+
                                             </table>
                                             <div>
                                                 <br>
                                             <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
-                                            <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableFalse()" style="float: left">Confirm</button>
                                                 <button id="submit" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;" type="submit" >Submit</button>
 
                                             </div>
