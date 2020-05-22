@@ -94,8 +94,16 @@
                                     <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; " disabled=true; ><%=project.projectContent%></textarea>
                                 </section>
                                 <form method="post" style="margin-top: 10px">
+
                                     <div name="status" value=<%=project.status%>></div>
                                     <button class="btn btn-block btn-submit button button--primary smaller" name="statusConfirm" type="submit"  style="float: right" value='true'>Save</button>
+
+                                    <select  style="font-size: 25px; float: right!important;background-color: rgb(232, 240, 254) !important;height: 40px;" id="sid" name="status">
+                                        <option>Pending</option>
+                                        <option>Accept</option>
+                                        <option>Reject</option>
+                                    </select>
+
 
                                 </form>
                             </li>
