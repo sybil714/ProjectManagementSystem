@@ -176,15 +176,6 @@ router.get('/CProjectManagement' , function(req, res,) {
 });
 
 
-
-
-
-
-
-
-
-
-
 /* GET feedback . */
 /*This Page is for client to mark the team's performance
  */

@@ -9,6 +9,7 @@ const config = require('config-lite')(__dirname);
 const URL=require('url');
 const markings = mongo.markings;
 const messages=mongo.messages;
+const projects = mongo.projects;
 
 router.get('/MLGroupManagement', function(req, res) {
     var username=req.session.user.userName;
@@ -93,18 +94,34 @@ router.post('/MLViewProject', function(req, res,){
         date:date,
     };
 
-    console.log(data)
+    //console.log(data)
     if(data.content!==''&&!req.body.statusConfirm){
     var message = new messages(data)
     message.save(function (err,res) {
-    })}
+    })
+
+    }
+
+
+
+    if(req.body.statusConfirm){
+
+                //console.log(originalData);
+                var newStatus = {
+                    status: req.body.status,
+                };
+
+                projects.findByIdAndUpdate(getProjectID, newStatus, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    console.log('Update success!');
+                });
+
+    }
     var returnURL='/MLViewProject?'+URL.parse(req.url).query;
     res.redirect(returnURL)
-
-
-
-
-
 });
 
 
