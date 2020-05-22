@@ -11,23 +11,27 @@ const markings = mongo.markings;
 const messages=mongo.messages;
 
 router.get('/MLGroupManagement', function(req, res) {
-    res.render('MLGroupManagement',{ } );
+    var username=req.session.user.userName;
+    res.render('MLGroupManagement',{currentUserName:username } );
 });
 
 
 router.get('/MLHomePage', function(req, res) {
-    res.render('MLHomePage',{ } );
+    var username=req.session.user.userName;
+    res.render('MLHomePage',{currentUserName:username } );
 });
 
 
 
 router.get('/MLProjectManagement', function(req, res) {
+    var username=req.session.user.userName;
     Promise.all([
         projectModel.getAllProject()
     ])
         .then( function (result) {
            // console.log(result)
             res.render('MLProjectManagement' , {
+                currentUserName:username,
                 projectList : result[0],
             });
         })
@@ -41,6 +45,7 @@ router.get('/MLProjectManagement', function(req, res) {
  *The content of MLViewProject is to get the project ID according to the URL provided by the hyperlink of MLProjectManagement page
  **/
 router.get('/MLViewProject' , function(req, res,) {
+    var username=req.session.user.userName;
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
 
@@ -54,6 +59,7 @@ router.get('/MLViewProject' , function(req, res,) {
             messageList=result[0];
            // console.log(result[1])
             res.render('MLViewProject' , {
+                currentUserName:username,
                 messageList : messageList,
                 project:result[1],
             });
@@ -66,6 +72,7 @@ router.get('/MLViewProject' , function(req, res,) {
  * The data is finally sent to the database by JSON format.
  */
 router.post('/MLViewProject', function(req, res,){
+
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
     /****Test for getting a current time and date*****/
@@ -101,7 +108,8 @@ router.post('/MLViewProject', function(req, res,){
  */
 
 router.get('/MLGroupMarking', function(req, res) {
-    res.render('MLGroupMarking',{ } );
+    var username=req.session.user.userName;
+    res.render('MLGroupMarking',{ currentUserName:username} );
 });
 
 router.post('/MLGroupMarking' , function(req, res,next) {
@@ -163,7 +171,11 @@ router.post('/MLGroupMarking' , function(req, res,next) {
 });
 
 router.get('/MLAnnouncement', function(req, res) {
-    res.render('MLAnnouncement',{messageList:'' } );
+    var username=req.session.user.userName;
+    res.render('MLAnnouncement',{
+        currentUserName:username,
+        messageList:''
+    } );
 });
 
 

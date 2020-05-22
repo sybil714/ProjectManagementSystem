@@ -8,16 +8,18 @@ const projectModel=require('../models/project');
 const URL=require('url');
 const messages=mongo.messages;
 
+
 /* GET homepage . */
-
-router.get('/CHomePage',function (req,res) {
-    res.render('CHomePage',{})
-});
-
 /*
 This page is for client to publish the project
  GET project . */
+router.get('/CHomePage',function (req,res) {
+    var username=req.session.user.userName;
+    res.render('CHomePage',{currentUserName:username})
+});
+
 router.get('/CProjectRelease',function (req,res) {
+    var username=req.session.user.userName;
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
      console.log(getProjectID)
@@ -30,6 +32,7 @@ router.get('/CProjectRelease',function (req,res) {
         }
 
         res.render('CProjectRelease' , {
+            currentUserName:username,
             messageList : projectList,
             project:messageList,
         });
@@ -44,6 +47,7 @@ router.get('/CProjectRelease',function (req,res) {
             messageList=result[0];
            console.log(result[1])
             res.render('CProjectRelease' , {
+                currentUserName:username,
                 messageList : messageList,
                 project:result[1],
             });
@@ -139,7 +143,7 @@ router.post('/CProjectRelease' , function(req, res,next) {
 
 
 router.get('/CProjectManagement' , function(req, res,) {
-
+    var username=req.session.user.userName;
     Promise.all([
         projectModel.getProjectByPublishID(req.session.user._id)
     ])
@@ -153,11 +157,13 @@ router.get('/CProjectManagement' , function(req, res,) {
                 }]
 
                 res.render('CProjectManagement', {
+                    currentUserName:username,
                     projectList: projectList,
                 });
             } else {
             //console.log(result)
             res.render('CProjectManagement', {
+                currentUserName:username,
                 projectList: result[0],
             });
             }
@@ -180,7 +186,11 @@ router.get('/CProjectManagement' , function(req, res,) {
 /*This Page is for client to mark the team's performance
  */
 router.get('/CFeedback',function (req,res) {
-    res.render('CFeedback',{tips: ' '})
+    var username=req.session.user.userName;
+    res.render('CFeedback',{
+        currentUserName:username,
+        tips: ' '
+    })
 });
 
 router.post('/CFeedback' , function(req, res,next) {

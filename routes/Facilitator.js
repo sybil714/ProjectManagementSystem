@@ -5,14 +5,19 @@ const assessments = mongo.assessments;
 
 /* GET homepage . */
 router.get('/FHomePage', function(req, res) {
-    res.render('FHomePage',{ } );
+    var username=req.session.user.userName;
+    res.render('FHomePage',{ currentUserName:username,} );
 });
 
 /*
  Get the feedback form facilitator
  */
 router.get('/FGroupMarking',function (req,res) {
-    res.render('FGroupMarking',{tips:'' })
+    var username=req.session.user.userName;
+    res.render('FGroupMarking',{
+        currentUserName:username,
+        tips:''
+    })
 });
 
 router.post('/FGroupMarking' , function(req, res,next) {
@@ -51,6 +56,7 @@ router.post('/FGroupMarking' , function(req, res,next) {
         console.log('* Please give some comments')
         return res.render('FGroupMarking', {tips: '* Please give some comments'})
     }
+
     else {
         var assessment = new assessments(data2)
         assessment.save(function (err, res) {

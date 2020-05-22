@@ -2,19 +2,23 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/SHomePage', function(req, res) {
-    res.render('SHomePage',{ } );
+    var username=req.session.user.userName;
+    res.render('SHomePage',{ currentUserName:username} );
 });
 
 router.get('/SGroupMarking', function(req, res) {
-    res.render('SGroupMarking',{ } );
+    var username=req.session.user.userName;
+    res.render('SGroupMarking',{currentUserName:username } );
 });
 
 router.get('/SSelectMember', function(req, res) {
-    res.render('SSelectMember',{ } );
+    var username=req.session.user.userName;
+    res.render('SSelectMember',{currentUserName:username } );
 });
 
 router.get('/SSelectProject', function(req, res) {
-    res.render('SSelectProject',{ } );
+    var username=req.session.user.userName;
+    res.render('SSelectProject',{currentUserName:username } );
 });
 
 
