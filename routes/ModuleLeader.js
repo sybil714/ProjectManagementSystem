@@ -11,11 +11,6 @@ const markings = mongo.markings;
 const messages=mongo.messages;
 const projects = mongo.projects;
 
-router.get('/MLGroupManagement', function(req, res) {
-    var username=req.session.user.userName;
-    res.render('MLGroupManagement',{currentUserName:username } );
-});
-
 
 router.get('/MLHomePage', function(req, res) {
     var username=req.session.user.userName;
@@ -203,17 +198,40 @@ router.get('/MLAnnouncement', function(req, res) {
 });
 
 router.get('/MLGroupManagement', function(req, res) {
+    var url=URL.parse(req.url).query;
+   // console.log(url)
+    if(!url){
+        return  res.render('MLGroupManagement',{
+            currentUserName:req.session.user.userName,
+            groupID:'0',
+        } );
+    }else{
+        url=URL.parse(req.url,true).query;
+        console.log(url.groupID)
+        if(!url.groupID){
+            return  res.redirect('/MLGroupManagement')
+        }else{
 
-
-
-
-
-
-
-    res.render('MLGroupManagement',{currentUserName:req.session.user.userName } );
-
+        }
+    }
 });
 
+
+
+
+
+
+
+router.post('/MLGroupManagement', function(req, res,){
+    //console.log(!parse(req.url,true).query)
+    if(req.body.groupSearch){
+        var url=URL.parse(req.url,true).query;
+        var getGroupID=url.groupID;
+
+    }
+    res.redirect('/MLGroupManagement')
+
+});
 
 
 module.exports = router;
