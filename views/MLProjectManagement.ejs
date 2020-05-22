@@ -68,7 +68,7 @@
                             <li class="list-group project">
                                 <% for(var i=0;i<projectList.length;i++){    %>
                               <p style="border-bottom: solid 1px #dddddd;">
-                                  <a name="link" role="button" style='text-decoration: none; ' href='/MLViewProject?projectID=<%= projectList[i]._id%>' value=<%= projectList[i]._id%>> <%=projectList[i].projectName%> <span style=" float: right;  margin-top: 0px!important;margin-right: 10px!important;background-color: transparent!important;;resize: none;"></span>
+                                  <a name="link" role="button" style='text-decoration: none; ' href='/MLViewProject?projectID=<%= projectList[i]._id%>' value=<%= projectList[i]._id%>> <%=projectList[i].projectName%> <span style=" float: right;"><%=projectList[i].status%></span>
                                   </a>
                               </p>
                                <% }%>

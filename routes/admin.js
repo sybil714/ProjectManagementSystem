@@ -105,15 +105,16 @@ router.post('/Registration',function (req,res) {
 
     userModel.getUsersByEmail(emailAddress)
         .then(function (result) {
-            console.log(result.email === newUser2.email)
-            if(result.email === newUser2.email){
-                return res.render('Registration',{tips: 'This email address has been registered!'})
-            }else{
+            if(!result){
                 var user = new users(newUser2)
                 user.save(function (err, res) {
                     console.log(newUser2);
+
                 })
-                return res.render('Login',{tips: 'Successfully registered!'})
+                res.redirect('/Login')
+            }
+            else {
+                return res.render('Registration',{tips: 'This email address has been registered!'})
             }
     });
 

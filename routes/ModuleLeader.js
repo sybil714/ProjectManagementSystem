@@ -64,6 +64,7 @@ router.get('/MLViewProject' , function(req, res,) {
                 project:result[1],
             });
         })
+
 });
 
 
@@ -93,12 +94,17 @@ router.post('/MLViewProject', function(req, res,){
     };
 
     console.log(data)
-    if(data.content!==''){
+    if(data.content!==''&&!req.body.statusConfirm){
     var message = new messages(data)
     message.save(function (err,res) {
     })}
     var returnURL='/MLViewProject?'+URL.parse(req.url).query;
     res.redirect(returnURL)
+
+
+
+
+
 });
 
 

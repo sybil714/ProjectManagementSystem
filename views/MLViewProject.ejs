@@ -38,6 +38,8 @@
             document.getElementById('projectName').setAttribute('style','background-color: transparent!important;')
         }
 
+
+
     </script>
 
 </head>
@@ -89,16 +91,13 @@
                                     </div>
                                 <section class="form-group">
                                     <h4>Description:</h4>
-                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; border: 0px!important; " disabled=true; ><%=project.projectContent%></textarea>
+                                    <textarea  class="form-control required" id="editableDiv" rows="13" cols="100" style="resize:none; background-color: transparent; " disabled=true; ><%=project.projectContent%></textarea>
                                 </section>
-                                <div>
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Save" >
-                                </div>
-                                <div style="margin-top: 10px">
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Pending" >
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right" value="Accept" >
-                                    <input class="btn btn-block btn-submit button button--primary smaller" type=""  style="float: right "value="Reject">
-                                </div>
+                                <form method="post" style="margin-top: 10px">
+                                    <div name="status" value=<%=project.status%>></div>
+                                    <button class="btn btn-block btn-submit button button--primary smaller" name="statusConfirm" type="submit"  style="float: right" value='true'>Save</button>
+
+                                </form>
                             </li>
                         </u1>
                     </div>
@@ -126,8 +125,6 @@
                                 <div> <button class="btn btn-block btn-submit button button--primary smaller" name="commentSubmit" type="submit" value="true" >Send</button></div>
                                 </form>
                             </li>
-
-
                         </u1>
                     </div>
                 </div>

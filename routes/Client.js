@@ -22,7 +22,7 @@ router.get('/CProjectRelease',function (req,res) {
     var username=req.session.user.userName;
     var url=URL.parse(req.url,true).query;
     var getProjectID=url.projectID;
-     console.log(getProjectID)
+    // console.log(getProjectID)
     if(!getProjectID){
         var projectList={
 
@@ -45,7 +45,7 @@ router.get('/CProjectRelease',function (req,res) {
 
             let messageList=[];
             messageList=result[0];
-           console.log(result[1])
+          // console.log(result[1])
             res.render('CProjectRelease' , {
                 currentUserName:username,
                 messageList : messageList,
@@ -65,6 +65,8 @@ router.post('/CProjectRelease' , function(req, res,next) {
             publisherID:req.session.user._id,
             projectName: req.body.projectName,
             projectContent: req.body.projectContent,
+            grade:'-',
+            status:'Pending'
         }
 
         var project = new projects(data)
@@ -72,13 +74,14 @@ router.post('/CProjectRelease' , function(req, res,next) {
             //res.send(JSON.stringify(data))
             //console.log(data)
         })
+        console.log(data)
         res.redirect('/CProjectManagement');
 
     } else{
 
         console.log(req.body.commentSubmit)
         if(req.body.commentSubmit) {
-            console.log(getProjectID);
+           // console.log(getProjectID);
             var date = new Date();
             var year = date.getFullYear();
             var month = date.getMonth() + 1;
@@ -94,7 +97,7 @@ router.post('/CProjectRelease' , function(req, res,next) {
                 content: req.body.comment,
                 date: date,
             };
-            console.log(commentData)
+           // console.log(commentData)
             if(commentData.content!==''){
             var message = new messages(commentData)
             message.save(function (err, res) {
@@ -148,7 +151,7 @@ router.get('/CProjectManagement' , function(req, res,) {
         projectModel.getProjectByPublishID(req.session.user._id)
     ])
         .then(function (result) {
-            console.log(result)
+           // console.log(result)
             if (!result[0][0]) {
                 var projectList=[{
                     _id:null,
@@ -194,7 +197,7 @@ router.get('/CFeedback',function (req,res) {
 });
 
 router.post('/CFeedback' , function(req, res,next) {
-
+    var username=req.session.user.userName;
     var data2 = {
         clientID:req.session.user._id,
         mark1: req.body.mark1,
@@ -226,7 +229,10 @@ router.post('/CFeedback' , function(req, res,next) {
  */
     if(!mark1in||!mark2in||!mark3in||!mark4in) {
         console.log('* Your form has not been completed, please submit it after completion!')
-       return res.render('CFeedback', {tips: '* Your form has not been completed, please submit it after completion!'})
+       return res.render('CFeedback', {
+           tips: '* Your form has not been completed, please submit it after completion!',
+           currentUserName:username,
+       })
     }
 
 
