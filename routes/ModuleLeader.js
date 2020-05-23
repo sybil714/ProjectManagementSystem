@@ -5,11 +5,13 @@ const mongo = require('../lib/mongo');
 const userModel = require('../models/user');
 const messageModel = require('../models/message');
 const projectModel=require('../models/project');
+const groupModel=require('../models/group');
 const config = require('config-lite')(__dirname);
 const URL=require('url');
 const markings = mongo.markings;
 const messages=mongo.messages;
 const projects = mongo.projects;
+const groups=mongo.groups
 
 
 router.get('/MLHomePage', function(req, res) {
@@ -30,8 +32,7 @@ router.get('/MLProjectManagement', function(req, res) {
                 currentUserName:username,
                 projectList : result[0],
             });
-        })
-
+        });
     req.query.projectID;
 
 });
@@ -198,40 +199,73 @@ router.get('/MLAnnouncement', function(req, res) {
 });
 
 router.get('/MLGroupManagement', function(req, res) {
+
     var url=URL.parse(req.url).query;
-   // console.log(url)
+   // console.log(url);//To show how does the URL looks like
     if(!url){
-        return  res.render('MLGroupManagement',{
-            currentUserName:req.session.user.userName,
-            groupID:'0',
-        } );
-    }else{
-        url=URL.parse(req.url,true).query;
-        console.log(url.groupID)
-        if(!url.groupID){
-            return  res.redirect('/MLGroupManagement')
-        }else{
+        Promise.all([
+            groupModel.getAllGroups()
+        ]).then(function (result) {
+            //console.log(result[0][1].groupName);
+               res.render('MLGroupManagement',{
+                currentUserName:req.session.user.userName,
+                groupList:result[0],
+                groupDetails:'',
+                   facilitatorName:''
+            } );
 
-        }
+        });
+       // console.log('You enter the page through the main menu, url = null')
     }
+    else{
+        url=URL.parse(req.url,true).query;
+            Promise.all([
+                groupModel.getAllGroups(),
+                groupModel.getgroupsByGroupID(url.selectGroup)
+            ]).then(function (result) {
+                //console.log(result[1].facilitator.userName);
+
+                console.log( )
+                if(!result[1].facilitator&&!result[1].member1ID&&!result[1].member2ID&&!result[1].member3ID&&!result[1].member4ID&&!result[1].member5ID){
+                    return  res.redirect('/MLGroupManagement');
+                }else{
+                    return   res.render('MLGroupManagement',{
+                        currentUserName:req.session.user.userName,
+                        groupList:result[0],
+                        groupDetails:result[1],
+                        facilitatorName:result[1].facilitator.userName,
+                    } );
+                }
+
+
+
+            });
+        //console.log('You refresh this page by submitting the page information,url=groupID')
+
+    }
+
 });
-
-
-
 
 
 
 
 router.post('/MLGroupManagement', function(req, res,){
-    //console.log(!parse(req.url,true).query)
-    if(req.body.groupSearch){
-        var url=URL.parse(req.url,true).query;
-        var getGroupID=url.groupID;
-
-    }
-    res.redirect('/MLGroupManagement')
+   var groupSelect=req.body.selectGroup;
+   //console.log(groupSelect)
 
 });
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+

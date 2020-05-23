@@ -6,12 +6,28 @@ module.exports = {
     getAllGroups: function getAllGroups() {
         return group
             .find()
+            .populate('member1ID')
+            .populate('member2ID')
+            .populate('member3ID')
+            .populate('member4ID')
+            .populate('member5ID')
+            .populate('member6ID')
+            .populate('project')
+            .populate('facilitator')
             .exec();
     },
 
     getgroupsByGroupID: function getgroupsByGroupID(id) {
         return group
             .findById(id)
+            .populate('member1ID')
+            .populate('member2ID')
+            .populate('member3ID')
+            .populate('member4ID')
+            .populate('member5ID')
+            .populate('member6ID')
+            .populate('project')
+            .populate('facilitator')
             .exec();
     },
 
