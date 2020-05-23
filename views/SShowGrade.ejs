@@ -10,7 +10,7 @@
 <header role="banner">
     <div class="headcontainer">
         <div  class=" page-title" >
-            Welcome, <%= currentUserName%>
+            Welcome,
         </div>
         <div class="page-title" style="color:#0166b3 ">
             Student service
@@ -25,12 +25,12 @@
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonHome" onclick="location.href='/SHomePage'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMember" onclick="location.href='/SSelectMember'">Member manmgement</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMember" onclick="location.href='/SSelectMember'">Member manmgement</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonProject" onclick="location.href='/SSelectProject'">Project management</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking" onclick="location.href='/SGroupMarking'">Group marking</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='/SShowGrade'"> My Grade </button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" onclick="location.href='/SShowGrade'"> My Grade </button></li>
 
             </u1>
             <button class="functionBoard-Button" style="float:left;margin-top: 200%" type="button"  onclick="location.href='/logout'">Logout</button>
@@ -42,39 +42,38 @@
         <main role="main" class="container mt-3 mb-3">
             <div id="content" class="row">
                 <div class="col-md"style="margin-bottom: 35px">
-                    <h2 class="projectScream title">Select Group member</h2>
+                    <h2 class="projectScream title">This is your project grade</h2>
                     <div class="projectScream form" >
                         <u1 class="projectScream item"  >
                             <li class="list-group project" id="isProjectName">
-                                <label > Choose member you want to work with : </label>
+                                <label style="margin-left: 30px;font-size: x-large"> Teacher's feedback : </label>
                             </li>
                             <li class="list-group project"style=" margin-left: 50px">
                                 <section class="form-group" style="margin-right: 400px!important;">
                                     <div style="margin-bottom: 30px">
-                                        Member1:<input class="form-control required" style="width: 55%; float: right;margin-right: 180px; background-color: white!important;"   id=" work with1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">
-                                </div>
-                                    <div style="margin-bottom: 30px">
-                                        Member2:<input class="form-control required"  style="width: 55%; float: right;margin-right: 180px; background-color: white!important;" id=" work with2" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">
-                                    </div>
+<!--                                        Member1:<input class="form-control required" style="width: 55%; float: right;margin-right: 180px; background-color: white!important;"   id=" work with1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">-->
+                                        <textarea  disabled="true" class="form-control required"  rows="20" cols="200" style="resize:none;width: 160%;height: 150%;" name="comment"></textarea>
 
-                            </section>
+                                    </div>
+                                </section>
 
 
                             <li class="list-group project" >
-                            <label for="not work with"> Choose member you do not want to work with :</label>
+                                <label style="margin-left: 30px;font-size: x-large" for="not work with"> Your final grade :</label>
                             </li>
                             <li class="list-group project"style=" margin-left: 50px">
                                 <section class="form-group" style="margin-right: 400px!important;">
-                                    <div style="margin-bottom: 30px">
-                                    Member1:
-                                    <input class="form-control required" style="width: 55%; float: right;margin-right: 180px;background-color: white!important;"  id="not work with" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="not work with" value="">
+                                    <div>
+                                        <input disabled="true" class="form-control required" style="width: 35%; float: right;margin-right: 65%!important; background-color: white!important;"   id=" work with1" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">
+
+                                        <!--                                        <input class="form-control required" style="width: 55%; float: right;margin-right: 180px;background-color: white!important;"  id="not work with" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name="not work with" value="">-->
                                     </div>
-                                    <div style="margin-bottom: 5px">
-                                        Member2:
-                                    <input class="form-control required" style="width: 55%; float: right;margin-right: 180px; background-color: white!important;"  id=" work with3" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">
-                                    </div>
-                                    <br>
-                                    <input class="btn btn-block btn-submit button button--primary smaller" style="margin-right: 180px" name="submit" accesskey="l" tabindex="9" type="submit" value="submit">
+<!--                                    <div style="margin-bottom: 5px">-->
+<!--                                        Member2:-->
+<!--                                        <input class="form-control required" style="width: 55%; float: right;margin-right: 180px; background-color: white!important;"  id=" work with3" size="25" tabindex="1" type="text" accesskey="n" autocomplete="off" name=" work with" value="">-->
+<!--                                    </div>-->
+<!--                                    <br>-->
+<!--                                    <input class="btn btn-block btn-submit button button&#45;&#45;primary smaller" style="margin-right: 180px" name="submit" accesskey="l" tabindex="9" type="submit" value="submit">-->
 
                                 </section>
 
@@ -89,7 +88,7 @@
     </div>
 
 
-</main>
+    </main>
 
 
 
