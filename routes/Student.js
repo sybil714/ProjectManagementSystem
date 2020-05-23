@@ -149,5 +149,8 @@ router.get('/SSelectProject', function(req, res) {
     } );
 });
 
+router.get('/SShowGrade', function(req, res) {
+    res.render('SShowGrade',{messageList:'' } );
+});
 
 module.exports = router;
