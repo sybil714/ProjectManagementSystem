@@ -81,7 +81,7 @@ router.post('/MLViewProject', function(req, res,){
     var hour = date.getHours();
     var minute = date.getMinutes();
     var second = date.getSeconds();
-    var date=day+'/'+month+'/ '+year+'  '+hour+':'+minute+':'+second;
+     date=day+'/'+month+'/ '+year+'  '+hour+':'+minute+':'+second;
     //console.log(date)
     var data = {
         projectID: getProjectID,
@@ -370,7 +370,7 @@ router.post('/MLGroupManagement', function(req, res,next){
         var homeSetting= {
             currentUserName:req.session.user.userName,
             tips:'',
-            groupSelection:'---select a option below---',
+            groupSelection:'---select a option---',
             groupList:result[0],
             groupID:'',
             groupName:'',
@@ -402,10 +402,9 @@ router.post('/MLGroupManagement', function(req, res,next){
             member6Email:'',
         };
 
-        console.log(req.body.submit)
+       // console.log(req.body.submit)
 
         if(req.body.submit){
-            //console.log(req.body.submit)
             var inputData={
                 groupName:req.body.groupName,
                 project:req.body.selectProject,
@@ -417,35 +416,60 @@ router.post('/MLGroupManagement', function(req, res,next){
                 member5ID:req.body.member5,
                 member6ID:req.body.member6,
             }
-            if(!inputData.groupName||!inputData.project||!inputData.facilitator||!inputData.member1ID||!inputData.member2ID||!inputData.member3ID||!inputData.member4ID||!inputData.member5ID){
-                 homeSetting.tips='* You have missed something to fill in, please try again. (The sixth member is optional, others are required)'
-                return res.render('MLGroupManagement',homeSetting)
-            }else{
-                if(!inputData.member6ID){
-                    inputData.member6ID=null;
-                    var group=new groups(inputData)
+            if(url.selectGroup==='toAddGroup'){
 
-                    group.save(function (err,res) {
 
-                    })
-                    console.log(group)
-                     homeSetting.tips='*New group added successfully'
+                if(!inputData.groupName||!inputData.project||!inputData.facilitator||!inputData.member1ID||!inputData.member2ID||!inputData.member3ID||!inputData.member4ID||!inputData.member5ID){
+                    homeSetting.tips='* You have missed something to fill in, please try again. (The sixth member is optional, others are required)'
                     return res.render('MLGroupManagement',homeSetting)
                 }else{
-                    //console.log(inputData)
+                    if(!inputData.member6ID){
+                        inputData.member6ID=null;
+                        var group=new groups(inputData)
 
-                    var group=new groups(inputData)
+                        group.save(function (err,res) {
 
-                    group.save(function (err,res) {
+                        })
+                        console.log(group)
+                        homeSetting.tips='*New group added successfully'
+                        return res.render('MLGroupManagement',homeSetting)
+                    }else{
+                        //console.log(inputData)
 
-                    })
-                    homeSetting.tips='*New group added successfully'
-                    return res.render('MLGroupManagement',homeSetting)
+                        var group=new groups(inputData)
+
+                        group.save(function (err,res) {
+
+                        })
+                        homeSetting.tips='*New group added successfully'
+                        return res.render('MLGroupManagement',homeSetting)
+                    }
+
                 }
+
 
             }
 
-        }
+
+            var getUpdateID=req.body.reqGroupId;
+            if(!inputData.member6ID){
+                inputData.member6ID=null;
+            }
+
+            console.log(req.body.reqGroupId)
+            console.log( inputData)
+            groups.findByIdAndUpdate(getUpdateID, inputData, {},function (err, res) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log('Group details update successfully!');
+            });
+            homeSetting.tips='*Group details update successfully'
+            return res.render('MLGroupManagement',homeSetting)
+            //console.log(req.body.submit)
+
+            }
 
 
         if(req.body.remove){
@@ -456,9 +480,11 @@ router.post('/MLGroupManagement', function(req, res,next){
                 return res.render('MLGroupManagement',homeSetting)
 
             }else{
-                groups.remove({'_id':req.body.reqGroupId},function (err,res) {
+                groups.findByIdAndDelete({'_id':req.body.reqGroupId},function (err,res) {
+
                 })
-                    homeSetting.tips='*The group remove successfully'
+
+                homeSetting.tips='*The group remove successfully,Please refresh and check!'
                     return res.render('MLGroupManagement',homeSetting)
             }
         }
