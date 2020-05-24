@@ -201,48 +201,189 @@ router.get('/MLAnnouncement', function(req, res) {
 router.get('/MLGroupManagement', function(req, res) {
 
     var url=URL.parse(req.url).query;
-   // console.log(url);//To show how does the URL looks like
-    if(!url){
-        Promise.all([
-            groupModel.getAllGroups()
-        ]).then(function (result) {
-            //console.log(result[0][1].groupName);
-               res.render('MLGroupManagement',{
-                currentUserName:req.session.user.userName,
-                groupList:result[0],
-                groupDetails:'',
-                   facilitatorName:''
-            } );
+    console.log(url);//To show how does the URL looks like
 
-        });
-       // console.log('You enter the page through the main menu, url = null')
-    }
-    else{
-        url=URL.parse(req.url,true).query;
+
+    Promise.all([
+        groupModel.getAllGroups(),
+        userModel.getNoGroupUsersByRole('Facilitator'),
+        userModel.getNoGroupUsersByRole('Student'),
+        projectModel.getProjectByLimitedNum()
+    ]).then(function (result) {
+
+        var homeSetting= {
+            currentUserName:req.session.user.userName,
+            groupSelection:'---select a option below---',
+            groupList:result[0],
+            groupID:'',
+            groupName:'',
+            facilitatorList:result[1],
+            memberList:result[2],
+            projectList:result[3],
+            facilitatorName:'',
+            facilitatorID:'',
+            facilitatorEmail:'',
+            projectName:'',
+            projectID:'',
+            member1Name:'',
+            member1ID:'',
+            member1Email:'',
+            member2Name:'',
+            member2ID:'',
+            member2Email:'',
+            member3Name:'',
+            member3ID:'',
+            member3Email:'',
+            member4Name:'',
+            member4ID:'',
+            member4Email:'',
+            member5Name:'',
+            member5ID:'',
+            member5Email:'',
+            member6Name:'',
+            member6ID:'',
+            member6Email:'',
+        };
+
+        if(!url){
+            return    res.render('MLGroupManagement',homeSetting)
+        }
+        else{
+            url=URL.parse(req.url,true).query;
+            console.log()
+            if(url.selectGroup==='toAddGroup'){
+                homeSetting.groupID='toAddGroup'
+                homeSetting.groupSelection='Please press Edit button and complete the form'
+                return res.render('MLGroupManagement',homeSetting)
+            }else if(url.selectGroup===''){
+                homeSetting.groupName=''
+                return res.render('MLGroupManagement',homeSetting)
+            }
             Promise.all([
                 groupModel.getAllGroups(),
-                groupModel.getgroupsByGroupID(url.selectGroup)
+                groupModel.getgroupsByGroupID(url.selectGroup),
+                userModel.getNoGroupUsersByRole('Facilitator'),
+                userModel.getNoGroupUsersByRole('Student'),
+                projectModel.getProjectByLimitedNum()
             ]).then(function (result) {
-                //console.log(result[1].facilitator.userName);
 
-                console.log( )
-                if(!result[1].facilitator&&!result[1].member1ID&&!result[1].member2ID&&!result[1].member3ID&&!result[1].member4ID&&!result[1].member5ID){
-                    return  res.redirect('/MLGroupManagement');
-                }else{
+               // console.log(result[3]);
+                //console.log(result[1].facilitator.userName);
+                //console.log(result[2])
+                if(!result[1].facilitator||!result[1].member1ID||!result[1].member2ID||!result[1].member3ID||!result[1].member4ID||!result[1].member5ID||!result[1].project){
                     return   res.render('MLGroupManagement',{
                         currentUserName:req.session.user.userName,
+                        groupSelection:result[1].groupName,
                         groupList:result[0],
-                        groupDetails:result[1],
-                        facilitatorName:result[1].facilitator.userName,
+                        groupID:result[1]._id,
+                        groupName:result[1].groupName,
+                        facilitatorList:result[2],
+                        memberList:result[3],
+                        projectList:result[4],
+                        facilitatorName:'',
+                        facilitatorID:'',
+                        facilitatorEmail:'',
+                        projectName:'',
+                        projectID:'',
+                        member1Name:'',
+                        member1ID:'',
+                        member1Email:'',
+                        member2Name:'',
+                        member2ID:'',
+                        member2Email:'',
+                        member3Name:'',
+                        member3ID:'',
+                        member3Email:'',
+                        member4Name:'',
+                        member4ID:'',
+                        member4Email:'',
+                        member5Name:'',
+                        member5ID:'',
+                        member5Email:'',
+                        member6Name:'',
+                        member6ID:'',
+                        member6Email:'',
                     } );
+                }else{
+                    if(!result[1].member6ID){
+                        return   res.render('MLGroupManagement',{
+                            currentUserName:req.session.user.userName,
+                            groupSelection:result[1].groupName,
+                            groupList:result[0],
+                            groupID:result[1]._id,
+                            groupName:result[1].groupName,
+                            facilitatorList:result[2],
+                            memberList:result[3],
+                            projectList:result[4],
+                            facilitatorName:result[1].facilitator.userName,
+                            facilitatorID:result[1].facilitator._id,
+                            facilitatorEmail:result[1].facilitator.email,
+                            projectName:result[1].project.projectName,
+                            projectID:result[1].project._id,
+                            member1Name:result[1].member1ID.userName,
+                            member1ID:result[1].member1ID._id,
+                            member1Email:result[1].member1ID.email,
+                            member2Name:result[1].member2ID.userName,
+                            member2ID:result[1].member2ID._id,
+                            member2Email:result[1].member2ID.email,
+                            member3Name:result[1].member3ID.userName,
+                            member3ID:result[1].member3ID._id,
+                            member3Email:result[1].member3ID.email,
+                            member4Name:result[1].member4ID.userName,
+                            member4ID:result[1].member4ID._id,
+                            member4Email:result[1].member4ID.email,
+                            member5Name:result[1].member5ID.userName,
+                            member5ID:result[1].member5ID._id,
+                            member5Email:result[1].member5ID.email,
+                            member6Name:'',
+                            member6ID:'',
+                            member6Email:'',
+
+                        } );
+                    }else{
+                        return   res.render('MLGroupManagement',{
+                            currentUserName:req.session.user.userName,
+                            groupSelection:result[1].groupName,
+                            groupList:result[0],
+                            groupID:result[1]._id,
+                            groupName:result[1].groupName,
+                            facilitatorList:result[2],
+                            memberList:result[3],
+                            projectList:result[4],
+                            facilitatorName:result[1].facilitator.userName,
+                            facilitatorID:result[1].facilitator._id,
+                            facilitatorEmail:result[1].facilitator.email,
+                            projectName:result[1].project.projectName,
+                            projectID:result[1].project._id,
+                            member1Name:result[1].member1ID.userName,
+                            member1ID:result[1].member1ID._id,
+                            member1Email:result[1].member1ID.email,
+                            member2Name:result[1].member2ID.userName,
+                            member2ID:result[1].member2ID._id,
+                            member2Email:result[1].member2ID.email,
+                            member3Name:result[1].member3ID.userName,
+                            member3ID:result[1].member3ID._id,
+                            member3Email:result[1].member3ID.email,
+                            member4Name:result[1].member4ID.userName,
+                            member4ID:result[1].member4ID._id,
+                            member4Email:result[1].member4ID.email,
+                            member5Name:result[1].member5ID.userName,
+                            member5ID:result[1].member5ID._id,
+                            member5Email:result[1].member5ID.email,
+                            member6Name:result[1].member6ID.userName,
+                            member6ID:result[1].member6ID._id,
+                            member6Email:result[1].member6ID.email,
+                        } );
+                    }
+
+
                 }
 
 
 
             });
-        //console.log('You refresh this page by submitting the page information,url=groupID')
-
-    }
+        }
+    })
 
 });
 

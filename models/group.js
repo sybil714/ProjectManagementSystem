@@ -14,6 +14,7 @@ module.exports = {
             .populate('member6ID')
             .populate('project')
             .populate('facilitator')
+            .sort({'groupName':1})
             .exec();
     },
 
