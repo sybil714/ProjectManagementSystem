@@ -32,6 +32,9 @@ module.exports = {
             groupModel.getAllGroups(),
             this.getAllProject()
         ]).then(function (result) {
+          if(!result[1]){
+              return null;
+          }
           for(var i=0;i<result[1].length;i++){
               var pCounter=0;
               for(var j=0;j<result[0].length;j++) {

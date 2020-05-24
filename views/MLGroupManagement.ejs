@@ -12,6 +12,7 @@
 
         function editableTrue() {
             document.getElementById('submit').style.display="inline"
+            document.getElementById('remove').style.display="inline"
             startEdit('member1');
             startEdit('member2');
             startEdit('member3');
@@ -43,6 +44,7 @@
 
 
 
+
     </script>
 </head>
 <body >
@@ -59,7 +61,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -81,8 +83,9 @@
                 <div class="col-md">
                     <h2 class="projectScream title">Group management</h2>
                     <div class="projectScream form">
-                        <h2 style="margin: 10px;">Group formation:<span style="margin-left: 20px;">
 
+                        <form>
+                        <h2 style="margin: 10px;">Group formation:<span style="margin-left: 20px;">
                         <select style="background-color: white;font-size: 25px;margin-top: 5px" name="selectGroup" id="selectGroup">
                              <option value="<%=groupID%>"><%=groupSelection%></option>
                             <option value="toAddGroup">To add a group</option>
@@ -94,13 +97,15 @@
                             </span>
                             </span>
                         </h2>
-                        <u1 id="group"  class="projectScream item">
+                        </form>
+
+                        <form method="post" id="group"  class="projectScream item">
 
                             <li id="team"  class="list-group project">
                                 <div style="margin: 0px;">
                                     <div style="border: 1px solid rgb(51, 51, 51); margin: 10px;">
-
-                                    <h2 style="padding: 5px; margin: 2px;margin-left: 8px;">
+                                        <span> <a id="tips" style="color: red; float: left;margin-left: 1%"><%=tips%></a></span><br>
+                                    <h2  style="padding: 5px; margin: 2px;margin-left: 8px;"><input name="reqGroupId" style="display: none" value="<%=groupID%>">
                                         Group Name: <input name="groupName" id="groupName" disabled="true" style="border: 0px!important; background-color: transparent!important;" value="<%=groupName%>">
                                     </h2>
                                         <h2 style="padding: 5px; margin: 10px;margin-left: 8px;">
@@ -122,7 +127,7 @@
                                         </h2>
                                         <h2 style="margin-left: 10px;">
                                             Project:<span>
-                                            <select disabled="true" style="font-size: 23px;background-color: transparent;width: 91%" id="selectProject">
+                                            <select name="selectProject" disabled="true" style="font-size: 23px;background-color: transparent;width: 91%" id="selectProject">
                                                  <option value="<%=projectID%>"><%=projectName%></option>
                                                 <option value=" ">---please select a project---</option>
                                                 <%for(var i=0;i<projectList.length;i++){%>
@@ -203,7 +208,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <select disabled="true" id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                        <select  id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
                                                             <option value="<%=member6ID%>"><%=member6Name%></option>
                                                             <option value=" ">---please select a member---</option>
                                                             <%for(var i=0;i<memberList.length;i++){%>
@@ -215,10 +220,12 @@
                                                 </tr>
 
                                             </table>
+
                                             <div>
                                                 <br>
                                             <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
-                                                <button id="submit" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;" type="submit" >Submit</button>
+                                                <button id="submit" name="submit" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;" type="submit"  value="true">Submit</button>
+                                                <button id="remove" name="remove" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;background-color: red!important;" type="submit"  value="true">Disband the group</button>
 
                                             </div>
                                 </div>
@@ -227,7 +234,7 @@
 
                             </li>
 
-                        </u1>
+                        </form>
 
 
                     </div>
@@ -235,7 +242,7 @@
             </div>
         </main>
     </div>
-</form>
+</section>
 
 
 

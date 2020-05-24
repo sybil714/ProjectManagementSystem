@@ -21,7 +21,7 @@ router.post('/Registration' , function(req, res,next) {
     password : req.body.password,
     confirmPassword : req.body.confirmPassword,
   }
-  console.log(data)
+  //console.log(data)
 
 
   if(data.emailAddress==data.confirmEmail){
@@ -46,15 +46,10 @@ router.post('/Registration' , function(req, res,next) {
       password : data.password,
     }
 
-    var user=new users(data2)``
+    var user=new users(data2)
 
     user.save(function (err,res) {
-      if(err){
-        console.log("Error:" + err);
-      }else
-      {
-        console.log("Res:" + res);
-      }
+
       //res.render('Page1Login',{})
     })
   }

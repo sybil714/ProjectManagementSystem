@@ -44,6 +44,8 @@ module.exports = {
             groupModel.getAllGroups(),
             this.getUsersByRole(role)
         ]).then(function (result) {
+            //console.log(result[1])
+
             var listResult=[]
            // console.log(result[1][7])
           // console.log(result[1][7]===result[0][0].member1ID)
@@ -53,8 +55,15 @@ module.exports = {
 
                 for(var i=0;i<result[1].length;i++){
                     var queryResult=true
-                    for(var j=0;j<result[0].length;j++){
-                        var judge=result[1][i]._id.equals(result[0][j].member1ID._id)||result[1][i]._id.equals(result[0][j].member2ID._id)||result[1][i]._id.equals(result[0][j].member3ID._id)||result[1][i]._id.equals(result[0][j].member4ID._id)||result[1][i]._id.equals(result[0][j].member5ID._id)||result[1][i]._id.equals(result[0][j].member6ID._id);
+                    for(var j=0;j<result[0].length;j++) {
+
+                        if (!result[0][j].member6ID) {
+                            var judge = result[1][i]._id.equals(result[0][j].member1ID._id) || result[1][i]._id.equals(result[0][j].member2ID._id) || result[1][i]._id.equals(result[0][j].member3ID._id) || result[1][i]._id.equals(result[0][j].member4ID._id) || result[1][i]._id.equals(result[0][j].member5ID._id);
+                        } else {
+
+
+                            var judge = result[1][i]._id.equals(result[0][j].member1ID._id) || result[1][i]._id.equals(result[0][j].member2ID._id) || result[1][i]._id.equals(result[0][j].member3ID._id) || result[1][i]._id.equals(result[0][j].member4ID._id) || result[1][i]._id.equals(result[0][j].member5ID._id) || result[1][i]._id.equals(result[0][j].member6ID._id);
+                        }
                         // console.log(result[1][i].email)
                         // console.log(result[0][j].member1ID.email)
                         // console.log(result[1][8]._id.equals(result[0][0].member1ID._id))
@@ -92,7 +101,7 @@ module.exports = {
                     }
                 }
             }
-            console.log('over')
+            //console.log('over')
             return listResult
         })
 
