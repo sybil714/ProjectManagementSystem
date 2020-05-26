@@ -289,6 +289,7 @@ router.get('/MLGroupManagement', function(req, res) {
                // console.log(result[3]);
                 //console.log(result[1].facilitator.userName);
                 //console.log(result[2])
+                //console.log(result[1].project.projectName)
                 var parameterSetting={
                     currentUserName:req.session.user.userName,
                     tips:'*The group details has been showed below.',
@@ -302,7 +303,7 @@ router.get('/MLGroupManagement', function(req, res) {
                     facilitatorName:result[1].facilitator.userName,
                     facilitatorID:result[1].facilitator._id,
                     facilitatorEmail:result[1].facilitator.email,
-                    projectName:result[1].projectName,
+                    projectName:result[1].project.projectName,
                     projectID:result[1]._id,
                     member1Name:result[1].member1ID.userName,
                     member1ID:result[1].member1ID._id,
