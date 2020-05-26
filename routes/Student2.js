@@ -12,6 +12,8 @@ router.get('/SMyGroup', function(req, res) {
     console.log(userId);
     let names=new Array();
     let emails=new Array();
+    var a = 0;
+
 
     groupModel.getGroupsByObjectId1(userId)
         .then(function (result){
@@ -69,9 +71,10 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                   a=a+1;
             }
         })
+    console.log(a);
 
     groupModel.getGroupsByObjectId2(userId)
         .then(function (result){
@@ -129,10 +132,11 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                a=a+1;
             }
          //   console.log(result);
         })
+    console.log(a);
     groupModel.getGroupsByObjectId3(userId)
         .then(function (result){
             console.log(result);
@@ -189,10 +193,11 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                a=a+1;
             }
           //  console.log(result);
         })
+    console.log(a);
     groupModel.getGroupsByObjectId4(userId)
         .then(function (result){
          //   console.log(result);
@@ -249,10 +254,11 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                a=a+1;
             }
          //   console.log(result);
         })
+    console.log(a);
     groupModel.getGroupsByObjectId5(userId)
         .then(function (result){
             console.log(result);
@@ -309,10 +315,11 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                a=a+1;
             }
         //    console.log(result);
         })
+    console.log(a);
 
     groupModel.getGroupsByObjectId6(userId)
         .then(function (result){
@@ -370,10 +377,20 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-
+                a=a+1;
             }
          //   console.log(result);
         })
+    console.log(a);
+
+    if(a==6){
+        res.render('SMyGroup', {
+            tips: "You have not been assigned to a group！",
+            names: names,
+            emails: emails,
+            currentUserName: username,
+        })
+    }
 
 });
 

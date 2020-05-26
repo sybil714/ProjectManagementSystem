@@ -18,7 +18,7 @@
     </div>
 </header>
 
-<form class="functionBoard">
+<section class="functionBoard">
     <div class="functionBoard left">
         <div>
             <u1>
@@ -40,39 +40,143 @@
                 <div class="col-md">
                     <h2 class="projectScream title">Group management</h2>
                     <div class="projectScream form">
-                        <h3 style="margin: 20px;">Group formation: </h3>
-                        <div style="color: red;"><%= tips%></div>
-                        <u1 id="group"  class="projectScream item">
+
+                        <form>
+                            <h2 style="margin: 10px;">Group formation:<span style="margin-left: 20px;">
+                        <select style="background-color: white;font-size: 25px;margin-top: 5px" name="selectGroup" id="selectGroup">
+                             <option value="<%=groupID%>"><%=groupSelection%></option>
+                            <option value="">---please select an option---</option>
+
+                            <%for(var i=0;i<groupList.length;i++){%>
+                            <option value=<%=groupList[i]._id%>><%=groupList[i].groupName%></option>
+                            <%}%>
+                        </select>
+                                <button name="SearchButton"  type="submit"  style="border: 0px " value="true">View</button>
+                            </span>
+                                </span>
+                            </h2>
+                        </form>
+
+                        <form method="post" id="group"  class="projectScream item">
 
                             <li id="team"  class="list-group project">
                                 <div style="margin: 0px;">
                                     <div style="border: 1px solid rgb(51, 51, 51); margin: 10px;">
-                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
-                                            Group name: <%=names[0]%>
-                                        </h4>
-                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
-                                            Facilitator: <%=names[1]%>
-                                        </h4>
-                                        <h4 style="padding: 5px; margin: 2px;margin-left: 8px;">
-                                            Project: <%=names[2]%>
-                                        </h4>
+                                        <span> <a id="tips" style="color: red; float: left;margin-left: 1%"><%=tips%></a></span><br>
+                                        <h2  style="padding: 5px; margin: 2px;margin-left: 8px;"><input name="reqGroupId" style="display: none" value="<%=groupID%>">
+                                            Group Name: <input name="groupName" id="groupName" disabled="true" style="border: 0px!important; background-color: transparent!important;" value="<%=groupName%>">
+                                        </h2>
+                                        <h2 style="padding: 5px; margin: 10px;margin-left: 8px;">
+                                            Facilitator: <span>
+                                                <a>
+                                                <select name="selectFacilitator" disabled="true" style="width: 35%;font-size: 23px;background-color: transparent;" id="selectFacilitator">
+                                                    <option value="<%=facilitatorID%>"><%=facilitatorName%></option>
+                                                    <option value=" ">---please select a facilitator below：---</option>
+                                                    <%for(var j=0;j<facilitatorList.length;j++){%>
+                                                    <option value=<%=facilitatorList[j]._id%>><%=facilitatorList[j].userName%>(email:<%=facilitatorList[j].email%>)</option>
+                                                    <%}%>
+                                                </select>
+                                                    <span id="facilitatorE">
+                                                    E-mail:<%=facilitatorEmail%>
+                                                    </span>
+                                                </a>
+
+                                            </span>
+                                        </h2>
+                                        <h2 style="margin-left: 10px;">
+                                            Project:<span>
+                                            <select name="selectProject" disabled="true" style="font-size: 23px;background-color: transparent;width: 91%" id="selectProject">
+                                                 <option value="<%=projectID%>"><%=projectName%></option>
+                                                <option value=" ">---please select a project---</option>
+                                                <%for(var i=0;i<projectList.length;i++){%>
+                                                <option value=<%=projectList[i]._id%>><%=projectList[i].projectName%></option>
+                                                <%}%>
+                                            </select>
+                                            </span>
+                                        </h2>
                                         <div style="margin: 10px 10px 65px !important;">
+                                            <h2>
+                                                Members:
+                                            </h2>
                                             <table border="1" id="qwe" style="width: 100%;">
-                                                <tbody><tr><td>Name</td><td>E-mail</td></tr>
+                                                <tbody>
+                                                <tr><td disabled="true">Name</td ><td disabled="true">E-mail</td></tr>
                                                 </tbody>
-                                                <tr><td><input disabled="true" id="input1" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[3]%></td>
-                                                    <td><input disabled="true" id="input2" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=emails[0]%></td>
-                                                <tr><td><input disabled="true" id="input3" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[4]%></td>
-                                                    <td><input disabled="true" id="input4" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=emails[1]%></td>
-                                                <tr><td><input disabled="true" id="input5" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[5]%></td>
-                                                    <td><input disabled="true" id="input6" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=emails[2]%></td>
-                                                <tr><td><input disabled="true" id="input7" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[6]%></td>
-                                                    <td><input disabled="true" id="input8" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=emails[3]%></td>
-                                                <tr><td><input disabled="true" id="input9" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[7]%></td>
-                                                    <td><input disabled="true" id="input10" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=emails[4]%></td>
-                                                <tr><td><input disabled="true" id="input11" type="text" name="input1" style="width: 100%; border: 0px; background-color: transparent !important;"><%=names[8]%></td>
-                                                    <td><input disabled="true" id="input12" type="text" name="input1" style=" width: 100%; border: 0px; background-color: transparent !important;"><%=emails[5]%></td>
+                                                <tr>
+
+
+                                                    <td>
+                                                        <select disabled="true" id="member1" type="text" name="member1"  style=" font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member1ID%>"><%=member1Name%></option>
+                                                            <option value=" ">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member1E" style="width: 50%"><%=member1Email%></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member2" type="text" name="member2"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member2ID%>"><%=member2Name %></option>
+                                                            <option value=" ">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member2E" style="width: 50%"><%=member2Email%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member3" type="text" name="member3"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member3ID%>"><%=member3Name%></option>
+                                                            <option value=" ">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member3E" style="width: 50%"><%=member3Email%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member4" type="text" name="member4"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member4ID%>"><%=member4Name%></option>
+                                                            <option value=" ">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member4E" style="width: 50%"><%=member4Email%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member5" type="text" name="member5"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member5ID%>"><%=member5Name%></option>
+                                                            <option value=" ">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member5E" style="width: 50%"><%=member5Email%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select disabled="true" id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                            <option value="<%=member6ID%>"><%=member6Name%></option>
+                                                            <option value="">---please select a member---</option>
+                                                            <%for(var i=0;i<memberList.length;i++){%>
+                                                            <option value=<%=memberList[i]._id%>><%=memberList[i].userName%>(email:<%=memberList[i].email%>)</option>
+                                                            <%}%>
+                                                        </select>
+                                                    </td>
+                                                    <td id="member6E" style="width: 50%"><%=member6Email%></td>
+                                                </tr>
+
                                             </table>
 
                                         </div>
@@ -81,7 +185,7 @@
 
                             </li>
 
-                        </u1>
+                        </form>
 
 
                     </div>
@@ -89,8 +193,7 @@
             </div>
         </main>
     </div>
-
-</form>
+</section>
 
 
 
