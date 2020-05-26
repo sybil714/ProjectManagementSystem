@@ -14,11 +14,11 @@ router.get('/SHomePage', function(req, res) {
 });
 
 router.get('/SGroupMarking', function(req, res) {
-    var thisID='5ec16a867714977fa9470f29';
+    var thisID=req.session.user._id;
     let names=new Array();
     Promise.all([
         markinginformation.getstudentmarkingByGroupID(thisID)
-        //groupinformation.getgroupsByGroupID("5ec28a5ff145e85cca4e1b5f")
+        //groupinformation.getgroupsByGroupID("5eca8b1b1c1820eb958646b0")
     ])
         .then( function (result) {
             let messageList=[];
@@ -27,17 +27,17 @@ router.get('/SGroupMarking', function(req, res) {
             let a=[];
             a=messageList[0];
             //console.log(a.groupID);
-            groupinformation.getgroupsByGroupID(a.groupID)
+            groupinformation.getgroupsByGroupID(a.groupID._id)
                 .then(function (result) {
                     console.log(result);
-                    userModel.getUserbyID(result.member1ID)
+                    userModel.getUserbyID(result.member1ID._id)
                         .then(function (result) {
                            // console.log(result);
                             //console.log(result.userName);
                             names.push(result.userName);
                         });
 
-                    userModel.getUserbyID(result.member2ID)
+                    userModel.getUserbyID(result.member2ID._id)
                         .then(function (result) {
                             //console.log(result);
                             //console.log(result.userName);
@@ -45,20 +45,20 @@ router.get('/SGroupMarking', function(req, res) {
                         });
 
 
-                    userModel.getUserbyID(result.member3ID)
+                    userModel.getUserbyID(result.member3ID._id)
                         .then(function (result) {
                             //console.log(result);
                             //console.log(result.userName);
                             names.push(result.userName);
                         });
-                    userModel.getUserbyID(result.member4ID)
+                    userModel.getUserbyID(result.member4ID._id)
                         .then(function (result) {
                             //console.log(result);
                             //console.log(result.userName);
                             names.push(result.userName);
                         });
 
-                    userModel.getUserbyID(result.member5ID)
+                    userModel.getUserbyID(result.member5ID._id)
                         .then(function (result) {
                             //console.log(result);
                             //console.log(result.userName);
@@ -67,7 +67,7 @@ router.get('/SGroupMarking', function(req, res) {
                         });
 
                     //console.log(result.member6ID!=thisID);
-                    userModel.getUserbyID(result.member6ID)
+                    userModel.getUserbyID(result.member6ID._id)
                         .then(function (result) {
                             //console.log(result);
                             //console.log(result.userName);

@@ -223,7 +223,7 @@ router.get('/MLGroupManagement', function(req, res) {
         var homeSetting= {
             currentUserName:req.session.user.userName,
             tips:'*Please select a search option',
-            groupSelection:'---select a option---',
+            groupSelection:' ',
             groupList:result[0],
             groupID:'',
             groupName:'',
@@ -258,10 +258,9 @@ router.get('/MLGroupManagement', function(req, res) {
         if(!result[1]||!result[2]||!result[3]||!result[0]){
             homeSetting.facilitatorList='';
             homeSetting.memberList='';
-
         }
 
-        if(!url){
+        if(!url||url.selectGroup===''){
             return    res.render('MLGroupManagement',homeSetting)
         }
         else{
@@ -365,8 +364,9 @@ router.post('/MLGroupManagement', function(req, res,next){
         groupModel.getAllGroups(),
             userModel.getNoGroupUsersByRole('Facilitator'),
             userModel.getNoGroupUsersByRole('Student'),
-            projectModel.getProjectByLimitedNum()
+            projectModel.getProjectByLimitedNum(),
     ]).then(function (result) {
+
         var homeSetting= {
             currentUserName:req.session.user.userName,
             tips:'',
@@ -416,10 +416,13 @@ router.post('/MLGroupManagement', function(req, res,next){
                 member5ID:req.body.member5,
                 member6ID:req.body.member6,
             }
+
+
             if(url.selectGroup==='toAddGroup'){
 
 
                 if(!inputData.groupName||!inputData.project||!inputData.facilitator||!inputData.member1ID||!inputData.member2ID||!inputData.member3ID||!inputData.member4ID||!inputData.member5ID){
+                   // console('No the sixth member')
                     homeSetting.tips='* You have missed something to fill in, please try again. (The sixth member is optional, others are required)'
                     return res.render('MLGroupManagement',homeSetting)
                 }else{
@@ -431,6 +434,7 @@ router.post('/MLGroupManagement', function(req, res,next){
 
                         })
                         console.log(group)
+                        console.log('New group added successfully')
                         homeSetting.tips='*New group added successfully'
                         return res.render('MLGroupManagement',homeSetting)
                     }else{
@@ -441,7 +445,8 @@ router.post('/MLGroupManagement', function(req, res,next){
                         group.save(function (err,res) {
 
                         })
-                        homeSetting.tips='*New group added successfully'
+                        console.log('New group added successfully')
+                        homeSetting.tips='*New group has been added successfully'
                         return res.render('MLGroupManagement',homeSetting)
                     }
 
@@ -457,17 +462,19 @@ router.post('/MLGroupManagement', function(req, res,next){
             }
 
             console.log(req.body.reqGroupId)
-            console.log( inputData)
-            groups.findByIdAndUpdate(getUpdateID, inputData, {},function (err, res) {
+
+            // console.log( inputData)
+            groups.findByIdAndUpdate(getUpdateID, inputData, function (err, res) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                console.log('Group details update successfully!');
+
             });
+            console.log('Group details update successfully!');
+
             homeSetting.tips='*Group details update successfully'
             return res.render('MLGroupManagement',homeSetting)
-            //console.log(req.body.submit)
 
             }
 
@@ -481,9 +488,8 @@ router.post('/MLGroupManagement', function(req, res,next){
 
             }else{
                 groups.findByIdAndDelete({'_id':req.body.reqGroupId},function (err,res) {
-
                 })
-
+                console.log('The group remove successfully')
                 homeSetting.tips='*The group remove successfully,Please refresh and check!'
                     return res.render('MLGroupManagement',homeSetting)
             }

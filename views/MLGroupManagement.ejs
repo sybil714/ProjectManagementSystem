@@ -38,7 +38,13 @@
             document.getElementById('member5E').innerText='';
             document.getElementById('member6E').innerText='';
             document.getElementById('facilitatorE').innerText='E-mail:';
+        }
 
+        function hideEdit() {
+            var judge=document.getElementById('tips').innerText
+            if(judge!=='*Please select a search option'){
+                document.getElementById('edit').style.display='inline'
+            }
 
         }
 
@@ -47,7 +53,7 @@
 
     </script>
 </head>
-<body >
+<body onload="hideEdit()" >
 
 <header role="banner">
     <div class="headcontainer">
@@ -88,6 +94,7 @@
                         <h2 style="margin: 10px;">Group formation:<span style="margin-left: 20px;">
                         <select style="background-color: white;font-size: 25px;margin-top: 5px" name="selectGroup" id="selectGroup">
                              <option value="<%=groupID%>"><%=groupSelection%></option>
+                            <option value="">---please select an option---</option>
                             <option value="toAddGroup">To add a group</option>
                             <%for(var i=0;i<groupList.length;i++){%>
                             <option value=<%=groupList[i]._id%>><%=groupList[i].groupName%></option>
@@ -208,7 +215,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <select  id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
+                                                        <select disabled="true" id="member6" type="text" name="member6"  style="font-size: 23px;width: 100%; border: 0px; background-color: transparent !important;">
                                                             <option value="<%=member6ID%>"><%=member6Name%></option>
                                                             <option value="">---please select a member---</option>
                                                             <%for(var i=0;i<memberList.length;i++){%>
@@ -223,7 +230,7 @@
 
                                             <div>
                                                 <br>
-                                            <button class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left" >Edit</button>
+                                            <button id="edit" class="btn btn-block btn-submit button button--primary smaller" type="button" onclick="editableTrue()" style="float: left;display: none" >Edit</button>
                                                 <button id="submit" name="submit" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;" type="submit"  value="true">Submit</button>
                                                 <button id="remove" name="remove" class="btn btn-block btn-submit button button--primary smaller"  style="display: none!important;float: right!important; width: auto!important;background-color: red!important;" type="submit"  value="true">Disband the group</button>
 
