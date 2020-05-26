@@ -90,16 +90,16 @@
 
                             <section class="form-group">
 
-                                <h1>1.Select a group:
-                                <select>
-                                <option value="group1">group1</option>
-                                <option value="group2">group2</option>
-                                <option value="group3">group3</option>
-                                <option value="group4">group4</option>
-                                <option value="group5">group5</option>
-                                <option value="group6">group6</option>
-                                </select>
-                                </h1>
+                                    <h3>1.Select a group:
+
+                                        <select>
+
+                                            <%for(var i=0;i<groupList.length;i++){%>
+                                            <option value="<%=groupList[i].groupName%>"> <%=groupList[i].groupName%> </option>
+                                            <%}%>
+
+                                        </select>
+                                    </h3>
                               <br>
                                 <section class="form-group">
 

@@ -18,6 +18,7 @@ module.exports = {
             .exec();
     },
 
+
     getgroupsByGroupID: function getgroupsByGroupID(id) {
         return group
             .findById(id)
@@ -124,6 +125,20 @@ module.exports = {
             .populate("facilitator")
             .exec()
     },
+
+    getGroupsByProjectId:function getGroupsByProjectId(projectId) {
+        return group
+            .find({project:projectId})
+            .populate("member1ID")
+            .populate("member2ID")
+            .populate("member3ID")
+            .populate("member4ID")
+            .populate("member5ID")
+            .populate("member6ID")
+            .populate("project")
+            .populate("facilitator")
+            .exec()
+    }
 
 
 }
