@@ -113,7 +113,7 @@ module.exports = {
 
     getGroupsByFId:function getGroupsByFId(ObjectId) {
         return group
-            .findOne({facilitator:ObjectId})
+            .find({facilitator:ObjectId})
             .populate("member1ID")
             .populate("member2ID")
             .populate("member3ID")
