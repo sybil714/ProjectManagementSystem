@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My group</title>
+    <title>My groups</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
@@ -13,7 +13,7 @@
             Welcome, <%= currentUserName%>
         </div>
         <div class="page-title" style="color:#0166b3 ">
-            Student service
+            Facilitator service
         </div>
     </div>
 </header>
@@ -23,14 +23,12 @@
         <div>
             <u1>
                 <h1 class="functionBoard-frame functionBoard-Title ">Menu</h1>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonHome" onclick="location.href='/SHomePage'">Home</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMember" onclick="location.href='/SSelectMember'">Member manmgement</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonProject" onclick="location.href='/SSelectProject'">Project management</button></li>
-                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonMarking" onclick="location.href='/SMyGroup'">My group</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking" onclick="location.href='/SGroupMarking'">Group marking</button></li>
+                <li class="list-group"><button class="functionBoard-Button"type="button" id="buttonFHome" onclick="location.href='/FHomePage'">Home</button></li>
+                <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonFMyGroups" onclick="location.href='/FMygroups'">My Groups</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonFMark" onclick="location.href='/FGroupMarking'">Group marking</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Report history</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='/SShowGrade'"> My Grade </button></li>
+
             </u1>
             <button class="functionBoard-Button" style="float:left;margin-top: 150%" type="button"  onclick="location.href='/logout'">Logout</button>
 
