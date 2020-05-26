@@ -1,6 +1,6 @@
 const mongo = require('../lib/mongo');
 const user = mongo.users;
-const groupModel= require('../models/group');
+const groupModel = require('../models/group');
 
 module.exports = {
 
@@ -10,52 +10,51 @@ module.exports = {
             .exec();
     },
 
-    getUsersByEmail:function getUsersByEmail(email) {
+    getUsersByEmail: function getUsersByEmail(email) {
         return user
-            .findOne({email:email})
+            .findOne({email: email})
             .exec()
     },
 
-    getUserbyID:function getUserbyID(id) {
+    getUserbyID: function getUserbyID(id) {
         return user
             .findById(id)
             .exec();
     },
 
 
-
-    getUserNameById:function getUserNameById(ObjectId) {
+    getUserNameById: function getUserNameById(ObjectId) {
         return user.Username
-            .findOne({ObjectId:ObjectId})
+            .findOne({ObjectId: ObjectId})
             .exec()
     },
 
-    getUsersByRole:function getUsersByRole(role){
-     return  user
-            .find({role:role})
-            .sort({'userName':1})
-            .sort({'email':1})
+    getUsersByRole: function getUsersByRole(role) {
+        return user
+            .find({role: role})
+            .sort({'userName': 1})
+            .sort({'email': 1})
             .exec();
     },
 
 
-    getNoGroupUsersByRole:function getUsersByrole(role) {
-        return  Promise.all([
+    getNoGroupUsersByRole: function getUsersByrole(role) {
+        return Promise.all([
             groupModel.getAllGroups(),
             this.getUsersByRole(role)
         ]).then(function (result) {
             //console.log(result[1])
 
-            var listResult=[]
-           // console.log(result[1][7])
-          // console.log(result[1][7]===result[0][0].member1ID)
-           // console.log(result[0][0].member1ID)
-            var counter=0
-            if(role==='Student'){
+            var listResult = []
+            // console.log(result[1][7])
+            // console.log(result[1][7]===result[0][0].member1ID)
+            // console.log(result[0][0].member1ID)
+            var counter = 0
+            if (role === 'Student') {
 
-                for(var i=0;i<result[1].length;i++){
-                    var queryResult=true
-                    for(var j=0;j<result[0].length;j++) {
+                for (var i = 0; i < result[1].length; i++) {
+                    var queryResult = true
+                    for (var j = 0; j < result[0].length; j++) {
 
                         if (!result[0][j].member6ID) {
                             var judge = result[1][i]._id.equals(result[0][j].member1ID._id) || result[1][i]._id.equals(result[0][j].member2ID._id) || result[1][i]._id.equals(result[0][j].member3ID._id) || result[1][i]._id.equals(result[0][j].member4ID._id) || result[1][i]._id.equals(result[0][j].member5ID._id);
@@ -68,14 +67,14 @@ module.exports = {
                         // console.log(result[0][j].member1ID.email)
                         // console.log(result[1][8]._id.equals(result[0][0].member1ID._id))
                         // console.log(judge)
-                        if(judge){
-                            queryResult=queryResult&&false;
+                        if (judge) {
+                            queryResult = queryResult && false;
                             break
                         }
                     }
 
-                    if(queryResult){
-                        listResult[counter]=result[1][i];
+                    if (queryResult) {
+                        listResult[counter] = result[1][i];
 
                         counter++;
                     }
@@ -84,19 +83,19 @@ module.exports = {
 
             }
 
-            if(role==='Facilitator'){
-                for(var i=0;i<result[1].length;i++){
-                    var fCounter=0;
-                    for(var j=0;j<result[0].length;j++) {
+            if (role === 'Facilitator') {
+                for (var i = 0; i < result[1].length; i++) {
+                    var fCounter = 0;
+                    for (var j = 0; j < result[0].length; j++) {
                         if (fCounter > 4) {
                             break;
                         }
-                        if (result[1][i]._id.equals(result[0][j].facilitator._id) ) {
+                        if (result[1][i]._id.equals(result[0][j].facilitator._id)) {
                             fCounter++;
                         }
                     }
-                    if(fCounter<4){
-                        listResult[counter]=result[1][i];
+                    if (fCounter < 4) {
+                        listResult[counter] = result[1][i];
                         counter++;
                     }
                 }
@@ -106,13 +105,9 @@ module.exports = {
         })
 
 
-
-
-},
+    },
 
 }
-
-
 
 
 //test test  test testasd

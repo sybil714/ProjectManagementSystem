@@ -26,6 +26,14 @@
             eJect(save,lowResult);
         }
 
+        function openCalender() {
+            onclick=window.open('https://calendar.google.com/calendar/r');
+        }
+
+        function openForm() {
+            onclick=window.open('https://www.google.com/forms/about/');
+        }
+
     </script>
 </head>
 <body>
@@ -50,8 +58,8 @@
                 <li class="list-group"><button class="functionBoard-Button"type="button" id="buttonFHome" onclick="location.href='/FHomePage'">Home</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonFMyGroups" onclick="location.href='/FMygroups'">My Groups</button></li>
                 <li class="list-group"><button class="functionBoard-Button current" type="button" id="buttonFMark" onclick="location.href='/FGroupMarking'">Group marking</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Form</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="openCalender()"> Calendar </button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick=openForm()> Forms</button></li>
 
                 <button class="functionBoard-Button" style="float:left;" type="button"  onclick="location.href='/logout'">Logout</button>
 

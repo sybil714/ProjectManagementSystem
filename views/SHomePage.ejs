@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    <script>
+        function openCalender() {
+            onclick=window.open('https://calendar.google.com/calendar/r');
+        }
+
+        function openForm() {
+            onclick=window.open('https://www.google.com/forms/about/');
+        }
+    </script>
 </head>
 <body>
 
@@ -28,9 +38,9 @@
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonProject" onclick="location.href='/SSelectProject'">Project management</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking" onclick="location.href='/SMyGroup'">My group</button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" id="buttonMarking" onclick="location.href='/SGroupMarking'">Group marking</button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://calendar.google.com/calendar/r'"> Calendar </button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick=openCalender()> Calendar </button></li>
                 <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='/SShowGrade'"> My Grade </button></li>
-                <li class="list-group"><button class="functionBoard-Button" type="button" onclick="location.href='https://www.google.com/forms/about/'"> Form</button></li>
+                <li class="list-group"><button class="functionBoard-Button" type="button" onclick=openForm()> Form</button></li>
 
                 <button class="functionBoard-Button" style="float:left;" type="button"  onclick="location.href='/logout'">Logout</button>
             </u1>

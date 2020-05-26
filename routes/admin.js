@@ -127,7 +127,5 @@ router.post('/Registration',function (req,res) {
 
 })
 
-//
-
 
 module.exports = router;
