@@ -258,6 +258,7 @@ router.get('/MLGroupManagement', function(req, res) {
         if(!result[1]||!result[2]||!result[3]||!result[0]){
             homeSetting.facilitatorList='';
             homeSetting.memberList='';
+            homeSetting.groupList='';
         }
 
         if(!url||url.selectGroup===''){
@@ -304,7 +305,7 @@ router.get('/MLGroupManagement', function(req, res) {
                     facilitatorID:result[1].facilitator._id,
                     facilitatorEmail:result[1].facilitator.email,
                     projectName:result[1].project.projectName,
-                    projectID:result[1]._id,
+                    projectID:result[1].project._id,
                     member1Name:result[1].member1ID.userName,
                     member1ID:result[1].member1ID._id,
                     member1Email:result[1].member1ID.email,

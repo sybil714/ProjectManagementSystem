@@ -32,8 +32,6 @@ module.exports = {
             groupModel.getAllGroups(),
             this.getAllProject()
         ]).then(function (result) {
-
-
           if(!result[1]){
               return null;
           }
@@ -44,7 +42,7 @@ module.exports = {
                   if (pCounter > 3) {
                       break;
                   }
-                  if (result[1][i]._id.equals(result[0][j]._id) ) {
+                  if (result[1][i]._id.equals(result[0][j].project._id) ) {
                       pCounter++;
                   }
               }
