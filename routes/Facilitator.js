@@ -46,51 +46,82 @@ router.get('/FGroupMarking',function (req,res) {
 });
 
 router.post('/FGroupMarking' , function(req, res,next) {
+    var username=req.session.user.userName;
+    var userId=req.session.user._id;;
+    let groups=new Array();
+    console.log(userId);
 
-        var data2 = {
-            facilitatorID:req.session.user._id,
-            meeting:req.body.meeting,
-            mark1: req.body.mark1,
-            reason1: req.body.reason1,
-            mark2: req.body.mark2,
-            reason2: req.body.reason2,
-            Comments: req.body.Comments,
-        }
+    groupModel.getGroupsByFId(userId)
+        .then(function (result) {
+            for (var i = 0; i < result.length; i++) {
+                groups[i] = result[i].groupName;
+            }
+            console.log(result);
+            console.log(result.length);
+            console.log(groups);
 
-    var mark1in=data2.mark1;
-    var mark2in=data2.mark2;
-    var reason1in=data2.reason1;
-    var reason2in=data2.reason2;
-    var Commentsin=data2.Comments;
-    //console.log(!mark1in)
-    //console.log(mark1in)
-    //console.log(mark1in>3)
+            var data3 = {
+                moduleLeaderID:req.session.user._id,
+                groupID:req.body.groupID,
+                mark1: req.body.mark1,
+                reason1: req.body.reason1,
+                mark2: req.body.mark2,
+                reason2: req.body.reason2,
+                mark3: req.body.mark3,
+                reason3: req.body.reason3,
+                mark4: req.body.mark4,
+                reason4: req.body.reason4,
+                Comments: req.body.Comments,
+            }
 
-    /*
-      If the facilitator misses a marking, the submission will be unsuccessful and a prompt will pop up
-     */
-    if(!mark1in||!mark2in) {
-        console.log('Your form has not been completed, please submit it after completion!')
-        return res.render('FGroupMarking', {tips: '* Your form has not been completed, please submit it after completion!'})
-    }
+            /*
+               To see What exactly is the input of moudel leader
+             */
+            var groupIDin=data3.groupID
+            var mark1in=data3.mark1;
+            var mark2in=data3.mark2;
+            var mark3in=data3.mark3;
+            var mark4in=data3.mark4;
+            var reason1in=data3.reason1;
+            var reason2in=data3.reason2;
+            var reason3in=data3.reason3;
+            var reason4in=data3.reason4;
 
-    /*
-     else if the mark is below 5，facilitator should give some comments，then the submission will be successful
-     */
-    if(!reason1in||!reason2in||!Commentsin){
-        console.log('* Please give some comments')
-        return res.render('FGroupMarking', {tips: '* Please give some comments'})
-    }
+            console.log(!mark1in)
+            console.log(mark1in)
+            console.log(mark1in>3)
+            console.log(groupIDin)
+            /*
+              If the moudel leader misses a marking, the submission will be unsuccessful and a prompt will pop up
+             */
+            if(!mark1in||!mark2in||!mark3in||!mark4in) {
+                console.log('* Your form has not been completed, please submit it after completion!')
+                return res.render('FGroupMarking', {groups:groups,currentUserName:req.session.user.userName ,tips: '* Your form has not been completed, please submit it after completion!'})
+            }
 
-    else {
-        var assessment = new assessments(data2)
-        assessment.save(function (err, res) {
-            console.log(data2)
-        })
 
-        res.redirect('/FHomePage')
-    }
+            /*
+             else if the mark is below 5，module leader must give some comments，then the submission will be successful
+             */
+            if(mark1in<5&&!reason1in||mark2in<5&&!reason2in||mark3in<5&&!reason3in||mark4in<5&&!reason4in){
+                console.log('* Please give some comments if the mark is below 5!')
+                return res.render('FGroupMarking', {groups:groups,currentUserName:req.session.user.userName,tips: '* Please give some comments if the mark is below 5!'})
+            }
+
+            else
+            {
+                var marking = new markings(data3)
+                marking.save(function (err, res) {
+                    //res.send(JSON.stringify(data))
+                    console.log(data3)
+                })
+                res.redirect('/FHomePage')
+            }
+
+        } );
+
 });
+
 
 router.get('/FMyGroups', function(req, res) {
 

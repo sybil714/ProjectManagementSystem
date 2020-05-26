@@ -140,67 +140,86 @@ router.get('/MLGroupMarking', function(req, res) {
                  res.render('MLGroupMarking',{
                      groups:groups,
                      currentUserName:username,
+                     tips:''
                  } );
         })
 
 });
 
 router.post('/MLGroupMarking' , function(req, res,next) {
-
-    var data3 = {
-        moduleLeaderID:req.session.user._id,
-        mark1: req.body.mark1,
-        reason1: req.body.reason1,
-        mark2: req.body.mark2,
-        reason2: req.body.reason2,
-        mark3: req.body.mark3,
-        reason3: req.body.reason3,
-        mark4: req.body.mark4,
-        reason4: req.body.reason4,
-        Comments: req.body.Comments,
-    }
-
-    /*
-       To see What exactly is the input of moudel leader
-     */
-    var mark1in=data3.mark1;
-    var mark2in=data3.mark2;
-    var mark3in=data3.mark3;
-    var mark4in=data3.mark4;
-    var reason1in=data3.reason1;
-    var reason2in=data3.reason2;
-    var reason3in=data3.reason3;
-    var reason4in=data3.reason4;
-    console.log(!mark1in)
-    console.log(mark1in)
-    console.log(mark1in>3)
-
-    /*
-      If the moudel leader misses a marking, the submission will be unsuccessful and a prompt will pop up
-     */
-    if(!mark1in||!mark2in||!mark3in||!mark4in) {
-        console.log('* Your form has not been completed, please submit it after completion!')
-        return res.render('CFeedback', {tips: '* Your form has not been completed, please submit it after completion!'})
-    }
+    var username=req.session.user.userName;
+    let groups=new Array();
 
 
-    /*
-     else if the mark is below 5，module leader must give some comments，then the submission will be successful
-     */
-    if(mark1in<5&&!reason1in||mark2in<5&&!reason2in||mark3in<5&&!reason3in||mark4in<5&&!reason4in){
-        console.log('* Please give some comments if the mark is below 5!')
-        return res.render('CFeedback', {tips: '* Please give some comments if the mark is below 5!'})
-    }
+    groupModel.getAllGroups()
+        .then(function (result) {
+            for(var i = 0;i<result.length;i++){
+                groups[i] = result[i].groupName;
+            }
+            console.log(result[0].groupName);
+            console.log(result.length);
+            console.log(groups);
 
-    else
-    {
-        var marking = new markings(data3)
-        marking.save(function (err, res) {
-            //res.send(JSON.stringify(data))
-            console.log(data3)
-        })
-        res.redirect('/MLHomePage')
-    }
+            var data3 = {
+                moduleLeaderID:req.session.user._id,
+                groupID:req.body.groupID,
+                mark1: req.body.mark1,
+                reason1: req.body.reason1,
+                mark2: req.body.mark2,
+                reason2: req.body.reason2,
+                mark3: req.body.mark3,
+                reason3: req.body.reason3,
+                mark4: req.body.mark4,
+                reason4: req.body.reason4,
+                Comments: req.body.Comments,
+            }
+
+            /*
+               To see What exactly is the input of moudel leader
+             */
+            var groupIDin=data3.groupID
+            var mark1in=data3.mark1;
+            var mark2in=data3.mark2;
+            var mark3in=data3.mark3;
+            var mark4in=data3.mark4;
+            var reason1in=data3.reason1;
+            var reason2in=data3.reason2;
+            var reason3in=data3.reason3;
+            var reason4in=data3.reason4;
+
+            console.log(!mark1in)
+            console.log(mark1in)
+            console.log(mark1in>3)
+            console.log(groupIDin)
+            /*
+              If the moudel leader misses a marking, the submission will be unsuccessful and a prompt will pop up
+             */
+            if(!mark1in||!mark2in||!mark3in||!mark4in) {
+                console.log('* Your form has not been completed, please submit it after completion!')
+                return res.render('MLGroupMarking', {groups:groups,currentUserName:req.session.user.userName ,tips: '* Your form has not been completed, please submit it after completion!'})
+            }
+
+
+            /*
+             else if the mark is below 5，module leader must give some comments，then the submission will be successful
+             */
+            if(mark1in<5&&!reason1in||mark2in<5&&!reason2in||mark3in<5&&!reason3in||mark4in<5&&!reason4in){
+                console.log('* Please give some comments if the mark is below 5!')
+                return res.render('MLGroupMarking', {groups:groups,currentUserName:req.session.user.userName,tips: '* Please give some comments if the mark is below 5!'})
+            }
+
+            else
+            {
+                var marking = new markings(data3)
+                marking.save(function (err, res) {
+                    //res.send(JSON.stringify(data))
+                    console.log(data3)
+                })
+                res.redirect('/MLHomePage')
+            }
+
+            } );
+
 });
 
 router.get('/MLViewCFeedback', function(req, res) {
