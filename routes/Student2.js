@@ -415,7 +415,19 @@ router.get('/SMyGroup', function(req, res) {
 
 });
 
-
+//var listResult = []
+//             // console.log(result[1][7])
+//             // console.log(result[1][7]===result[0][0].member1ID)
+//             // console.log(result[0][0].member1ID)
+//             var counter = 0
+//             if (role === 'Student') {
+//
+//                 for (var i = 0; i < result[1].length; i++) {
+//                     var queryResult = true
+//                     for (var j = 0; j < result[0].length; j++) {
+//
+//                         if (!result[0][j].member6ID) {
+//                             var judge = result[1][i]._id.equals(result[0]
 
 
 module.exports = router;
