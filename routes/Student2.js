@@ -14,10 +14,10 @@ router.get('/SMyGroup', function(req, res) {
     let emails=new Array();
     var a = 0;
 
-
-    groupModel.getGroupsByObjectId1(userId)
+     groupModel.getGroupsByObjectId1(userId)
         .then(function (result){
-          console.log(result);
+       //   console.log(result);
+
             if(result!=null){
                 if(result.member6ID!== null) {
 
@@ -69,16 +69,16 @@ router.get('/SMyGroup', function(req, res) {
                         currentUserName: username,
                     });
                 }
-
             }else{
-                   a=a+1;
+               a=1
             }
         })
+
     console.log(a);
 
     groupModel.getGroupsByObjectId2(userId)
         .then(function (result){
-            console.log(result);
+          //  console.log(result);
             if(result!=null){
                 if(result.member6ID!== null) {
 
@@ -139,7 +139,7 @@ router.get('/SMyGroup', function(req, res) {
     console.log(a);
     groupModel.getGroupsByObjectId3(userId)
         .then(function (result){
-            console.log(result);
+         //   console.log(result);
             if(result!=null){
                 if(result.member6ID!== null) {
 
@@ -261,7 +261,7 @@ router.get('/SMyGroup', function(req, res) {
     console.log(a);
     groupModel.getGroupsByObjectId5(userId)
         .then(function (result){
-            console.log(result);
+          //  console.log(result);
             if(result!=null){
                 if(result.member6ID!== null) {
 
@@ -323,7 +323,7 @@ router.get('/SMyGroup', function(req, res) {
 
     groupModel.getGroupsByObjectId6(userId)
         .then(function (result){
-            console.log(result);
+           // console.log(result);
             if(result!=null){
                 if(result.member6ID!== null) {
 

@@ -1,9 +1,9 @@
 
 var express = require('express');
 var router = express.Router();
-const userModel = require('../models/user');
 const mongo = require('../lib/mongo');
 const users = mongo.users;
+const userModel = require('../models/user');
 
 /* GET home page. */
 
@@ -95,6 +95,14 @@ router.post('/Registration',function (req,res) {
     }else{
         return res.render('Registration', {tips: 'Different email adress input!'})
     }
+   if(role === 'Module Leader') {
+       userModel.getUsersByRole(role)
+           .then(function (result) {
+               if (result !== null) {
+                   return res.render('Registration', {tips: 'The module leader already exists！'})
+               }
+           })
+   }
         var newUser2= {
             userName: userName,
             password: password,
@@ -117,7 +125,7 @@ router.post('/Registration',function (req,res) {
             }
     });
 
-});
+})
 
 //
 
