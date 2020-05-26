@@ -14,6 +14,7 @@ router.get('/SMyGroup', function(req, res) {
     let emails=new Array();
     var a = 0;
 
+
      groupModel.getGroupsByObjectId1(userId)
         .then(function (result){
        //   console.log(result);
@@ -70,9 +71,10 @@ router.get('/SMyGroup', function(req, res) {
                     });
                 }
             }else{
-               a=1
+               a++
             }
         })
+
 
     console.log(a);
 
@@ -132,10 +134,11 @@ router.get('/SMyGroup', function(req, res) {
                 }
 
             }else{
-                a=a+1;
+                a++
             }
          //   console.log(result);
         })
+
     console.log(a);
     groupModel.getGroupsByObjectId3(userId)
         .then(function (result){
@@ -197,6 +200,7 @@ router.get('/SMyGroup', function(req, res) {
             }
           //  console.log(result);
         })
+
     console.log(a);
     groupModel.getGroupsByObjectId4(userId)
         .then(function (result){
@@ -258,6 +262,7 @@ router.get('/SMyGroup', function(req, res) {
             }
          //   console.log(result);
         })
+
     console.log(a);
     groupModel.getGroupsByObjectId5(userId)
         .then(function (result){
@@ -319,6 +324,7 @@ router.get('/SMyGroup', function(req, res) {
             }
         //    console.log(result);
         })
+
     console.log(a);
 
     groupModel.getGroupsByObjectId6(userId)
@@ -379,11 +385,11 @@ router.get('/SMyGroup', function(req, res) {
             }else{
                 a=a+1;
             }
-         //   console.log(result);
         })
+
     console.log(a);
 
-    if(a==6){
+    if(a==5){
         res.render('SMyGroup', {
             tips: "You have not been assigned to a group！",
             names: names,

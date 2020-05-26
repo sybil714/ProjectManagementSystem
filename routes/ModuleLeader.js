@@ -125,7 +125,24 @@ router.post('/MLViewProject', function(req, res,){
 
 router.get('/MLGroupMarking', function(req, res) {
     var username=req.session.user.userName;
-    res.render('MLGroupMarking',{ currentUserName:username} );
+    let groups=new Array();
+
+
+        groupModel.getAllGroups()
+             .then(function (result) {
+                 for(var i = 0;i<result.length;i++){
+                     groups[i] = result[i].groupName;
+                 }
+                 console.log(result[0].groupName);
+                 console.log(result.length);
+                 console.log(groups);
+
+                 res.render('MLGroupMarking',{
+                     groups:groups,
+                     currentUserName:username,
+                 } );
+        })
+
 });
 
 router.post('/MLGroupMarking' , function(req, res,next) {
@@ -217,7 +234,6 @@ router.get('/MLGroupManagement', function(req, res) {
         // console.log(result[1].length)
         // console.log(result[2].length)
         // console.log(result[3].length)
-
 
 
         var homeSetting= {

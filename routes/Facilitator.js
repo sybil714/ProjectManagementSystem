@@ -23,10 +23,26 @@ router.get('/FHomePage', function(req, res) {
  */
 router.get('/FGroupMarking',function (req,res) {
     var username=req.session.user.userName;
-    res.render('FGroupMarking',{
-        currentUserName:username,
-        tips:''
-    })
+    var userId=req.session.user._id;;
+    let groups=new Array();
+    console.log(userId);
+
+    groupModel.getGroupsByFId(userId)
+        .then(function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    groups[i] = result[i].groupName;
+                }
+                console.log(result);
+                console.log(result.length);
+                console.log(groups);
+
+                res.render('FGroupMarking', {
+                    groups: groups,
+                    currentUserName: username,
+                    tips: '',
+                });
+
+        })
 });
 
 router.post('/FGroupMarking' , function(req, res,next) {
